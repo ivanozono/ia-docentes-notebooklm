@@ -71,7 +71,9 @@ export type Lesson = {
       | 'planeacion-transformacion'
       | 'planeaciones-tipos'
       | 'evaluacion-reto'
-      | 'evaluacion-catalogo';
+      | 'evaluacion-catalogo'
+      | 'notebooklm-logros'
+      | 'catalogo-profesional';
     pointDetails?: Array<{
       label: string;
       detail: string;

@@ -1681,6 +1681,100 @@ const module2Lessons: Lesson[] = [
       type: 'cards',
       steps: ['Recursos didácticos', 'Recursos para estudiantes', 'Gestión escolar', 'Análisis de información']
     },
+    contentSections: [
+      {
+        title: 'Ya puedes utilizar NotebookLM para...',
+        keyIdea: 'Lo que ya usaste en actividades, planeaciones y evaluación es solo parte de un catálogo más amplio.',
+        points: [
+          'Crear actividades',
+          'Crear planeaciones',
+          'Crear evaluaciones',
+          'Crear materiales',
+          'Analizar documentos',
+          'Organizar información',
+          'Comunicar',
+          'Apoyar la inclusión'
+        ],
+        visualType: 'cards',
+        imageKey: 'notebooklm-logros',
+        pointDetails: [
+          {
+            label: 'Crear actividades',
+            detail: 'Diseña actividades dinámicas y alineadas a tus objetivos.'
+          },
+          {
+            label: 'Crear planeaciones',
+            detail: 'Planeaciones diarias, semanales, secuencias y proyectos.'
+          },
+          {
+            label: 'Crear evaluaciones',
+            detail: 'Rúbricas, listas de cotejo, escalas, autoevaluaciones y coevaluaciones.'
+          },
+          {
+            label: 'Crear materiales',
+            detail: 'Guías, presentaciones, infografías, resúmenes y más.'
+          },
+          {
+            label: 'Analizar documentos',
+            detail: 'Compara, detecta diferencias, extrae acuerdos, resume y encuentra evidencias.'
+          },
+          {
+            label: 'Organizar información',
+            detail: 'Estructura tus fuentes y convierte la información en conocimiento útil.'
+          },
+          {
+            label: 'Comunicar',
+            detail: 'Redacta informes, oficios, comunicados, avisos y mensajes efectivos.'
+          },
+          {
+            label: 'Apoyar la inclusión',
+            detail: 'Adecuaciones, materiales adaptados y estrategias para todos.'
+          }
+        ],
+        reflectionQuestion: '¿Cuál de estas ocho posibilidades ya usaste y cuál todavía no has probado?'
+      },
+      {
+        title: 'El catálogo profesional NotebookLM',
+        keyIdea: 'Un asistente para cada área de tu trabajo docente: la misma información puede convertirse en muchos productos.',
+        points: [
+          'Para la práctica docente',
+          'Para promover la inclusión',
+          'Para evaluar',
+          'Para la gestión docente',
+          'Para analizar información',
+          'Para funciones directivas'
+        ],
+        visualType: 'cards',
+        imageKey: 'catalogo-profesional',
+        pointDetails: [
+          {
+            label: 'Para la práctica docente',
+            detail: 'Puede generar planeaciones, secuencias didácticas, actividades, presentaciones, guías de estudio, cuestionarios, resúmenes e infografías.'
+          },
+          {
+            label: 'Para promover la inclusión',
+            detail: 'Puede ayudarte a crear adecuaciones curriculares, actividades multinivel, material adaptado, estrategias DUA, simplificación de textos y variantes para distintos ritmos de aprendizaje.'
+          },
+          {
+            label: 'Para evaluar',
+            detail: 'Puede crear rúbricas, listas de cotejo, escalas estimativas, autoevaluaciones, coevaluaciones y retroalimentación personalizada.'
+          },
+          {
+            label: 'Para la gestión docente',
+            detail: 'Puede redactar informes, reportes, oficios, comunicados, minutas, actas, avisos para familias y mensajes para Classroom.'
+          },
+          {
+            label: 'Para analizar información',
+            detail: 'Puede ayudarte a comparar documentos, detectar diferencias, extraer acuerdos, identificar cambios entre versiones, resumir información extensa y encontrar evidencias.'
+          },
+          {
+            label: 'Para funciones directivas',
+            detail: 'Puede apoyar en Consejo Técnico Escolar, academias, PEMC, planes de mejora, seguimiento de acuerdos, organización documental, informes institucionales y cronogramas.'
+          }
+        ],
+        reflectionQuestion: '¿Qué área de tu trabajo docente necesita más apoyo ahora mismo?'
+      }
+    ],
     demo: {
       objective: 'Generar cinco productos completamente diferentes desde el mismo notebook.',
       workflow: [

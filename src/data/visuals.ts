@@ -146,5 +146,13 @@ export const keyedVisuals: Record<string, { src: string; alt: string }> = {
   'evaluacion-catalogo': {
     src: courseImage('ilustracionEvaluacionCatalogo.jpg'),
     alt: 'Ilustración del catálogo de instrumentos de evaluación que NotebookLM puede crear.'
+  },
+  'notebooklm-logros': {
+    src: courseImage('ilustracionNotebookLMLogros.jpg'),
+    alt: 'Ilustración de un docente satisfecho con todo lo que ya puede utilizar NotebookLM para crear.'
+  },
+  'catalogo-profesional': {
+    src: courseImage('ilustracionAsistenteAreaTrabajo.jpg'),
+    alt: 'Ilustración del catálogo profesional de NotebookLM organizado por área de trabajo docente.'
   }
 };
