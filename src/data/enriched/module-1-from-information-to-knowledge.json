@@ -1,0 +1,911 @@
+{
+  "improvedJson": {
+    "module": {
+      "id": 1,
+      "slug": "from-information-to-knowledge",
+      "title": "De la información al conocimiento",
+      "subtitle": "Construyendo tu Asistente Pedagógico Inteligente",
+      "duration": "60 minutos",
+      "icon": "psychology",
+      "heroImage": "module-1-hero.webp",
+      "themeColor": "#2563EB",
+      "ideaFuerza": "La inteligencia artificial no comienza cuando escribimos un prompt. Comienza cuando organizamos nuestro conocimiento para convertirlo en mejores decisiones pedagógicas.",
+      "objective": "Comprender el cambio de paradigma que introduce la Inteligencia Artificial en educación y construir un Notebook profesional capaz de convertirse en un asistente pedagógico personalizado para apoyar la planeación, la enseñanza y la evaluación dentro de la Nueva Escuela Mexicana.",
+      "learningOutcomes": [
+        "Comprender el papel actual de la Inteligencia Artificial en educación.",
+        "Diferenciar claramente NotebookLM y Gemini.",
+        "Construir un Notebook profesional.",
+        "Aprender a conversar estratégicamente con NotebookLM.",
+        "Transformar documentos oficiales en recursos educativos mediante Studio."
+      ],
+      "essentialQuestion": "¿Cómo puede un docente recuperar tiempo para dedicar más energía a enseñar y menos a organizar información?",
+      "pedagogicalIntent": "Mover al docente de una relación instrumental con la IA a una relación profesional: primero organiza sus saberes, fuentes y criterios; después conversa con la IA para tomar mejores decisiones didácticas alineadas con la NEM.",
+      "nemAlignment": {
+        "audience": "Docentes de secundaria pública mexicana",
+        "orientation": "Codiseño didáctico, trabajo colegiado, evaluación formativa y vínculo aula-escuela-comunidad",
+        "fields": [
+          "Lenguajes",
+          "Saberes y pensamiento científico",
+          "Ética, naturaleza y sociedades",
+          "De lo humano y lo comunitario"
+        ],
+        "articulatingAxes": [
+          "Pensamiento crítico",
+          "Inclusión",
+          "Apropiación de las culturas a través de la lectura y la escritura",
+          "Vida saludable",
+          "Interculturalidad crítica"
+        ]
+      },
+      "experienceArc": {
+        "why": "El tiempo docente se fragmenta entre buscar, ordenar, adaptar y evaluar información.",
+        "what": "NotebookLM puede convertirse en un espacio de conocimiento docente basado en fuentes propias.",
+        "how": "El valor aparece cuando el notebook se organiza con propósito pedagógico y se conversa con consignas claras.",
+        "demo": "Se modela la transformación de documentos oficiales en decisiones didácticas.",
+        "practice": "Cada docente diseña su primer cuaderno de NotebookLM y una consigna profesional.",
+        "reflection": "El grupo identifica qué decisiones siguen siendo responsabilidad humana.",
+        "transfer": "Cada participante define cómo usará su notebook en una planeación real."
+      },
+      "moduleOpening": {
+        "hookQuestion": "Si mañana tuvieras 40 minutos menos para preparar clase, ¿qué tarea te gustaría que la IA te ayudara a ordenar sin perder tu criterio docente?",
+        "realCase": {
+          "title": "La tarde antes de Consejo Técnico",
+          "situation": "Una maestra de secundaria tiene programa sintético, libro de texto, planeaciones anteriores, evidencias del grupo y una lista de pendientes. No le falta información; le falta tiempo para convertir todo eso en una decisión clara para su próxima clase.",
+          "teacherProblem": "La sobrecarga no viene de no saber enseñar, sino de tener demasiadas fuentes dispersas.",
+          "learningPromise": "En este módulo aprenderás a convertir documentos dispersos en un asistente pedagógico que conversa contigo desde tus propias fuentes."
+        },
+        "interaction": {
+          "type": "quickPoll",
+          "prompt": "¿Qué te consume más tiempo cada semana?",
+          "options": [
+            "Buscar recursos",
+            "Adaptar materiales",
+            "Diseñar evaluaciones",
+            "Organizar evidencias",
+            "Preparar informes"
+          ],
+          "debrief": "La IA será útil si ataca una carga real de trabajo docente, no si solo genera textos bonitos."
+        }
+      },
+      "lessons": [
+        {
+          "id": 1,
+          "title": "¿Por qué la IA está transformando la educación?",
+          "estimatedTime": "15 minutos",
+          "hookQuestion": "¿Cuánto tiempo dedica un docente realmente a enseñar y cuánto tiempo dedica a buscar, organizar y preparar información?",
+          "purpose": "Generar conciencia sobre el cambio que representa la IA como apoyo al trabajo intelectual docente.",
+          "keyConcepts": [
+            "La evolución de las herramientas digitales",
+            "Del buscador al asistente inteligente",
+            "IA Generativa",
+            "IA basada en contexto",
+            "El nuevo rol del docente"
+          ],
+          "learningCycle": {
+            "why": "El docente no necesita más información; necesita convertir información en decisiones pedagógicas.",
+            "what": "La IA generativa puede crear respuestas, pero la IA basada en fuentes ayuda a trabajar con documentos propios.",
+            "how": "Comparando buscadores, Gemini y NotebookLM desde tareas docentes reales.",
+            "demo": "Mostrar una misma necesidad docente resuelta primero con búsqueda web, luego con Gemini y finalmente con NotebookLM.",
+            "practice": "Clasificar tareas docentes según convenga buscador, Gemini o NotebookLM.",
+            "reflection": "Identificar qué tareas se deben automatizar y cuáles deben seguir bajo juicio docente.",
+            "transfer": "Elegir una tarea repetitiva de la semana y decidir qué herramienta puede apoyarla."
+          },
+          "classroomSituation": "Un docente quiere diseñar una actividad sobre ecosistemas locales. Tiene libro de texto, programa sintético y notas del grupo. Si busca en internet encuentra demasiadas opciones; si usa IA general obtiene ideas amplias; si usa NotebookLM puede trabajar desde sus fuentes y su contexto.",
+          "pedagogicalNarrative": {
+            "before": "Internet democratizó el acceso a la información.",
+            "today": "La IA democratiza la organización y transformación del conocimiento.",
+            "future": "El valor del docente estará en diseñar experiencias de aprendizaje, no en repetir información."
+          },
+          "timeline": [
+            "Internet → Encontrar información",
+            "Google → Buscar rápidamente",
+            "Gemini → Generar respuestas",
+            "NotebookLM → Comprender tu propio conocimiento"
+          ],
+          "comparison": {
+            "NotebookLM": {
+              "purpose": "Trabaja sobre tus propias fuentes.",
+              "bestFor": [
+                "Planeación",
+                "Evaluación",
+                "Libros de texto",
+                "Programa Analítico",
+                "Material institucional"
+              ]
+            },
+            "Gemini": {
+              "purpose": "Asistente general para cualquier tema.",
+              "bestFor": [
+                "Lluvia de ideas",
+                "Creatividad",
+                "Investigación general",
+                "Redacción",
+                "Explicaciones abiertas"
+              ]
+            }
+          },
+          "improvedAnalogy": {
+            "title": "La biblioteca, el asesor y el colectivo docente",
+            "content": "Gemini se parece a invitar a una persona experta que sabe de muchos temas. NotebookLM se parece a sentar a esa persona dentro de tu biblioteca profesional: conoce tus programas, tus lecturas, tus evidencias y tus acuerdos. El docente sigue siendo quien decide, como en un colectivo docente que analiza información antes de actuar."
+          },
+          "originalAnalogy": {
+            "title": "La biblioteca y el asesor",
+            "content": "Gemini es como consultar a un experto que sabe de muchos temas. NotebookLM es como contratar un asesor que conoce perfectamente tu propia biblioteca y tus documentos."
+          },
+          "interactiveDiagram": {
+            "type": "toolDecisionMap",
+            "title": "¿Qué herramienta conviene usar?",
+            "nodes": [
+              {
+                "label": "Necesito datos abiertos o actuales",
+                "tool": "Buscador",
+                "reason": "La fuente no está en mi notebook."
+              },
+              {
+                "label": "Necesito ideas iniciales",
+                "tool": "Gemini",
+                "reason": "Sirve para explorar posibilidades."
+              },
+              {
+                "label": "Necesito trabajar con mis documentos",
+                "tool": "NotebookLM",
+                "reason": "Responde desde fuentes cargadas."
+              },
+              {
+                "label": "Necesito decidir para mi grupo",
+                "tool": "Criterio docente",
+                "reason": "La decisión pedagógica no se delega."
+              }
+            ],
+            "interaction": "El usuario elige una tarea docente y el mapa resalta la herramienta recomendada."
+          },
+          "activity": {
+            "title": "Reflexión inicial",
+            "instructions": "Cada docente identifica cinco tareas repetitivas que consumen más tiempo durante una semana laboral."
+          },
+          "learningActivity": {
+            "title": "Semáforo de tareas docentes",
+            "format": "Parejas",
+            "duration": "5 minutos",
+            "instructions": "Cada pareja clasifica cinco tareas en verde, amarillo o rojo. Verde: la IA puede apoyar mucho. Amarillo: la IA puede apoyar si hay revisión docente. Rojo: no conviene delegar.",
+            "deliverable": "Una tarea prioritaria para trabajar con NotebookLM durante el taller.",
+            "nemConnection": "Ayuda a reconocer qué decisiones requieren contextualización, inclusión y responsabilidad docente."
+          },
+          "liveDemo": {
+            "demoTitle": "Una misma pregunta en tres herramientas",
+            "demoObjective": "Mostrar que la calidad de la respuesta depende de la herramienta y del contexto disponible.",
+            "demoSteps": [
+              "Plantear la necesidad: diseñar una actividad sobre un contenido de secundaria.",
+              "Mostrar cómo una búsqueda web ofrece múltiples fuentes sin decidir por el docente.",
+              "Mostrar cómo Gemini genera ideas amplias.",
+              "Mostrar cómo NotebookLM responde desde documentos cargados.",
+              "Preguntar al grupo cuál respuesta es más utilizable y por qué."
+            ],
+            "expectedOutcome": "Los docentes distinguen entre buscar información, generar ideas y trabajar con fuentes propias.",
+            "demoTips": [
+              "No vendas una herramienta como solución mágica.",
+              "Subraya que NotebookLM es fuerte cuando las fuentes son pertinentes.",
+              "Cierra con una pregunta: ¿qué fuente de tu práctica debería estar en tu notebook?"
+            ]
+          },
+          "microAssessment": {
+            "reflectionQuestion": "¿Qué actividad administrativa me gustaría reducir sin perder control pedagógico?",
+            "practicalQuestion": "Para revisar un programa analítico propio, ¿usarías Gemini o NotebookLM? Explica por qué.",
+            "knowledgeCheck": {
+              "question": "¿Cuál es la diferencia central entre Gemini y NotebookLM en este taller?",
+              "options": [
+                "Gemini solo funciona en celular y NotebookLM solo en computadora.",
+                "Gemini es general; NotebookLM trabaja con fuentes que tú cargas.",
+                "NotebookLM reemplaza la planeación docente.",
+                "Ambas herramientas hacen exactamente lo mismo."
+              ],
+              "correctAnswer": "Gemini es general; NotebookLM trabaja con fuentes que tú cargas.",
+              "feedback": "La diferencia clave no es la dificultad técnica, sino el tipo de contexto que usa cada herramienta."
+            }
+          },
+          "reflectionQuestions": [
+            "¿Qué actividad administrativa me gustaría reducir?",
+            "¿Dónde invierto más tiempo del que realmente aporta valor al aprendizaje?"
+          ],
+          "commonMistakes": [
+            "Creer que IA significa copiar y pegar respuestas.",
+            "Usar NotebookLM sin fuentes relevantes.",
+            "Pedir una planeación sin especificar grupo, PDA, campo formativo o evidencia."
+          ],
+          "facilitatorTips": [
+            "Pide ejemplos reales de tareas que cansan a los docentes.",
+            "Evita iniciar con funciones; inicia con el problema del tiempo docente.",
+            "Haz visible que la IA puede apoyar el trabajo intelectual, no reemplazar la relación pedagógica."
+          ],
+          "speakerNotes": [
+            "Este es un buen momento para pedir que levanten la mano quienes han perdido tiempo buscando materiales que luego no usan.",
+            "Pausa después de la comparación entre Gemini y NotebookLM para que el grupo verbalice la diferencia.",
+            "Conecta con la NEM: el docente no solo transmite información, codiseña experiencias situadas."
+          ],
+          "visualSuggestions": [
+            "Timeline horizontal: Internet → Google → Gemini → NotebookLM.",
+            "Tarjetas comparativas Gemini vs NotebookLM.",
+            "Mapa de decisión por tarea docente.",
+            "Callout grande: No falta información; falta convertirla en conocimiento útil."
+          ],
+          "takeaway": "La IA no reemplaza la experiencia docente; reduce el tiempo dedicado a tareas repetitivas.",
+          "nextLessonBridge": "Si NotebookLM funciona mejor con fuentes propias, la siguiente pregunta es inevitable: ¿qué documentos debe contener un cuaderno profesional para que realmente piense con nosotros?"
+        },
+        {
+          "id": 2,
+          "title": "Construyendo un Segundo Cerebro Docente",
+          "estimatedTime": "15 minutos",
+          "purpose": "Comprender cómo organizar el conocimiento profesional mediante NotebookLM.",
+          "hookQuestion": "Si NotebookLM solo pudiera leer diez documentos tuyos, ¿cuáles elegirías para que entendiera tu práctica docente?",
+          "keyConcepts": [
+            "Gestión del conocimiento",
+            "Segundo cerebro",
+            "Fuentes confiables",
+            "Organización documental"
+          ],
+          "learningCycle": {
+            "why": "Un notebook desordenado produce respuestas débiles y aumenta la carga cognitiva.",
+            "what": "Un segundo cerebro docente es una biblioteca viva organizada por propósito pedagógico.",
+            "how": "Definiendo fuentes base, estructura, nombres, actualización y criterios de calidad.",
+            "demo": "Construir un notebook con programa, libro, planeación y rúbrica.",
+            "practice": "Diseñar el mapa de fuentes del primer notebook profesional.",
+            "reflection": "Distinguir documentos esenciales de documentos accesorios.",
+            "transfer": "Crear una lista de fuentes para un proyecto real del mes."
+          },
+          "classroomSituation": "Una maestra tiene archivos llamados planeación final, planeación final 2 y planeación ahora sí. Cuando pide apoyo a la IA, la respuesta mezcla versiones y no sirve para su grupo. El problema no es la IA; es la arquitectura de fuentes.",
+          "analogy": {
+            "title": "El archivista inteligente",
+            "content": "NotebookLM no memoriza por ti; organiza, conecta y encuentra rápidamente aquello que ya forma parte de tu conocimiento profesional."
+          },
+          "improvedAnalogy": {
+            "title": "La biblioteca escolar con una maestra bibliotecaria",
+            "content": "Un buen notebook se parece a una biblioteca escolar bien cuidada: no guarda todo por guardar. Ordena, etiqueta, retira duplicados y deja a la mano lo que ayuda a enseñar mejor. NotebookLM es la maestra bibliotecaria que encuentra conexiones; el docente decide qué libros entran y qué uso pedagógico tendrán."
+          },
+          "diagram": {
+            "title": "Arquitectura del Notebook Perfecto",
+            "steps": [
+              "Programa Analítico",
+              "Libros CONALITEG",
+              "Planeaciones",
+              "Presentaciones",
+              "Rúbricas",
+              "Evaluaciones",
+              "Proyectos",
+              "Material complementario"
+            ]
+          },
+          "interactiveDiagram": {
+            "type": "sourceArchitectureBuilder",
+            "title": "Arquitectura del cuaderno profesional",
+            "zones": [
+              {
+                "name": "Currículo",
+                "items": [
+                  "Programa sintético",
+                  "Programa analítico",
+                  "PDA"
+                ]
+              },
+              {
+                "name": "Aula",
+                "items": [
+                  "Diagnóstico del grupo",
+                  "Evidencias",
+                  "Planeaciones"
+                ]
+              },
+              {
+                "name": "Evaluación",
+                "items": [
+                  "Rúbricas",
+                  "Listas de cotejo",
+                  "Retroalimentación"
+                ]
+              },
+              {
+                "name": "Comunidad",
+                "items": [
+                  "Problemas locales",
+                  "Acuerdos escolares",
+                  "Material contextual"
+                ]
+              }
+            ],
+            "interaction": "Arrastrar o seleccionar fuentes para armar un notebook según propósito: planeación, evaluación o proyecto comunitario."
+          },
+          "bestPractices": [
+            "Un Notebook por propósito.",
+            "Nombrar correctamente los archivos.",
+            "Eliminar versiones duplicadas.",
+            "Actualizar periódicamente."
+          ],
+          "expandedBestPractices": [
+            "Nombrar archivos con fecha, grupo y propósito.",
+            "Separar notebooks por proyecto, campo formativo o grupo cuando el volumen crezca.",
+            "Incluir fuentes oficiales y evidencias reales del aula.",
+            "Registrar qué fuentes fueron usadas para tomar decisiones."
+          ],
+          "activity": {
+            "title": "Diseña tu Notebook",
+            "instructions": "Cada docente define qué documentos formarán parte de su primer Notebook profesional."
+          },
+          "learningActivity": {
+            "title": "Mapa de fuentes del primer cuaderno",
+            "format": "Individual con intercambio en parejas",
+            "duration": "6 minutos",
+            "instructions": "Cada docente dibuja cuatro columnas: Currículo, Aula, Evaluación y Comunidad. Coloca de 2 a 3 documentos reales en cada columna. Después comparte con una pareja qué fuente sería la más valiosa para comenzar.",
+            "deliverable": "Lista priorizada de 6 a 10 fuentes para el primer notebook.",
+            "nemConnection": "La organización permite conectar PDA, contexto del grupo, evaluación formativa y situaciones comunitarias."
+          },
+          "liveDemo": {
+            "demoTitle": "Construcción de un cuaderno profesional mínimo viable",
+            "demoObjective": "Modelar cómo seleccionar fuentes sin saturar el notebook.",
+            "demoSteps": [
+              "Crear un notebook con nombre claro: Campo, grupo y propósito.",
+              "Agregar programa sintético o analítico.",
+              "Agregar una lectura o libro de texto relevante.",
+              "Agregar una rúbrica o evidencia de evaluación.",
+              "Hacer una pregunta de diagnóstico: ¿qué puedo diseñar con estas fuentes?"
+            ],
+            "expectedOutcome": "Los participantes ven que un notebook pequeño pero bien curado puede producir respuestas más útiles que uno saturado.",
+            "demoTips": [
+              "Muestra nombres de archivo claros.",
+              "Explica por qué no se sube todo.",
+              "Pregunta al grupo qué documento falta para que la IA entienda mejor el contexto."
+            ]
+          },
+          "microAssessment": {
+            "reflectionQuestion": "¿Qué fuente de mi práctica docente contiene más conocimiento valioso y está menos aprovechada?",
+            "practicalQuestion": "Diseña el nombre de un notebook profesional para un proyecto real.",
+            "knowledgeCheck": {
+              "question": "¿Qué mejora más la calidad de NotebookLM?",
+              "options": [
+                "Subir todos los archivos posibles sin orden.",
+                "Usar fuentes pertinentes, verificables y organizadas.",
+                "Pedir respuestas más largas.",
+                "Evitar documentos oficiales."
+              ],
+              "correctAnswer": "Usar fuentes pertinentes, verificables y organizadas.",
+              "feedback": "NotebookLM depende de la calidad y pertinencia de las fuentes que le damos."
+            }
+          },
+          "commonMistakes": [
+            "Crear un solo notebook para todo el ciclo escolar.",
+            "Subir versiones duplicadas o contradictorias.",
+            "No incluir evidencias reales del grupo.",
+            "Olvidar actualizar fuentes después de cambios en la planeación."
+          ],
+          "facilitatorTips": [
+            "Ayuda a los docentes a empezar pequeño: 6 fuentes buenas son suficientes para iniciar.",
+            "Evita que la actividad se vuelva técnica; vuelve siempre al propósito pedagógico.",
+            "Invita a pensar en notebooks como herramientas vivas, no como carpetas muertas."
+          ],
+          "speakerNotes": [
+            "Haz una pausa para que los docentes piensen en sus archivos reales.",
+            "Si alguien dice que tiene demasiados documentos, valida la preocupación y ofrece el criterio: primero propósito, luego fuente.",
+            "Conecta con trabajo colegiado: un notebook escolar puede guardar acuerdos y aprendizajes compartidos."
+          ],
+          "visualSuggestions": [
+            "Diagrama de arquitectura del notebook con capas.",
+            "Antes vs después: carpeta desordenada vs cuaderno pedagógico.",
+            "Checklist visual de calidad de fuentes.",
+            "Tarjetas de fuentes: oficial, aula, evaluación, comunidad."
+          ],
+          "takeaway": "La calidad de NotebookLM depende directamente de la calidad de las fuentes que organizamos.",
+          "nextLessonBridge": "Una vez que el cuaderno tiene buenas fuentes, la siguiente habilidad es aprender a conversar con él: no basta preguntar; hay que formular consignas profesionales."
+        },
+        {
+          "id": 3,
+          "title": "Cómo pensar junto con la Inteligencia Artificial",
+          "subtitle": "Ingeniería de Prompts para docentes",
+          "estimatedTime": "15 minutos",
+          "purpose": "Aprender a formular instrucciones que generen respuestas pedagógicamente útiles.",
+          "hookQuestion": "¿Por qué dos docentes pueden hacer la misma pregunta a la IA y recibir respuestas de calidad totalmente distinta?",
+          "keyConcepts": [
+            "Prompt Engineering",
+            "Contexto",
+            "Rol",
+            "Restricciones",
+            "Resultados"
+          ],
+          "learningCycle": {
+            "why": "Las respuestas genéricas producen planeaciones genéricas.",
+            "what": "Una consigna profesional convierte una intención docente en instrucciones claras para la IA.",
+            "how": "Usar estructura: rol, contexto, fuentes, acción, criterios, formato y revisión.",
+            "demo": "Transformar un prompt básico en una consigna profesional alineada con la NEM.",
+            "practice": "Reescribir una consigna propia con el método P.E.D.A.G.O.G.O.",
+            "reflection": "Identificar qué información docente faltó en la primera versión.",
+            "transfer": "Guardar una consigna reutilizable para el primer notebook."
+          },
+          "classroomSituation": "Un docente pide: Hazme una clase sobre ecosistemas. La IA entrega una clase correcta pero genérica. Cuando agrega grado, contexto, PDA, fuentes, duración, evidencia y criterios, la respuesta se vuelve aplicable.",
+          "framework": {
+            "name": "P.E.D.A.G.O.G.O.",
+            "steps": [
+              "Papel",
+              "Escenario",
+              "Documentos",
+              "Acción",
+              "Guías",
+              "Organización",
+              "Garantía",
+              "Optimización"
+            ]
+          },
+          "frameworkExpanded": [
+            {
+              "letter": "P",
+              "name": "Papel",
+              "question": "¿Desde qué rol debe responder la IA?"
+            },
+            {
+              "letter": "E",
+              "name": "Escenario",
+              "question": "¿Qué grupo, contexto y necesidad real debe considerar?"
+            },
+            {
+              "letter": "D",
+              "name": "Documentos",
+              "question": "¿Qué fuentes debe usar y cuáles debe evitar?"
+            },
+            {
+              "letter": "A",
+              "name": "Acción",
+              "question": "¿Qué debe producir exactamente?"
+            },
+            {
+              "letter": "G",
+              "name": "Guías",
+              "question": "¿Qué criterios NEM, PDA o ejes articuladores debe respetar?"
+            },
+            {
+              "letter": "O",
+              "name": "Organización",
+              "question": "¿En qué formato debe entregar la respuesta?"
+            },
+            {
+              "letter": "G",
+              "name": "Garantía",
+              "question": "¿Cómo debe verificar calidad, inclusión y coherencia?"
+            },
+            {
+              "letter": "O",
+              "name": "Optimización",
+              "question": "¿Qué mejoras o versiones alternativas debe proponer?"
+            }
+          ],
+          "badPrompt": "Hazme una clase sobre ecosistemas.",
+          "goodPrompt": "Actúa como un diseñador instruccional experto en secundaria. Utiliza únicamente las fuentes cargadas y diseña una experiencia de aprendizaje colaborativa alineada con la Nueva Escuela Mexicana.",
+          "improvedPromptExample": "Actúa como asesor pedagógico de secundaria pública mexicana. Usa únicamente las fuentes cargadas en este notebook. Diseña una actividad colaborativa de 50 minutos sobre ecosistemas para segundo grado, vinculada con un problema ambiental de la comunidad. Incluye propósito, PDA posible, eje articulador, pasos, roles de equipo, evidencia de aprendizaje, criterio de evaluación formativa, ajuste razonable para inclusión y una pregunta final de reflexión.",
+          "interactiveDiagram": {
+            "type": "promptBuilder",
+            "title": "Constructor de consignas P.E.D.A.G.O.G.O.",
+            "interaction": "El docente completa campos progresivos. La app muestra cómo mejora la consigna al agregar contexto, fuentes, criterios y formato.",
+            "states": [
+              "Consigna básica",
+              "Consigna con contexto",
+              "Consigna con fuentes",
+              "Consigna con criterios NEM",
+              "Consigna lista para usar"
+            ]
+          },
+          "activity": {
+            "title": "Del prompt básico al prompt profesional",
+            "instructions": "Los docentes mejoran un prompt utilizando el método P.E.D.A.G.O.G.O."
+          },
+          "learningActivity": {
+            "title": "Clínica de consignas",
+            "format": "Tríos",
+            "duration": "7 minutos",
+            "instructions": "Un docente comparte una consigna básica. El segundo agrega contexto y fuentes. El tercero agrega criterios NEM, evidencia e inclusión. El trío lee la versión final y decide si ya podría usarse en NotebookLM.",
+            "deliverable": "Una consigna profesional lista para copiar en NotebookLM.",
+            "nemConnection": "La consigna obliga a explicitar PDA, contexto, evaluación formativa y barreras de participación."
+          },
+          "liveDemo": {
+            "demoTitle": "Del prompt flojo a la consigna profesional",
+            "demoObjective": "Hacer visible cómo cada capa de información mejora la respuesta de la IA.",
+            "demoSteps": [
+              "Escribir el prompt básico: Hazme una clase sobre ecosistemas.",
+              "Mostrar la respuesta y preguntar qué le falta.",
+              "Agregar rol, grupo, fuentes y contexto.",
+              "Agregar PDA, eje articulador, producto y criterio.",
+              "Comparar ambas respuestas en una tabla Antes vs Después."
+            ],
+            "expectedOutcome": "Los docentes comprenden que la IA responde mejor cuando la consigna contiene decisiones pedagógicas explícitas.",
+            "demoTips": [
+              "No ridiculices el prompt básico; úsalo como punto de partida natural.",
+              "Pregunta al grupo qué información solo ellos conocen sobre sus estudiantes.",
+              "Subraya que una buena consigna también pide revisión crítica."
+            ]
+          },
+          "microAssessment": {
+            "reflectionQuestion": "¿Qué dato de mi grupo casi nunca incluyo cuando pido apoyo a una IA?",
+            "practicalQuestion": "Reescribe una consigna básica agregando contexto, fuente, producto y criterio.",
+            "knowledgeCheck": {
+              "question": "¿Cuál elemento vuelve más pedagógica una consigna para IA?",
+              "options": [
+                "Pedir que la respuesta sea larga.",
+                "Incluir contexto del grupo, fuentes y criterios de aprendizaje.",
+                "Usar palabras técnicas sin explicar el propósito.",
+                "Pedir muchas actividades al mismo tiempo."
+              ],
+              "correctAnswer": "Incluir contexto del grupo, fuentes y criterios de aprendizaje.",
+              "feedback": "La IA necesita contexto pedagógico para producir algo útil para el aula."
+            }
+          },
+          "commonMistakes": [
+            "Pedir una clase sin decir grado, contexto o propósito.",
+            "No indicar si debe usar solo fuentes del notebook.",
+            "No pedir criterios de evaluación.",
+            "Aceptar la primera respuesta sin revisión."
+          ],
+          "proTip": "Una buena consigna no solo pide un producto; también pide criterios para juzgar si el producto sirve.",
+          "advancedChallenge": "Crear una consigna que pida tres versiones de una actividad: una para grupo con rezago lector, otra para equipo avanzado y otra para trabajo colaborativo mixto.",
+          "facilitatorTips": [
+            "Usa ejemplos reales de los docentes, no ejemplos perfectos del facilitador.",
+            "Haz que el grupo critique la respuesta de la IA con respeto y criterio.",
+            "Conecta el método P.E.D.A.G.O.G.O. con evaluación formativa e inclusión."
+          ],
+          "speakerNotes": [
+            "Este es el momento más práctico del módulo; reduce explicación y aumenta práctica.",
+            "Después del Antes vs Después, pregunta: ¿qué agregó valor realmente?",
+            "Invita a guardar la mejor consigna en una biblioteca personal."
+          ],
+          "visualSuggestions": [
+            "Before vs After de prompt básico y consigna profesional.",
+            "Constructor progresivo con chips: rol, contexto, fuentes, criterios, formato.",
+            "Acordeón P.E.D.A.G.O.G.O. con ejemplos breves.",
+            "Tarjeta de error común y corrección."
+          ],
+          "takeaway": "La calidad de la respuesta depende de la calidad de la conversación con la IA.",
+          "nextLessonBridge": "Cuando ya tenemos fuentes organizadas y sabemos conversar con la IA, llega el siguiente paso: convertir documentos en recursos listos para enseñar."
+        },
+        {
+          "id": 4,
+          "title": "De los documentos a recursos listos para enseñar",
+          "subtitle": "NotebookLM Studio",
+          "estimatedTime": "15 minutos",
+          "purpose": "Descubrir cómo transformar documentos en materiales listos para el aula.",
+          "hookQuestion": "¿Qué pasaría si tus documentos escolares pudieran convertirse en una guía de estudio, una presentación o un audio para tus estudiantes en menos tiempo?",
+          "workflow": [
+            "Fuentes",
+            "Notebook",
+            "Studio",
+            "Recursos educativos"
+          ],
+          "learningCycle": {
+            "why": "Los documentos oficiales no siempre llegan al aula en formatos accesibles para estudiantes.",
+            "what": "Studio transforma fuentes en productos de estudio y apoyo docente.",
+            "how": "Elegir el producto según propósito: explicar, repasar, evaluar, sintetizar o comunicar.",
+            "demo": "Generar un recurso Studio a partir de fuentes del notebook.",
+            "practice": "Crear un primer recurso y revisarlo con un compañero.",
+            "reflection": "Distinguir producto atractivo de producto pedagógicamente útil.",
+            "transfer": "Seleccionar un producto Studio para una clase real de la próxima semana."
+          },
+          "classroomSituation": "Un grupo necesita repasar un tema antes de una actividad colaborativa. El docente puede convertir las fuentes del notebook en tarjetas, audio o cuestionario; la decisión depende del propósito, no de la novedad del formato.",
+          "studioProducts": [
+            "Audio Overview",
+            "Video Summary",
+            "Presentaciones",
+            "Flashcards",
+            "Cuestionarios",
+            "Infografías",
+            "Informes"
+          ],
+          "studioProductsLocalized": [
+            "Resumen en audio",
+            "Resumen en video",
+            "Presentaciones",
+            "Tarjetas de estudio",
+            "Cuestionarios",
+            "Infografías",
+            "Reportes"
+          ],
+          "teacherApplications": [
+            "Planeaciones",
+            "Presentaciones para clase",
+            "Evaluaciones",
+            "Guías de estudio",
+            "Material para Consejo Técnico",
+            "Comunicación con familias"
+          ],
+          "comparison": {
+            "mobile": [
+              "Consultar Notebook",
+              "Escuchar Audio Overview",
+              "Preguntas rápidas"
+            ],
+            "web": [
+              "Construcción de Notebooks",
+              "Planeaciones completas",
+              "Generación de recursos",
+              "Organización avanzada"
+            ]
+          },
+          "interactiveDiagram": {
+            "type": "studioProductSelector",
+            "title": "Elige el producto según el propósito",
+            "cards": [
+              {
+                "purpose": "Activar saberes previos",
+                "recommendedProduct": "Resumen en audio o video"
+              },
+              {
+                "purpose": "Practicar vocabulario",
+                "recommendedProduct": "Tarjetas de estudio"
+              },
+              {
+                "purpose": "Valorar comprensión",
+                "recommendedProduct": "Cuestionario"
+              },
+              {
+                "purpose": "Explicar relaciones",
+                "recommendedProduct": "Infografía"
+              },
+              {
+                "purpose": "Preparar trabajo colegiado",
+                "recommendedProduct": "Reporte"
+              }
+            ],
+            "interaction": "El docente selecciona un propósito y la app muestra el producto Studio recomendado con ventajas y límites."
+          },
+          "activity": {
+            "title": "Primer recurso generado",
+            "instructions": "Cada participante genera un recurso educativo utilizando Studio y lo comparte con un compañero."
+          },
+          "learningActivity": {
+            "title": "Recurso Studio con revisión docente",
+            "format": "Parejas",
+            "duration": "8 minutos",
+            "instructions": "Cada docente genera un recurso Studio. La pareja lo revisa con tres preguntas: ¿es fiel a las fuentes?, ¿sirve para el propósito?, ¿qué ajuste necesita para mi grupo?",
+            "deliverable": "Un recurso Studio mejorado con una nota docente de uso.",
+            "nemConnection": "El recurso debe apoyar participación, comprensión y evaluación formativa, no solo verse atractivo."
+          },
+          "liveDemo": {
+            "demoTitle": "De fuente oficial a recurso de aula",
+            "demoObjective": "Mostrar cómo Studio convierte documentos en materiales revisables y adaptables.",
+            "demoSteps": [
+              "Seleccionar un notebook con fuentes ya cargadas.",
+              "Elegir un producto Studio según un propósito de aprendizaje.",
+              "Generar el recurso.",
+              "Revisar fidelidad a las fuentes y lenguaje para secundaria.",
+              "Ajustar con una consigna adicional si hace falta."
+            ],
+            "expectedOutcome": "Los docentes ven que Studio acelera la producción, pero la pertinencia depende de la revisión docente.",
+            "demoTips": [
+              "Antes de generar, pregunta qué producto conviene y por qué.",
+              "Después de generar, modela revisión crítica.",
+              "No cierres con el producto; cierra con cómo se usará en clase."
+            ]
+          },
+          "microAssessment": {
+            "reflectionQuestion": "¿Qué producto Studio podría ayudar a mis estudiantes sin aumentarles carga innecesaria?",
+            "practicalQuestion": "Elige un producto Studio para una clase real y explica qué evidencia producirán los estudiantes.",
+            "knowledgeCheck": {
+              "question": "¿Cuál es la mejor forma de elegir un producto Studio?",
+              "options": [
+                "Elegir el formato más llamativo.",
+                "Elegir según propósito de aprendizaje, fuente y evidencia esperada.",
+                "Usar siempre presentaciones.",
+                "Generar todos los productos posibles."
+              ],
+              "correctAnswer": "Elegir según propósito de aprendizaje, fuente y evidencia esperada.",
+              "feedback": "La herramienta se elige desde la intención pedagógica, no desde la novedad visual."
+            }
+          },
+          "commonMistakes": [
+            "Compartir un producto sin revisar fidelidad a las fuentes.",
+            "Usar recursos Studio como sustituto de interacción docente.",
+            "Elegir formatos por novedad y no por propósito.",
+            "No adaptar lenguaje, extensión o actividad para el grupo."
+          ],
+          "bestPractice": "Todo recurso generado debe terminar con una decisión docente: cómo se usará, qué evidencia dejará y cómo se ajustará para el grupo.",
+          "facilitatorTips": [
+            "Modela la diferencia entre generar y enseñar.",
+            "Pide que los docentes expliquen el uso del recurso, no solo lo muestren.",
+            "Subraya límites: privacidad, fuentes, sesgos y revisión humana."
+          ],
+          "speakerNotes": [
+            "Este momento suele sorprender; evita que la emoción tape el criterio pedagógico.",
+            "Pide que una pareja comparta una mejora concreta al recurso generado.",
+            "Conecta con el módulo 2: estos recursos serán insumos para diseñar experiencias de aprendizaje, no productos finales aislados."
+          ],
+          "visualSuggestions": [
+            "Flujo animado: Fuentes → Notebook → Studio → Recurso → Aula.",
+            "Selector de producto por propósito.",
+            "Tarjetas con usos, cuidados y ejemplos por producto.",
+            "Checklist de revisión antes de compartir."
+          ],
+          "takeaway": "NotebookLM transforma documentos en recursos pedagógicos sin perder el contexto de las fuentes.",
+          "nextLessonBridge": "Ya tenemos un asistente, fuentes organizadas, consignas y recursos. El siguiente módulo debe responder la pregunta más importante: ¿cómo convertimos todo esto en experiencias de aprendizaje activas, situadas e inclusivas?"
+        }
+      ],
+      "moduleClosing": {
+        "title": "Al finalizar este módulo...",
+        "achievements": [
+          "Tengo mi primer Notebook profesional.",
+          "Sé cuándo utilizar Gemini y cuándo utilizar NotebookLM.",
+          "Comprendo cómo conversar con la IA para obtener mejores resultados.",
+          "Puedo transformar documentos en recursos educativos.",
+          "Estoy listo para diseñar experiencias de aprendizaje con apoyo de IA."
+        ],
+        "reflection": "La IA no sustituye el conocimiento del docente; potencia su capacidad para organizarlo, relacionarlo y convertirlo en mejores decisiones pedagógicas.",
+        "interactiveClosing": {
+          "type": "achievementChecklist",
+          "prompt": "Marca lo que ya puedes hacer al cerrar el módulo.",
+          "items": [
+            "Puedo explicar la diferencia entre Gemini y NotebookLM.",
+            "Puedo elegir fuentes pertinentes para un notebook.",
+            "Puedo escribir una consigna profesional para IA.",
+            "Puedo revisar críticamente un recurso generado.",
+            "Puedo identificar una aplicación inmediata para mi práctica docente."
+          ]
+        },
+        "transferTask": {
+          "title": "Compromiso de transferencia",
+          "instruction": "Antes de salir del módulo, cada docente escribe una acción concreta para aplicar en los próximos 7 días.",
+          "sentenceStarter": "Esta semana usaré NotebookLM para..."
+        }
+      }
+    }
+  },
+  "pedagogicalRecommendations": [
+    {
+      "area": "Secuencia instruccional",
+      "recommendation": "Abrir el módulo con un problema docente real de sobrecarga informativa antes de explicar funciones de IA.",
+      "learningImpact": "Aumenta relevancia, reduce resistencia y conecta con necesidades auténticas del profesorado."
+    },
+    {
+      "area": "Carga cognitiva",
+      "recommendation": "Separar claramente tres decisiones: qué herramienta usar, qué fuentes cargar y cómo formular la consigna.",
+      "learningImpact": "Evita que los docentes mezclen funciones, fuentes y prompts en una sola explicación pesada."
+    },
+    {
+      "area": "Transferencia",
+      "recommendation": "Cada lección debe terminar con un producto pequeño que alimente el proyecto final: tarea prioritaria, mapa de fuentes, consigna y recurso Studio.",
+      "learningImpact": "El módulo deja evidencia acumulativa, no solo comprensión declarativa."
+    },
+    {
+      "area": "NEM",
+      "recommendation": "Usar lenguaje de codiseño, PDA, evaluación formativa, inclusión y vínculo comunitario de manera natural en ejemplos y consignas.",
+      "learningImpact": "La IA se presenta como apoyo a la práctica docente mexicana, no como herramienta genérica descontextualizada."
+    }
+  ],
+  "suggestedUiComponents": [
+    {
+      "component": "LessonHero",
+      "purpose": "Presentar pregunta poderosa, caso docente y promesa de aprendizaje.",
+      "props": [
+        "title",
+        "hookQuestion",
+        "classroomSituation",
+        "themeColor",
+        "image"
+      ]
+    },
+    {
+      "component": "ToolDecisionMap",
+      "purpose": "Ayudar a elegir entre buscador, Gemini, NotebookLM y criterio docente.",
+      "props": [
+        "tasks",
+        "tools",
+        "selectedTask"
+      ]
+    },
+    {
+      "component": "SourceArchitectureBuilder",
+      "purpose": "Construir visualmente el primer cuaderno profesional.",
+      "props": [
+        "zones",
+        "sourceCards",
+        "recommendedMinimum"
+      ]
+    },
+    {
+      "component": "PromptBuilderPedagogo",
+      "purpose": "Convertir un prompt básico en consigna profesional con revelación progresiva.",
+      "props": [
+        "frameworkSteps",
+        "badPrompt",
+        "improvedPrompt",
+        "copyEnabled"
+      ]
+    },
+    {
+      "component": "StudioProductSelector",
+      "purpose": "Elegir un producto Studio según propósito pedagógico.",
+      "props": [
+        "purposeCards",
+        "products",
+        "limits"
+      ]
+    },
+    {
+      "component": "MicroAssessmentCard",
+      "purpose": "Incluir reflexión, pregunta práctica y verificación de comprensión en cada lección.",
+      "props": [
+        "reflectionQuestion",
+        "practicalQuestion",
+        "knowledgeCheck"
+      ]
+    },
+    {
+      "component": "FacilitatorNotes",
+      "purpose": "Apoyar al facilitador con pausas, preguntas y momentos de demostración.",
+      "props": [
+        "speakerNotes",
+        "facilitatorTips"
+      ]
+    },
+    {
+      "component": "AchievementChecklist",
+      "purpose": "Cerrar el módulo con evidencia de avance y transferencia.",
+      "props": [
+        "items",
+        "transferTask"
+      ]
+    }
+  ],
+  "suggestedAnimations": [
+    {
+      "animation": "Progressive reveal",
+      "where": "Timeline Internet → Google → Gemini → NotebookLM",
+      "reason": "Refuerza evolución conceptual sin mostrar demasiada información al mismo tiempo."
+    },
+    {
+      "animation": "Card flip",
+      "where": "Gemini vs NotebookLM",
+      "reason": "Permite comparar propósito y mejor uso sin sobrecargar la pantalla."
+    },
+    {
+      "animation": "Drag or select source cards",
+      "where": "Arquitectura del notebook",
+      "reason": "Transforma organización documental en decisión activa."
+    },
+    {
+      "animation": "Before → After morph",
+      "where": "Prompt básico a consigna profesional",
+      "reason": "Hace visible la mejora de calidad al agregar contexto pedagógico."
+    },
+    {
+      "animation": "Flow pulse",
+      "where": "Fuentes → Notebook → Studio → Recurso → Aula",
+      "reason": "Refuerza que Studio es parte de un ciclo didáctico, no un generador aislado."
+    }
+  ],
+  "facilitatorNotes": [
+    "No iniciar con una explicación técnica de NotebookLM. Iniciar con el tiempo docente y la sobrecarga de información.",
+    "Cada demostración debe terminar con una pregunta al grupo: ¿esto sirve para mi aula?, ¿qué tendría que ajustar?",
+    "Invitar a docentes a usar documentos reales, aunque sean pocos. La autenticidad importa más que la perfección.",
+    "Pausar después de cada herramienta nueva para que el grupo verbalice el criterio de uso.",
+    "Repetir una idea clave durante todo el módulo: la IA propone, el docente decide."
+  ],
+  "learningPsychologyObservations": [
+    {
+      "principle": "Activación de conocimiento previo",
+      "application": "La encuesta inicial sobre tareas repetitivas conecta con experiencias reales antes de introducir conceptos."
+    },
+    {
+      "principle": "Segmentación",
+      "application": "El módulo se divide en cuatro microdecisiones: entender el cambio, organizar fuentes, conversar con IA y generar recursos."
+    },
+    {
+      "principle": "Práctica generativa",
+      "application": "Los docentes no solo escuchan; clasifican tareas, diseñan fuentes, escriben consignas y revisan recursos."
+    },
+    {
+      "principle": "Transferencia cercana",
+      "application": "Cada actividad produce algo que puede usarse en una clase real de la semana siguiente."
+    },
+    {
+      "principle": "Reducción de carga cognitiva",
+      "application": "Se recomienda una idea central por pantalla y revelación progresiva para evitar saturación."
+    }
+  ],
+  "ideasToIncreaseEngagement": [
+    "Usar una votación rápida sobre la tarea docente más agotadora y adaptar la demo a la opción ganadora.",
+    "Crear una dinámica de parejas llamada 'mi fuente más valiosa' para que compartan documentos reales.",
+    "Hacer una competencia breve de mejora de consignas: gana la consigna más clara, no la más larga.",
+    "Usar revisión entre pares para evaluar si un recurso Studio realmente sirve al grupo.",
+    "Cerrar con una promesa de 7 días: una acción pequeña, observable y realista con NotebookLM."
+  ]
+}
