@@ -73,7 +73,9 @@ export type Lesson = {
       | 'evaluacion-reto'
       | 'evaluacion-catalogo'
       | 'notebooklm-logros'
-      | 'catalogo-profesional';
+      | 'catalogo-profesional'
+      | 'flujo-trabajo-docente'
+      | 'notebook-colegiado';
     pointDetails?: Array<{
       label: string;
       detail: string;

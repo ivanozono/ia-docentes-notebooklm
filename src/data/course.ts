@@ -1817,184 +1817,245 @@ const module2Lessons: Lesson[] = [
 
 const module3Lessons: Lesson[] = [
   practicalLesson({
-    id: 'flujo-diario',
+    id: 'flujo-trabajo-docente',
     moduleId: 'modulo-3',
-    title: '¿Cómo preparo mi semana sin empezar de cero?',
-    duration: '15 min',
-    objective: ['Crear un flujo semanal simple para reutilizar fuentes, plantillas y evidencias.'],
-    teacherProblem: 'Cada semana parece comenzar desde cero aunque ya existen materiales, acuerdos y evidencias útiles.',
+    title: 'Construye tu flujo de trabajo docente con NotebookLM',
+    duration: '25 min',
+    objective: [
+      'Diseñar un flujo de trabajo personal que conecte notebooks bien nombrados, archivos de Google Workspace, NotebookLM y una rutina de mantenimiento.'
+    ],
+    teacherProblem:
+      'Cada semana el docente vuelve a buscar los mismos archivos, no sabe qué papel cumple cada documento entre Drive, Docs, Slides y Classroom, acumula notebooks mal nombrados y termina abandonando el sistema por falta de mantenimiento.',
     caseSituation:
-      'El domingo por la tarde, una docente vuelve a buscar la misma planeación, el mismo libro y la misma rúbrica. No necesita más herramientas: necesita un flujo que le ahorre repetir trabajo.',
-    keyIdea: 'Un flujo docente ahorra tiempo cuando conecta entrada, producción y revisión en el mismo lugar.',
-    visual: { title: 'Flujo semanal', steps: ['Revisar fuentes', 'Elegir prioridad', 'Generar borrador', 'Ajustar', 'Guardar evidencia'] },
+      'Un domingo por la tarde, una docente busca otra vez la misma planeación, decide en qué carpeta vive cada archivo y no recuerda cuál de sus cinco notebooks sirve para el proyecto de este mes. No necesita más herramientas: necesita un flujo de trabajo conectado.',
+    keyIdea:
+      'NotebookLM no sustituye tus herramientas: las conecta en un flujo de trabajo que se organiza, se integra con Google Workspace y se mantiene con una rutina ligera.',
+    visual: {
+      title: 'Flujo de trabajo docente',
+      type: 'workflow',
+      steps: ['Google Drive', 'NotebookLM', 'Chat', 'Studio', 'Google Docs', 'Google Slides', 'Classroom']
+    },
+    contentSections: [
+      {
+        title: 'Organiza tus notebooks por propósito',
+        keyIdea: 'Una biblioteca de notebooks funciona cuando los nombres muestran propósito, grupo o proyecto.',
+        points: ['Por asignatura', 'Por grado', 'Por proyecto', 'Por Consejo Técnico', 'Por academia', 'Por ciclo escolar'],
+        visualType: 'cards',
+        pointDetails: [
+          { label: 'Por asignatura', detail: 'Un notebook por materia evita mezclar fuentes de asignaturas distintas.' },
+          { label: 'Por grado', detail: 'Útil cuando el mismo tema se trabaja distinto según el grado del grupo.' },
+          { label: 'Por proyecto', detail: 'Reúne fuentes, evidencias y productos de un proyecto específico en un solo lugar.' },
+          { label: 'Por Consejo Técnico', detail: 'Concentra minutas, acuerdos y seguimiento de las sesiones colegiadas.' },
+          { label: 'Por academia', detail: 'Agrupa acuerdos, planeaciones compartidas y buenas prácticas del colectivo.' },
+          { label: 'Por ciclo escolar', detail: 'Ayuda a archivar lo que ya cerró y mantener activo solo lo vigente.' }
+        ],
+        reflectionQuestion: '¿Tus notebooks actuales tienen un nombre que dice para qué sirven?'
+      },
+      {
+        title: 'Decide qué papel cumple cada archivo',
+        keyIdea: 'Google Workspace organiza el trabajo; NotebookLM ayuda a pensar con esos documentos.',
+        points: ['Google Drive', 'Google Docs', 'Google Slides', 'Google Sheets', 'Classroom', 'Sitios web', 'YouTube'],
+        visualType: 'cards',
+        pointDetails: [
+          { label: 'Google Drive', detail: 'Guarda y organiza todos tus archivos antes de convertirlos en fuente.' },
+          { label: 'Google Docs', detail: 'Sirve para desarrollar planeaciones, guías y documentos de trabajo.' },
+          { label: 'Google Slides', detail: 'Sirve para presentar un producto ya revisado ante el grupo.' },
+          { label: 'Google Sheets', detail: 'Útil para llevar registros, seguimiento y datos organizados por grupo.' },
+          { label: 'Classroom', detail: 'Es el lugar de entrega para estudiantes: tareas, materiales y avisos.' },
+          { label: 'Sitios web', detail: 'Pueden sumarse como fuente cuando aportan información confiable y actual.' },
+          { label: 'YouTube', detail: 'Un video también puede ser fuente cuando su contenido es pertinente para el tema.' }
+        ],
+        reflectionQuestion: '¿Qué archivo de tu próxima clase todavía no tiene un papel claro: fuente, producto o entrega?'
+      },
+      {
+        title: 'Tu flujo de trabajo docente',
+        keyIdea: 'Un flujo simple conecta Drive, NotebookLM, Chat, Studio, Docs, Slides y Classroom en un solo camino de trabajo.',
+        points: ['Google Drive', 'NotebookLM', 'Chat', 'Studio', 'Google Docs', 'Google Slides', 'Classroom'],
+        visualType: 'workflow',
+        imageKey: 'flujo-trabajo-docente',
+        pointDetails: [
+          { label: 'Google Drive', detail: 'Punto de partida: ahí viven tus fuentes antes de cargarlas al notebook.' },
+          { label: 'NotebookLM', detail: 'Recibe las fuentes y las convierte en un contexto de trabajo confiable.' },
+          { label: 'Chat', detail: 'Permite preguntar y pedir productos conversando directamente con tus fuentes.' },
+          { label: 'Studio', detail: 'Convierte el contexto en formatos listos: guías, resúmenes, presentaciones.' },
+          { label: 'Google Docs', detail: 'Recibe el producto para revisarlo, ajustarlo y darle formato final.' },
+          { label: 'Google Slides', detail: 'Aloja la versión lista para presentar en clase o en junta.' },
+          { label: 'Classroom', detail: 'Es el destino final cuando el producto ya está listo para el grupo.' }
+        ],
+        reflectionQuestion: '¿En qué paso de este flujo pierdes más tiempo actualmente?'
+      },
+      {
+        title: 'Sostén tu sistema con tips de productividad',
+        keyIdea: 'La organización se sostiene con hábitos pequeños y repetibles, no con un sistema perfecto.',
+        points: ['Un Notebook por materia', 'Un Notebook por proyecto', 'Reutilizar fuentes', 'Reutilizar prompts', 'Reutilizar productos'],
+        visualType: 'cards',
+        pointDetails: [
+          { label: 'Un Notebook por materia', detail: 'Evita mezclar temas y facilita encontrar lo que necesitas en segundos.' },
+          { label: 'Un Notebook por proyecto', detail: 'Mantiene fuentes y evidencias juntas mientras dura el proyecto.' },
+          { label: 'Reutilizar fuentes', detail: 'Las mismas fuentes pueden servir para varios productos distintos.' },
+          { label: 'Reutilizar prompts', detail: 'Guarda las consignas que funcionaron para no redactarlas de nuevo.' },
+          { label: 'Reutilizar productos', detail: 'Un producto ya generado puede adaptarse a otro grupo o momento del ciclo.' }
+        ],
+        reflectionQuestion: '¿Qué hábito de esta lista podrías mantener incluso en una semana difícil?'
+      }
+    ],
     demo: {
-      objective: 'Planear una semana usando un notebook existente y una plantilla guardada.',
-      workflow: ['Abrir notebook del grupo.', 'Elegir una prioridad de la semana.', 'Usar una plantilla profesional.', 'Guardar producto y criterio en una nota.'],
-      questions: ['¿Qué parte de mi semana no debería volver a empezar desde cero?'],
-      expectedResults: ['Una mini ruta semanal de trabajo docente.'],
-      presenterTips: ['Modela orden, no velocidad.']
+      objective:
+        'Construir un mini flujo de trabajo: notebook nombrado con propósito, un archivo de Workspace conectado y una plantilla reutilizable.',
+      workflow: [
+        'Nombrar un notebook con grupo y propósito claro.',
+        'Elegir un archivo de Drive y decidir si es fuente, producto o entrega.',
+        'Usarlo como fuente en NotebookLM y generar un producto con Chat o Studio.',
+        'Publicarlo o guardarlo en Docs, Slides o Classroom.',
+        'Guardar una plantilla o prompt para reutilizar la próxima semana.'
+      ],
+      questions: ['¿Qué parte de este flujo ya tengo y cuál me falta organizar?'],
+      expectedResults: [
+        'Un notebook bien nombrado.',
+        'Un archivo de Workspace con papel claro.',
+        'Una plantilla lista para reutilizar.'
+      ],
+      presenterTips: ['Modela el flujo completo una sola vez, de principio a fin, sin saltos.']
     },
     activity: {
-      title: 'Mi flujo de lunes',
-      steps: ['Elige una tarea repetida.', 'Define fuente base.', 'Elige plantilla.', 'Decide dónde guardar el resultado.'],
-      deliverable: 'Un flujo semanal de cuatro pasos.'
+      title: 'Mi flujo de trabajo docente',
+      steps: [
+        'Nombra o renombra un notebook con grupo y propósito.',
+        'Elige un archivo y decide si es fuente, producto o entrega.',
+        'Genera un producto con NotebookLM y decide dónde vivirá: Docs, Slides o Classroom.',
+        'Guarda una plantilla o prompt que reutilizarás la próxima semana.',
+        'Define un día y una acción de mantenimiento mensual.'
+      ],
+      deliverable: 'Un flujo de trabajo docente documentado con notebook, archivo, producto y rutina de mantenimiento.'
     },
-    successCriterion: 'El flujo muestra una tarea repetida, una fuente base, una plantilla y un lugar claro para guardar el resultado.',
-    takeaway: 'La IA ahorra tiempo cuando el docente también guarda el camino, no solo el resultado.',
-    transition: 'El siguiente paso es conectar ese flujo con los documentos que ya viven en Google Workspace.',
+    successCriterion:
+      'El flujo muestra un notebook con propósito claro, un archivo con papel definido, un producto generado y una acción de mantenimiento programada.',
+    takeaway: 'NotebookLM rinde más cuando vive dentro de un flujo organizado, no como una herramienta aislada.',
+    transition:
+      'Con tu flujo personal listo, el siguiente paso es llevar esta misma organización al trabajo colegiado y escolar.',
     promptTemplate: prompt(
-      'flujo-diario-semanal',
-      'Flujo semanal docente',
+      'm3-flujo-trabajo-docente',
+      'Flujo de trabajo docente con NotebookLM',
       'Organización',
       'Básico',
       92,
-      'Ayúdame a organizar un flujo semanal para [ASIGNATURA] con [GRADO]. Usa estas fuentes: [FUENTES]. Define prioridad de la semana, producto docente, evidencia estudiantil, criterio de revisión y lugar donde debo guardar cada resultado.'
+      'Ayúdame a organizar mi flujo de trabajo para [ASIGNATURA] con [GRADO]. Indica cómo nombrar mi notebook, qué archivos de Google Workspace usar como fuente, producto o entrega, qué puedo generar con NotebookLM y qué rutina de mantenimiento mensual debo seguir.'
     ),
-    resources: ['Notebook del grupo', 'plantillas de prompt reutilizables', 'Planeación semanal']
+    resources: ['Google Drive', 'Google Docs', 'Google Slides', 'Google Classroom', 'Plantillas de prompt reutilizables']
   }),
   practicalLesson({
-    id: 'google-workspace',
+    id: 'notebook-colegiado',
     moduleId: 'modulo-3',
-    title: '¿Cómo uso mis Docs, Slides y Classroom con NotebookLM?',
+    title: 'Integrar IA al trabajo colegiado y escolar sin perder organización profesional',
     duration: '15 min',
-    objective: ['Decidir qué archivo de Google Workspace usar como fuente, producto o entrega.'],
-    teacherProblem: 'Los archivos están en Drive, las tareas en Classroom y las ideas en NotebookLM, pero no siempre trabajan juntos.',
+    objective: [
+      'Diseñar un notebook escolar que concentre el conocimiento del colectivo docente sin perder organización ni cuidado de datos sensibles.'
+    ],
+    teacherProblem:
+      'Los acuerdos de academia, Consejo Técnico, proyectos escolares y tutorías se pierden entre minutas, mensajes y archivos sueltos, y las funciones directivas no siempre tienen apoyo para dar seguimiento.',
     caseSituation:
-      'Una guía está en Docs, la presentación está en Slides, la tarea está en Classroom y el programa está en Drive. El problema no es tener archivos; es saber qué papel cumple cada uno.',
-    keyIdea: 'Google Workspace organiza el trabajo; NotebookLM ayuda a pensar con esos documentos.',
-    visual: { title: 'Cada herramienta en su lugar', steps: ['Drive guarda', 'Docs desarrolla', 'Slides presenta', 'Classroom entrega', 'NotebookLM analiza'] },
+      'En Consejo Técnico se acuerdan acciones importantes, pero un mes después nadie recuerda qué quedó pendiente, quién daba seguimiento o dónde estaba la minuta. Lo mismo pasa con acuerdos de academia, proyectos escolares y tutorías.',
+    keyIdea:
+      'Un mismo Notebook puede concentrar el conocimiento del colectivo docente: academia, Consejo Técnico, proyecto escolar, tutorías y funciones directivas.',
+    visual: {
+      title: 'Flujo del trabajo colegiado',
+      type: 'workflow',
+      steps: ['Reunión', 'Documentos', 'NotebookLM', 'Resumen', 'Acuerdos', 'Responsables', 'Seguimiento']
+    },
+    contentSections: [
+      {
+        title: 'NotebookLM como memoria institucional',
+        keyIdea: 'Un mismo Notebook puede concentrar el conocimiento del colectivo docente.',
+        points: ['Academia', 'Consejo Técnico Escolar', 'Proyecto escolar', 'Tutorías'],
+        visualType: 'cards',
+        imageKey: 'notebook-colegiado',
+        pointDetails: [
+          { label: 'Academia', detail: 'Acuerdos, planeaciones compartidas, materiales, evaluaciones y buenas prácticas.' },
+          { label: 'Consejo Técnico Escolar', detail: 'Minutas, acuerdos, PEMC, seguimiento y evidencias.' },
+          { label: 'Proyecto escolar', detail: 'Cronograma, responsables, evidencias, informes y productos.' },
+          { label: 'Tutorías', detail: 'Seguimiento de estudiantes, estrategias, acuerdos y evidencias.' }
+        ],
+        reflectionQuestion: '¿Cuál de estas cuatro memorias colegiadas necesita más orden en tu escuela?'
+      },
+      {
+        title: 'El flujo del trabajo colegiado',
+        keyIdea: 'Una reunión bien documentada puede convertirse en mucho conocimiento y decisiones que se cumplen.',
+        points: ['Reunión', 'Documentos', 'NotebookLM', 'Resumen', 'Acuerdos', 'Responsables', 'Seguimiento'],
+        visualType: 'workflow',
+        pointDetails: [
+          { label: 'Reunión', detail: 'Academia, Consejo Técnico, proyecto o tutoría: el punto de partida siempre es un encuentro colegiado.' },
+          { label: 'Documentos', detail: 'Minutas, acuerdos previos y evidencias que sostienen la reunión.' },
+          { label: 'NotebookLM', detail: 'Recibe los documentos permitidos y los convierte en un contexto consultable.' },
+          { label: 'Resumen', detail: 'Sintetiza lo tratado sin perder los puntos que importan al colectivo.' },
+          { label: 'Acuerdos', detail: 'Identifica qué se decidió y qué queda pendiente de la sesión.' },
+          { label: 'Responsables', detail: 'Deja claro quién da seguimiento a cada acuerdo.' },
+          { label: 'Seguimiento', detail: 'Convierte el acuerdo en una acción visible que se puede revisar después.' }
+        ],
+        reflectionQuestion: '¿En qué paso se pierden actualmente los acuerdos de tus reuniones?'
+      },
+      {
+        title: 'Apoyo también a funciones directivas',
+        keyIdea: 'NotebookLM puede apoyar a coordinadores y directivos generando documentos institucionales sin duplicar esfuerzos.',
+        points: [
+          'Minutas',
+          'Informes',
+          'Planes de mejora',
+          'Cronogramas',
+          'Seguimiento de acuerdos',
+          'Organización documental',
+          'PEMC',
+          'Reportes institucionales'
+        ],
+        visualType: 'cards',
+        pointDetails: [
+          { label: 'Minutas', detail: 'Redacta minutas claras a partir de notas o grabaciones permitidas de la reunión.' },
+          { label: 'Informes', detail: 'Convierte evidencias dispersas en un informe legible para el colectivo.' },
+          { label: 'Planes de mejora', detail: 'Apoya la redacción y actualización de planes de mejora escolar.' },
+          { label: 'Cronogramas', detail: 'Organiza fechas y responsables de un proyecto o ciclo escolar.' },
+          { label: 'Seguimiento de acuerdos', detail: 'Mantiene visible qué acuerdo sigue vivo y quién lo atiende.' },
+          { label: 'Organización documental', detail: 'Ordena minutas, actas y evidencias por tema o periodo.' },
+          { label: 'PEMC', detail: 'Ayuda a estructurar y dar seguimiento al Programa Escolar de Mejora Continua.' },
+          { label: 'Reportes institucionales', detail: 'Genera reportes para supervisión con base en evidencias reales.' }
+        ],
+        reflectionQuestion: '¿Qué documento directivo te ahorraría más tiempo si NotebookLM te ayudara a generarlo?'
+      }
+    ],
     demo: {
-      objective: 'Convertir un Google Doc en fuente y luego en una guía para Classroom.',
-      workflow: ['Seleccionar un Doc de planeación.', 'Usarlo como fuente en NotebookLM.', 'Pedir una guía de estudiante.', 'Definir cómo publicarla en Classroom.'],
-      questions: ['¿Este archivo es fuente, producto o tarea?'],
-      expectedResults: ['Una decisión clara sobre el uso de cada archivo.'],
-      presenterTips: ['Evita explicar todo Google Workspace; usa un flujo real.']
-    },
-    activity: {
-      title: 'Mapa de mis archivos',
-      steps: ['Elige un archivo.', 'Marca si es fuente, producto o entrega.', 'Define su siguiente uso.', 'Anota dónde vivirá.'],
-      deliverable: 'Un mapa simple de archivos para una clase.'
-    },
-    successCriterion: 'El mapa clasifica cada archivo como fuente, producto o entrega, y define su siguiente uso.',
-    takeaway: 'No todo archivo debe subirse a NotebookLM; cada archivo necesita un papel claro.',
-    transition: 'Cuando los archivos tienen papel claro, necesitamos una biblioteca de notebooks igual de ordenada.',
-    promptTemplate: prompt(
-      'workspace-mapa',
-      'Mapa de archivos Google Workspace',
-      'Google Workspace',
-      'Intermedio',
-      90,
-      'Organiza estos archivos: [LISTA DE ARCHIVOS] para [PROYECTO O CLASE]. Clasifica cada uno como fuente, producto docente, material para estudiantes o entrega en Classroom. Sugiere el siguiente paso para cada archivo.'
-    ),
-    resources: ['Google Drive', 'Google Docs', 'Google Slides', 'Google Classroom']
-  }),
-  practicalLesson({
-    id: 'perfect-notebook-ecosystem',
-    moduleId: 'modulo-3',
-    title: '¿Cómo organizo mis notebooks para no perderme?',
-    duration: '15 min',
-    objective: ['Diseñar una biblioteca de notebooks por propósito, grupo o proyecto.'],
-    teacherProblem: 'Después de crear varios notebooks, cuesta recordar cuál sirve para qué.',
-    caseSituation:
-      'Después de varias semanas, aparecen notebooks llamados “Historia”, “Historia 2”, “Proyecto” y “Nuevo notebook”. Si el nombre no dice el propósito, el docente vuelve a perder tiempo.',
-    keyIdea: 'Una biblioteca funciona cuando los nombres muestran propósito, grupo y uso.',
-    visual: { title: 'Biblioteca docente', steps: ['Asignatura', 'Grupo', 'Proyecto', 'Evaluación', 'Consejo Técnico'] },
-    demo: {
-      objective: 'Renombrar y ordenar notebooks con una convención simple.',
-      workflow: ['Mostrar nombres confusos.', 'Proponer una convención.', 'Clasificar notebooks por propósito.', 'Decidir qué se archiva o actualiza.'],
-      questions: ['¿El nombre me dice para qué sirve?'],
-      expectedResults: ['Una convención de nombres y categorías.'],
-      presenterTips: ['Usa ejemplos de nombres reales y breves.']
-    },
-    activity: {
-      title: 'Nombra para encontrar',
-      steps: ['Elige tres notebooks posibles.', 'Renómbralos con grupo y propósito.', 'Marca prioridad.', 'Decide fuente inicial.'],
-      deliverable: 'Una mini biblioteca de tres notebooks nombrados con propósito.'
-    },
-    successCriterion: 'Cada notebook tiene nombre con grupo o propósito, fuente inicial y prioridad de uso.',
-    takeaway: 'Un buen nombre evita volver a pensar dónde dejaste tu trabajo.',
-    transition: 'Ahora veremos cómo esta organización puede servir también al colectivo docente de la escuela.',
-    promptTemplate: prompt(
-      'biblioteca-notebooks',
-      'Biblioteca de notebooks',
-      'Organización',
-      'Básico',
-      91,
-      'Ayúdame a diseñar una biblioteca de notebooks para [ASIGNATURAS O GRUPOS]. Propón nombres claros, propósito de cada notebook, fuentes iniciales, frecuencia de actualización y cuándo conviene archivarlo.'
-    ),
-    resources: ['Lista de grupos', 'Proyectos del ciclo', 'Fuentes curriculares']
-  }),
-  practicalLesson({
-    id: 'school-notebook',
-    moduleId: 'modulo-3',
-    title: '¿Cómo construimos memoria del colectivo docente?',
-    duration: '15 min',
-    objective: ['Diseñar un notebook escolar para acuerdos, seguimiento y mejora colegiada.'],
-    teacherProblem: 'Los acuerdos de reuniones se pierden entre minutas, mensajes y archivos sueltos.',
-    caseSituation:
-      'En Consejo Técnico se acuerdan acciones importantes, pero un mes después nadie recuerda qué quedó pendiente, quién daba seguimiento o dónde estaba la minuta.',
-    keyIdea: 'Un notebook escolar ayuda cuando reúne acuerdos útiles, no información sensible innecesaria.',
-    visual: { title: 'Memoria colegiada', steps: ['Acuerdos', 'PEMC', 'Protocolos', 'Seguimiento', 'Próximas acciones'] },
-    demo: {
-      objective: 'Crear una consulta de acuerdos desde minutas no sensibles.',
-      workflow: ['Abrir fuentes institucionales permitidas.', 'Pedir resumen de acuerdos vigentes.', 'Identificar responsables y fechas.', 'Generar lista de seguimiento.'],
+      objective: 'Generar un resumen de acuerdos institucionales y una consulta de seguimiento desde minutas no sensibles.',
+      workflow: [
+        'Abrir un notebook escolar con minutas, PEMC y protocolos permitidos.',
+        'Pedir un resumen de acuerdos vigentes por área: academia, Consejo Técnico, proyecto o tutorías.',
+        'Identificar responsables, fechas y evidencias de seguimiento.',
+        'Generar un informe breve para funciones directivas.'
+      ],
       questions: ['¿Qué acuerdo sigue vivo y quién lo atiende?'],
-      expectedResults: ['Una lista de seguimiento para colectivo docente.'],
-      presenterTips: ['Subraya privacidad: no usar datos personales de estudiantes.']
+      expectedResults: ['Un resumen de acuerdos institucionales.', 'Una lista de seguimiento para el colectivo docente.'],
+      presenterTips: ['Subraya privacidad: nunca subir datos personales sensibles de estudiantes o docentes.']
     },
     activity: {
-      title: 'Acuerdo que no se pierde',
-      steps: ['Elige un acuerdo escolar.', 'Define fuente permitida.', 'Anota responsable.', 'Escribe siguiente acción.'],
-      deliverable: 'Una ficha de seguimiento de acuerdo escolar.'
+      title: 'Memoria colegiada que no se pierde',
+      steps: [
+        'Elige un espacio colegiado: academia, Consejo Técnico, proyecto escolar o tutorías.',
+        'Define qué fuentes institucionales permitidas puede contener su notebook.',
+        'Anota responsable y próxima acción de un acuerdo vigente.',
+        'Decide qué documento directivo generarías primero.'
+      ],
+      deliverable: 'Una ficha de memoria colegiada con espacio, fuente permitida, responsable y próxima acción.'
     },
-    successCriterion: 'La ficha identifica acuerdo, fuente permitida, responsable y próxima acción sin datos sensibles.',
-    takeaway: 'La memoria escolar vale cuando convierte acuerdos en acciones visibles.',
-    transition: 'Para sostener esta práctica, necesitamos un sistema sencillo de mejora continua.',
+    successCriterion:
+      'La ficha identifica el espacio colegiado, la fuente permitida, el responsable, la próxima acción y evita datos personales sensibles.',
+    takeaway: 'La memoria institucional vale cuando convierte reuniones y acuerdos en acciones visibles para todo el colectivo.',
+    transition:
+      'Con el flujo personal y colegiado organizados, el siguiente módulo aborda el uso ético y responsable de la IA en la práctica docente.',
     promptTemplate: prompt(
-      'school-notebook-seguimiento',
-      'Seguimiento de acuerdos escolares',
+      'm3-notebook-colegiado',
+      'Memoria institucional del colectivo docente',
       'Trabajo colegiado',
       'Intermedio',
       89,
-      'Con base en estas fuentes institucionales permitidas: [FUENTES], resume acuerdos vigentes, responsables, fechas, evidencias de avance y próximas acciones. No incluyas datos personales sensibles.'
+      'Con base en estas fuentes institucionales permitidas: [FUENTES], resume los acuerdos vigentes de [ACADEMIA, CONSEJO TÉCNICO, PROYECTO O TUTORÍAS], identifica responsables, fechas, evidencias de avance y próximas acciones. No incluyas datos personales sensibles.'
     ),
-    resources: ['Minutas', 'PEMC', 'Protocolos escolares', 'Calendario escolar']
-  }),
-  practicalLesson({
-    id: 'organizacion-profesional',
-    moduleId: 'modulo-3',
-    title: '¿Cómo mantengo esto vivo sin que sea otra carga?',
-    duration: '15 min',
-    objective: ['Crear una rutina ligera para actualizar fuentes, plantillas y productos.'],
-    teacherProblem: 'Muchas herramientas empiezan con entusiasmo y después se abandonan porque requieren mantenimiento pesado.',
-    caseSituation:
-      'El docente crea buenos notebooks, pero si nunca elimina duplicados, actualiza fuentes o archiva lo viejo, el sistema se vuelve otra carga.',
-    keyIdea: 'La organización se sostiene con una rutina pequeña, repetible y fácil de cumplir.',
-    visual: { title: 'Rutina de mantenimiento', steps: ['Eliminar duplicados', 'Actualizar fuente clave', 'Guardar plantilla', 'Registrar mejora', 'Archivar lo viejo'] },
-    demo: {
-      objective: 'Hacer una limpieza de 10 minutos en una biblioteca docente.',
-      workflow: ['Identificar una fuente vencida.', 'Actualizar una fuente clave.', 'Guardar una plantilla útil.', 'Archivar un producto viejo.'],
-      questions: ['¿Qué puedo limpiar sin reorganizar todo?'],
-      expectedResults: ['Una rutina mensual ligera.'],
-      presenterTips: ['La demo debe sentirse pequeña y posible.']
-    },
-    activity: {
-      title: 'Mi rutina mínima',
-      steps: ['Elige día o momento.', 'Define tres acciones.', 'Elige un lugar de guardado.', 'Escribe señal de revisión.'],
-      deliverable: 'Una rutina mensual de mantenimiento en tres acciones.'
-    },
-    successCriterion: 'La rutina contiene tres acciones sostenibles y una señal clara para saber cuándo actualizar o archivar.',
-    takeaway: 'Un sistema docente útil es el que puedes mantener en semanas difíciles.',
-    transition: 'Con el ecosistema armado, pasamos al último módulo: usar IA con responsabilidad y criterio profesional.',
-    promptTemplate: prompt(
-      'organizacion-rutina',
-      'Rutina minima de mantenimiento',
-      'Mejora continua',
-      'Básico',
-      90,
-      'Diseña una rutina mensual de 10 minutos para mantener mi biblioteca de NotebookLM sobre [ASIGNATURA O PROYECTO]. Incluye qué actualizar, qué archivar, qué plantilla guardar y cómo saber si el sistema sigue siendo útil.'
-    ),
-    resources: ['Biblioteca de notebooks', 'Plantillas', 'Productos generados']
+    resources: ['Minutas', 'PEMC', 'Protocolos escolares', 'Calendario escolar', 'Proyecto escolar', 'Registro de tutorías']
   })
 ];
 
@@ -2262,8 +2323,9 @@ export const modules: Module[] = [
   {
     id: 'modulo-3',
     number: 3,
-    title: 'Ecosistema docente inteligente',
-    subtitle: 'Integrar IA al trabajo cotidiano, colegiado y escolar sin perder organización profesional.',
+    title: 'NotebookLM en mi trabajo diario',
+    subtitle:
+      'Construir un flujo de trabajo personal con NotebookLM y llevarlo al trabajo colegiado y escolar sin perder organización profesional.',
     color: '#7c3aed',
     icon: HubRoundedIcon,
     lessons: module3Lessons

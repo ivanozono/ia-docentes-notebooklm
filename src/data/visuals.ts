@@ -22,7 +22,7 @@ export const moduleVisuals: Record<string, { src: string; alt: string }> = {
   },
   'modulo-3': {
     src: courseImage('Modulo3EcosistemaInteligenteDocente.jpg'),
-    alt: 'Módulo 3: ecosistema inteligente del docente y organización profesional.'
+    alt: 'Módulo 3: NotebookLM en el trabajo diario, colegiado y escolar del docente.'
   },
   'modulo-4': {
     src: courseImage('Modulo4DocenteFuturo.jpg'),
@@ -40,21 +40,6 @@ export const lessonVisuals: Record<string, { src: string; alt: string; caption: 
     src: courseImage('DiagramaArquitecturaNotebook.jpg'),
     alt: 'Arquitectura de un notebook pedagógico bien organizado.',
     caption: 'Arquitectura del cuaderno de NotebookLM: fuentes, preguntas, productos y criterios de revisión docente.'
-  },
-  'perfect-notebook-ecosystem': {
-    src: courseImage('DiagramaArquitecturaNotebook.jpg'),
-    alt: 'Arquitectura de un sistema de notebooks docentes.',
-    caption: 'Organización de notebooks por campo formativo, proyecto, grupo y evidencia.'
-  },
-  'google-workspace': {
-    src: courseImage('DiagramaIntegracionGoogleWorkspace.jpg'),
-    alt: 'Integración de NotebookLM con Google Workspace for Education.',
-    caption: 'Integración con Google Workspace: documentos, presentaciones, Classroom y trabajo colegiado.'
-  },
-  'flujo-diario': {
-    src: courseImage('DiagramaFlujoCicloDocente.jpg'),
-    alt: 'Flujo del ciclo de trabajo docente con apoyo de IA.',
-    caption: 'Ciclo de trabajo docente: diagnosticar, planear, diseñar, implementar, evaluar y ajustar.'
   }
 };
 
@@ -154,5 +139,13 @@ export const keyedVisuals: Record<string, { src: string; alt: string }> = {
   'catalogo-profesional': {
     src: courseImage('ilustracionAsistenteAreaTrabajo.jpg'),
     alt: 'Ilustración del catálogo profesional de NotebookLM organizado por área de trabajo docente.'
+  },
+  'flujo-trabajo-docente': {
+    src: courseImage('ilustracionFlujoTrabajo.jpg'),
+    alt: 'Ilustración del flujo de trabajo docente que conecta notebooks, Google Workspace y tips de productividad.'
+  },
+  'notebook-colegiado': {
+    src: courseImage('ilustracionNotebookColegiado.jpg'),
+    alt: 'Ilustración de NotebookLM como memoria institucional del colectivo docente.'
   }
 };
