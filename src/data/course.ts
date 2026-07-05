@@ -2061,243 +2061,275 @@ const module3Lessons: Lesson[] = [
 
 const module4Lessons: Lesson[] = [
   practicalLesson({
-    id: 'etica',
+    id: 'docente-decide',
     moduleId: 'modulo-4',
-    title: '¿Qué decisiones no debo delegar a la IA?',
-    duration: '15 min',
-    objective: ['Distinguir tareas que la IA puede apoyar de decisiones que requieren juicio docente.'],
-    teacherProblem: 'La IA puede proponer mucho, pero no debe decidir por el docente ni por la escuela.',
-    caseSituation:
-      'NotebookLM puede ayudar a redactar un borrador de retroalimentación, pero no debe decidir calificaciones, sanciones, diagnósticos ni acciones que afecten directamente a estudiantes.',
-    keyIdea: 'La IA apoya borradores; el juicio profesional decide lo que afecta a estudiantes.',
-    visual: { title: 'Semáforo de decisión', steps: ['Verde: apoyo', 'Amarillo: revisar', 'Rojo: no delegar'] },
-    demo: {
-      objective: 'Clasificar decisiones docentes en un semáforo ético.',
-      workflow: ['Listar cinco tareas docentes.', 'Pedir clasificación verde, amarillo o rojo.', 'Revisar riesgos.', 'Definir revisión humana obligatoria.'],
-      questions: ['¿Qué decisión afecta directamente a un estudiante?'],
-      expectedResults: ['Un semáforo ético de uso docente.'],
-      presenterTips: ['Usa casos cotidianos, no dilemas abstractos.']
-    },
-    activity: {
-      title: 'Mi semáforo de IA',
-      steps: ['Escribe tres tareas.', 'Clasifica cada una.', 'Anota el riesgo.', 'Define revisión docente.'],
-      deliverable: 'Un semáforo personal de decisiones con IA.'
-    },
-    successCriterion: 'El semáforo clasifica tres tareas con beneficio, riesgo y revisión humana necesaria.',
-    takeaway: 'La IA puede sugerir; la responsabilidad sigue teniendo nombre y apellido docente.',
-    transition: 'Además de decidir bien, necesitamos proteger información y revisar sesgos.',
-    promptTemplate: prompt(
-      'etica-semaforo',
-      'Semáforo ético de tareas docentes',
-      'Ética',
-      'Básico',
-      93,
-      'Clasifica estas tareas docentes: [TAREAS] en verde, amarillo o rojo según el nivel de riesgo al usar IA. Explica beneficio, riesgo, dato sensible posible y revisión humana necesaria.'
-    ),
-    resources: ['Acuerdos escolares', 'Lineamientos de privacidad', 'Tareas docentes']
-  }),
-  practicalLesson({
-    id: 'ia-responsable',
-    moduleId: 'modulo-4',
-    title: '¿Cómo protejo datos y reduzco sesgos?',
-    duration: '20 min',
+    title: 'El docente sigue tomando las decisiones',
+    duration: '25 min',
     objective: [
-      'Aplicar una revisión rápida de privacidad, sesgos y lenguaje antes de usar una respuesta.',
-      'Decidir qué información debe eliminarse, generalizarse o verificarse.'
+      'Distinguir qué puede apoyar NotebookLM y qué decisiones siguen siendo responsabilidad exclusiva del docente.',
+      'Aplicar una revisión de protección de datos y pensamiento crítico antes de usar una respuesta generada por IA.'
     ],
-    teacherProblem: 'Una respuesta puede parecer útil y aun así exponer datos, simplificar contextos, repetir prejuicios o sonar justa sin serlo.',
-    keyIdea: 'Antes de compartir, revisa datos personales, fuentes, supuestos, sesgos y trato digno.',
+    teacherProblem:
+      'La IA puede proponer materiales, resúmenes y borradores útiles, pero no debe decidir calificaciones, diagnósticos ni sanciones, ni exponer datos sensibles o repetir sesgos sin que el docente lo note.',
     caseSituation:
-      'Una maestra pide apoyo para redactar un reporte de grupo. La respuesta incluye nombres, interpreta conducta como falta de interés y recomienda acciones iguales para todos. Antes de usarla, necesita limpiar datos, revisar supuestos y ajustar el lenguaje.',
-    visual: { title: 'Filtro antes de usar', steps: ['Datos personales', 'Fuente usada', 'Supuesto oculto', 'Sesgo posible', 'Acción segura'] },
+      'NotebookLM puede ayudar a redactar un borrador de retroalimentación o un reporte de grupo. Antes de usarlo, el docente debe verificar que no exponga datos personales, que esté sustentado, actualizado, adaptado al grupo y coherente con la NEM.',
+    keyIdea:
+      'La IA propone; el docente decide. Revisar, adaptar, verificar y contextualizar es lo que convierte una propuesta de IA en una decisión profesional responsable.',
+    visual: {
+      title: 'IA propone, docente decide',
+      type: 'decision-tree',
+      steps: ['IA propone', 'Revisar', 'Adaptar', 'Verificar', 'Contextualizar', 'Docente decide']
+    },
+    contentSections: [
+      {
+        title: 'Qué sí puede hacer NotebookLM y qué nunca debe delegar el docente',
+        keyIdea: 'La IA propone; el docente decide qué usar, ajustar o descartar.',
+        points: [
+          'Organizar información',
+          'Resumir documentos',
+          'Crear materiales',
+          'Generar actividades',
+          'Proponer evaluaciones',
+          'Comparar documentos',
+          'Detectar patrones',
+          'La evaluación profesional',
+          'Las decisiones pedagógicas',
+          'El trato humano',
+          'La relación con el estudiante',
+          'La comunicación sensible',
+          'La responsabilidad ética'
+        ],
+        visualType: 'decision-tree',
+        imageKey: 'docente-decide',
+        pointDetails: [
+          { label: 'Organizar información', detail: 'Sí puede: ordenar fuentes, documentos y evidencias para que sean fáciles de consultar.' },
+          { label: 'Resumir documentos', detail: 'Sí puede: sintetizar textos extensos en versiones breves y claras.' },
+          { label: 'Crear materiales', detail: 'Sí puede: generar guías, presentaciones e infografías a partir de tus fuentes.' },
+          { label: 'Generar actividades', detail: 'Sí puede: proponer actividades alineadas a un tema, grado y tiempo disponible.' },
+          { label: 'Proponer evaluaciones', detail: 'Sí puede: sugerir rúbricas, listas de cotejo o preguntas de evaluación.' },
+          { label: 'Comparar documentos', detail: 'Sí puede: detectar diferencias, acuerdos o cambios entre versiones de un texto.' },
+          { label: 'Detectar patrones', detail: 'Sí puede: identificar tendencias en evidencias o respuestas de un grupo.' },
+          { label: 'La evaluación profesional', detail: 'Nunca debe delegarse: calificar, diagnosticar o sancionar es responsabilidad exclusiva del docente.' },
+          { label: 'Las decisiones pedagógicas', detail: 'Nunca debe delegarse: decidir qué enseñar, cómo y cuándo, requiere juicio profesional.' },
+          { label: 'El trato humano', detail: 'Nunca debe delegarse: acompañar, escuchar y sostener la relación pedagógica.' },
+          { label: 'La relación con el estudiante', detail: 'Nunca debe delegarse: conocer y responder al contexto real de cada estudiante.' },
+          { label: 'La comunicación sensible', detail: 'Nunca debe delegarse: conversaciones difíciles con estudiantes o familias.' },
+          { label: 'La responsabilidad ética', detail: 'Nunca debe delegarse: la responsabilidad final de cualquier decisión sigue teniendo nombre y apellido docente.' }
+        ],
+        reflectionQuestion: '¿Qué tarea de tu lista delegarías a NotebookLM y cuál nunca delegarías?'
+      },
+      {
+        title: 'Protección de datos y pensamiento crítico antes de compartir',
+        keyIdea: 'Antes de usar una respuesta, revisa qué datos expone y si realmente está sustentada, actualizada, adaptada y alineada a la NEM.',
+        points: [
+          'Datos personales',
+          'Información sensible',
+          'Calificaciones identificables',
+          'Expedientes completos',
+          '¿Está sustentado?',
+          '¿Está actualizado?',
+          '¿Se adapta a mi grupo?',
+          '¿Es coherente con la NEM?'
+        ],
+        visualType: 'comparison',
+        imageKey: 'proteccion-datos-pensamiento-critico',
+        pointDetails: [
+          { label: 'Datos personales', detail: 'No compartir: nombres, contactos o cualquier dato que identifique a una persona.' },
+          { label: 'Información sensible', detail: 'No compartir: situaciones familiares, de salud o socioeconómicas de estudiantes.' },
+          { label: 'Calificaciones identificables', detail: 'No compartir: notas o resultados asociados a un nombre o matrícula reconocible.' },
+          { label: 'Expedientes completos', detail: 'No compartir: documentos completos con historial académico o personal del estudiante.' },
+          { label: '¿Está sustentado?', detail: 'Verifica que la respuesta tenga fuentes confiables que la respalden.' },
+          { label: '¿Está actualizado?', detail: 'Verifica que la información sea reciente y siga vigente.' },
+          { label: '¿Se adapta a mi grupo?', detail: 'Verifica que sea adecuada para el contexto, edad y necesidades de tus estudiantes.' },
+          { label: '¿Es coherente con la NEM?', detail: 'Verifica que esté alineada al plan de estudios y a los principios de la Nueva Escuela Mexicana.' }
+        ],
+        reflectionQuestion: '¿Qué pregunta de pensamiento crítico te falta hacerte más seguido antes de usar una respuesta de IA?'
+      },
+      {
+        title: 'Usa la IA para tener más presencia docente',
+        keyIdea: 'La docencia aumentada libera tiempo de preparación para invertirlo en conversación, observación y retroalimentación.',
+        points: ['Tarea repetitiva', 'Apoyo de IA', 'Revisión docente', 'Tiempo liberado', 'Interacción con estudiantes'],
+        visualType: 'workflow',
+        pointDetails: [
+          { label: 'Tarea repetitiva', detail: 'Identifica una tarea administrativa o de preparación que consume tiempo cada semana.' },
+          { label: 'Apoyo de IA', detail: 'Pide un borrador o formato inicial en lugar de empezar desde cero.' },
+          { label: 'Revisión docente', detail: 'Ajusta el resultado con tu criterio, contexto y conocimiento del grupo.' },
+          { label: 'Tiempo liberado', detail: 'El tiempo que ya no usas en producir desde cero queda disponible.' },
+          { label: 'Interacción con estudiantes', detail: 'Ese tiempo se invierte en revisar cuadernos, conversar o dar retroalimentación breve.' }
+        ],
+        reflectionQuestion: '¿Qué harás con el tiempo que recuperes esta semana?'
+      }
+    ],
     demo: {
-      objective: 'Auditar una respuesta generada antes de llevarla al aula.',
+      objective: 'Auditar una respuesta de IA aplicando el semáforo ético y el filtro de privacidad antes de usarla.',
       workflow: [
         'Tomar una respuesta ficticia de IA con un reporte de grupo.',
-        'Marcar datos personales, nombres, diagnósticos o información sensible.',
-        'Subrayar frases que hacen suposiciones sobre estudiantes o familias.',
-        'Detectar si la recomendación trata igual situaciones distintas.',
-        'Reescribir una versión segura, general y verificable.'
+        'Clasificarla en un semáforo: verde (apoyo), amarillo (revisar), rojo (no delegar).',
+        'Marcar datos personales, sesgos o supuestos ocultos.',
+        'Reescribir una versión segura, sustentada y coherente con la NEM.',
+        'Decidir en qué interacción con estudiantes se invertirá el tiempo recuperado.'
       ],
-      questions: ['¿Qué tendría que quitar antes de compartir?'],
+      questions: ['¿Qué parte de esta respuesta nunca debería decidir la IA?'],
       expectedResults: [
-        'Una versión sin datos personales innecesarios.',
-        'Una lista de supuestos por verificar.',
-        'Una recomendación escrita con lenguaje respetuoso y accionable.'
+        'Un semáforo ético de la respuesta.',
+        'Una versión segura y verificada.',
+        'Una decisión de tiempo recuperado.'
       ],
-      presenterTips: [
-        'No uses casos sensibles reales; trabaja con ejemplos ficticios.',
-        'Distingue dato, interpretación y recomendación.',
-        'Subraya que privacidad y sesgos se revisan antes de compartir, no después.'
-      ]
+      presenterTips: ['Usa ejemplos ficticios; nunca datos reales de estudiantes.']
     },
     activity: {
-      title: 'Filtro de seguridad',
+      title: 'Mi filtro de decisiones',
       steps: [
-        'Revisa un texto ficticio generado por IA.',
-        'Marca un dato sensible.',
-        'Detecta un supuesto o posible sesgo.',
-        'Cambia una frase para que sea más respetuosa.',
-        'Escribe una acción segura antes de compartir.'
+        'Elige una tarea o respuesta generada por IA.',
+        'Clasifícala en verde, amarillo o rojo.',
+        'Revisa datos personales, sesgos y coherencia con la NEM.',
+        'Define qué decisión final toma el docente.',
+        'Anota qué interacción con estudiantes ganarás con el tiempo recuperado.'
       ],
-      deliverable: 'Una mini auditoría de privacidad y sesgo.'
+      deliverable: 'Un filtro de decisión con clasificación ética, revisión de datos y tiempo recuperado.'
     },
-    successCriterion: 'La auditoría identifica un dato sensible, un supuesto o sesgo, una frase corregida y una acción segura antes de compartir.',
-    takeaway: 'Usar IA responsablemente es revisar antes de compartir.',
-    transition: 'Con ese cuidado, podemos enfocarnos en el mejor uso de la IA: liberar tiempo para estar más presentes como docentes.',
+    successCriterion:
+      'El filtro clasifica la tarea, identifica un riesgo de datos o sesgo, y define qué decisión final toma el docente y qué tiempo recupera.',
+    takeaway: 'La IA puede sugerir con datos y velocidad; el docente decide con contexto, ética y presencia humana.',
+    transition:
+      'Con las decisiones bien delimitadas, el siguiente paso es convertir todo lo aprendido en un plan de implementación real.',
     promptTemplate: prompt(
-      'responsable-filtro',
-      'Filtro de privacidad y sesgos',
-      'Responsabilidad digital',
+      'm4-docente-decide',
+      'Filtro de decisión docente',
+      'Ética y responsabilidad',
       'Intermedio',
       94,
-      'Revisa este texto generado por IA: [TEXTO]. Identifica datos personales, supuestos, sesgos, lenguaje poco adecuado y riesgos de uso. Devuelve una versión segura, clara y respetuosa para [AUDIENCIA].'
+      'Revisa esta tarea o respuesta generada por IA: [TAREA O TEXTO]. Clasifícala en verde, amarillo o rojo según el riesgo. Identifica datos personales, sesgos, si está sustentada, actualizada, adaptada a mi grupo y coherente con la NEM. Indica qué decisión final debo tomar como docente.'
     ),
-    resources: ['Respuesta generada', 'Acuerdos de privacidad', 'Ejemplos ficticios']
+    resources: ['Acuerdos escolares', 'Lineamientos de privacidad', 'Tareas docentes', 'Evidencias de estudiantes']
   }),
   practicalLesson({
-    id: 'teacher-augmentation',
+    id: 'plan-implementacion',
     moduleId: 'modulo-4',
-    title: '¿Cómo uso IA para tener más presencia docente?',
-    duration: '15 min',
-    objective: ['Elegir tareas que la IA puede aliviar para recuperar tiempo de acompañamiento.'],
-    teacherProblem: 'El riesgo no es usar IA, sino usarla para producir más trabajo en vez de recuperar presencia con estudiantes.',
+    title: 'Plan de Implementación',
+    duration: '20 min',
+    objective: [
+      'Convertir una reflexión breve sobre lo que funcionó en una ruta de 30 días y un paquete final listo para usar el lunes.'
+    ],
+    teacherProblem:
+      'Después del taller es fácil querer aplicarlo todo, no dejar una decisión clara de mejora y terminar sin nada listo para usar en una clase real.',
     caseSituation:
-      'Un docente usa IA para generar más materiales, pero sigue sin tiempo para revisar cuadernos, conversar con estudiantes o dar retroalimentación breve.',
-    keyIdea: 'La docencia aumentada libera tiempo de preparación para invertirlo en conversación, observación y retroalimentación.',
-    visual: { title: 'Tiempo recuperado', steps: ['Tarea repetitiva', 'Apoyo IA', 'Revision docente', 'Tiempo liberado', 'Interaccion con estudiantes'] },
+      'Un docente sale entusiasmado y quiere crear notebooks, rúbricas, audios y proyectos al mismo tiempo. Sin una decisión de mejora, una ruta pequeña y un paquete concreto, la carga normal de trabajo regresa y el taller se queda en ideas sueltas.',
+    keyIdea:
+      'Construyo hoy, transformo mi aula mañana: un plan pequeño, medible y con producto listo vale más que diez ideas sin aplicar.',
+    visual: {
+      title: 'Mi plan de implementación',
+      type: 'workflow',
+      steps: ['Crear mi Notebook', 'Crear actividades', 'Crear planeaciones y evaluación', 'Integrarlo a mi flujo de trabajo']
+    },
+    contentSections: [
+      {
+        title: 'Mi plan de implementación',
+        keyIdea: 'Construyo hoy, transformo mi aula mañana.',
+        points: ['Crear mi Notebook', 'Crear actividades', 'Crear planeaciones y evaluación', 'Integrarlo a mi flujo de trabajo'],
+        visualType: 'workflow',
+        imageKey: 'plan-implementacion',
+        pointDetails: [
+          { label: 'Crear mi Notebook', detail: 'El primer paso: reunir tus fuentes y darle un propósito claro a tu notebook.' },
+          { label: 'Crear actividades', detail: 'Convertir esas fuentes en una actividad lista para tu próxima clase.' },
+          { label: 'Crear planeaciones y evaluación', detail: 'Completar el ciclo con una planeación y un instrumento de evaluación alineados.' },
+          { label: 'Integrarlo a mi flujo de trabajo', detail: 'Conectar notebook, Workspace y rutina para que el sistema se sostenga.' }
+        ],
+        reflectionQuestion: '¿En qué paso de este plan estás hoy?'
+      },
+      {
+        title: 'La idea central del taller',
+        keyIdea:
+          'Pasar de usar IA para buscar respuestas a utilizar IA para construir experiencias de aprendizaje apoyadas en documentos y contexto educativo.',
+        points: ['Pasar de usar IA para buscar respuestas', 'NotebookLM', 'A construir experiencias de aprendizaje'],
+        visualType: 'workflow',
+        pointDetails: [
+          { label: 'Pasar de usar IA para buscar respuestas', detail: 'El punto de partida de muchos docentes: usar IA como buscador general.' },
+          { label: 'NotebookLM', detail: 'El puente: un asistente que trabaja con tus propias fuentes, no con conocimiento genérico.' },
+          { label: 'A construir experiencias de aprendizaje', detail: 'El destino del taller: actividades, planeaciones y evaluaciones apoyadas en documentos y contexto real.' }
+        ],
+        reflectionQuestion: '¿Qué cambió en tu forma de pedirle apoyo a la IA durante este taller?'
+      },
+      {
+        title: 'Como docentes',
+        keyIdea: 'La calidad y la validación pedagógica siguen siendo responsabilidad del docente.',
+        points: [
+          'La IA ayuda a reducir trabajo repetitivo',
+          'La validación pedagógica sigue siendo responsabilidad del docente',
+          'La calidad del resultado depende del contexto y materiales proporcionados',
+          'El objetivo no es usar más herramientas, sino mejorar el proceso educativo',
+          'NotebookLM funciona mejor cuando trabaja con materiales reales del aula'
+        ],
+        visualType: 'cards',
+        pointDetails: [
+          { label: 'La IA ayuda a reducir trabajo repetitivo', detail: 'Libera tiempo de tareas mecánicas para invertirlo en el aula.' },
+          { label: 'La validación pedagógica sigue siendo responsabilidad del docente', detail: 'Ningún resultado se usa sin revisión y criterio profesional.' },
+          { label: 'La calidad del resultado depende del contexto y materiales proporcionados', detail: 'Fuentes claras y pertinentes producen mejores resultados.' },
+          { label: 'El objetivo no es usar más herramientas, sino mejorar el proceso educativo', detail: 'La meta es un mejor aprendizaje, no acumular funciones.' },
+          { label: 'NotebookLM funciona mejor cuando trabaja con materiales reales del aula', detail: 'Programas, libros, planeaciones y evidencias propias, no ejemplos genéricos.' }
+        ],
+        reflectionQuestion: '¿Cuál de estas cinco ideas es la que más te gustaría recordar dentro de un mes?'
+      },
+      {
+        title: 'Pensando en el próximo ciclo escolar',
+        keyIdea: 'Un plan de 30 días funciona mejor cuando ya piensas también en el siguiente ciclo escolar.',
+        points: [
+          '¿Qué actividad docente me gustaría rediseñar o fortalecer utilizando IA?',
+          '¿Qué material puedo empezar a preparar desde ahora?',
+          'Semana 1: fuentes',
+          'Semana 2: plantilla',
+          'Semana 3: actividad',
+          'Semana 4: evidencia'
+        ],
+        visualType: 'timeline',
+        pointDetails: [
+          { label: '¿Qué actividad docente me gustaría rediseñar o fortalecer utilizando IA?', detail: 'Elige una actividad real de tu práctica, no una idea abstracta.' },
+          { label: '¿Qué material puedo empezar a preparar desde ahora?', detail: 'Adelanta lo que facilitará tu trabajo al inicio del próximo ciclo.' },
+          { label: 'Semana 1: fuentes', detail: 'Reúne y organiza las fuentes de tu notebook principal.' },
+          { label: 'Semana 2: plantilla', detail: 'Guarda una plantilla de prompt que puedas reutilizar.' },
+          { label: 'Semana 3: actividad', detail: 'Genera y aplica una actividad completa con esa plantilla.' },
+          { label: 'Semana 4: evidencia', detail: 'Registra evidencia de avance y decide si el hábito se sostiene.' }
+        ],
+        reflectionQuestion: '¿Qué acción sostendrás incluso en una semana pesada?'
+      }
+    ],
     demo: {
-      objective: 'Convertir una tarea administrativa repetitiva en tiempo de retroalimentación.',
-      workflow: ['Elegir una tarea que consume tiempo.', 'Pedir un borrador o formato.', 'Revisar y ajustar.', 'Definir qué interacción docente gana tiempo.'],
-      questions: ['¿Qué haré con el tiempo que recupero?'],
-      expectedResults: ['Una decisión concreta de tiempo recuperado.'],
-      presenterTips: ['Cierra siempre con la acción humana recuperada.']
+      objective: 'Construir el paquete final del taller: notebook, actividad, evaluación y ruta de 30 días lista para usar el lunes.',
+      workflow: [
+        'Abrir el notebook construido durante el taller.',
+        'Confirmar que ya existan actividad, planeación y evaluación desde ese notebook.',
+        'Definir el primer paso para integrarlo al flujo de trabajo semanal.',
+        'Elegir una acción por semana para las próximas 4 semanas.',
+        'Anotar qué actividad se rediseñará pensando en el próximo ciclo escolar.'
+      ],
+      questions: ['¿Esto se puede abrir y usar en una clase real el lunes?'],
+      expectedResults: ['Un paquete final claro y presentable.', 'Una ruta de 30 días con una acción por semana.'],
+      presenterTips: ['Cierra con aplicación real, no con celebración de funciones.']
     },
     activity: {
-      title: 'Recuperar 20 minutos',
-      steps: ['Identifica una tarea repetitiva.', 'Define apoyo de IA.', 'Escribe revisión necesaria.', 'Decide uso del tiempo ganado.'],
-      deliverable: 'Un intercambio: tarea que delego parcialmente y presencia que recupero.'
+      title: 'Mi plan de implementación',
+      steps: [
+        'Reúne tu notebook, fuente y plantilla usada.',
+        'Confirma actividad, criterio de evaluación y evidencia.',
+        'Define una acción por semana durante 30 días.',
+        'Anota qué prepararás desde ahora para el próximo ciclo escolar.',
+        'Decide qué usarás primero el lunes.'
+      ],
+      deliverable: 'Un plan de implementación con paquete de clase, ruta de 30 días y una decisión para el próximo ciclo escolar.'
     },
-    successCriterion: 'La decisión muestra qué tarea se aligera, qué revisión hará el docente y qué interacción con estudiantes se recupera.',
-    takeaway: 'La mejor IA no te aleja del grupo; te devuelve tiempo para mirarlo mejor.',
-    transition: 'Para mejorar con honestidad, ahora revisaremos qué funcionó y qué necesita ajuste.',
-    promptTemplate: prompt(
-      'docencia-aumentada-tiempo',
-      'Recuperar tiempo docente',
-      'Docencia aumentada',
-      'Básico',
-      92,
-      'Analiza esta tarea repetitiva: [TAREA]. Propón cómo la IA puede apoyar sin reemplazar mi juicio docente, qué debo revisar y cómo puedo usar el tiempo recuperado para acompañar mejor a [GRUPO].'
-    ),
-    resources: ['Lista de tareas semanales', 'Planeación', 'Evidencias de estudiantes']
-  }),
-  practicalLesson({
-    id: 'reflexion',
-    moduleId: 'modulo-4',
-    title: '¿Cómo reviso lo que funcionó y lo que no?',
-    duration: '15 min',
-    objective: ['Usar una evidencia de clase para decidir un ajuste concreto.'],
-    teacherProblem: 'Después de una actividad, muchas veces sabemos que algo pasó, pero no dejamos una decisión clara para mejorar.',
-    caseSituation:
-      'La actividad salió “más o menos”: hubo participación, pero varios productos quedaron incompletos. Si no se registra una decisión, la siguiente clase repite el mismo problema.',
-    keyIdea: 'Reflexionar sirve cuando termina en un ajuste pequeño para la próxima clase.',
-    visual: { title: 'Evidencia a ajuste', steps: ['Qué vi', 'Qué evidencia tengo', 'Qué funcionó', 'Qué ajustaré', 'Próxima acción'] },
-    demo: {
-      objective: 'Convertir notas de clase en una decisión de mejora.',
-      workflow: ['Pegar notas no sensibles de una clase.', 'Pedir patrones observables.', 'Elegir una mejora pequeña.', 'Redactar próxima acción.'],
-      questions: ['¿Qué ajuste puedo probar la próxima clase?'],
-      expectedResults: ['Una decisión de mejora basada en evidencia.'],
-      presenterTips: ['No uses reflexión larga; una decisión basta.']
-    },
-    activity: {
-      title: 'Una mejora para mañana',
-      steps: ['Escribe una evidencia.', 'Anota qué funcionó.', 'Anota qué no.', 'Define un ajuste.'],
-      deliverable: 'Una nota de mejora con próxima acción.'
-    },
-    successCriterion: 'La nota incluye una evidencia observada, algo que funcionó, algo que se ajustará y una próxima acción concreta.',
-    takeaway: 'La reflexión docente vale cuando cambia la siguiente clase.',
-    transition: 'Con esa mirada, construiremos una ruta de 30 días realista.',
-    promptTemplate: prompt(
-      'reflexion-ajuste',
-      'Reflexion breve de clase',
-      'Mejora continua',
-      'Básico',
-      91,
-      'Con base en estas notas de clase no sensibles: [NOTAS], identifica qué funcionó, qué evidencia lo muestra, qué necesita ajuste y una acción pequeña para la próxima clase de [GRADO Y ASIGNATURA].'
-    ),
-    resources: ['Notas de clase', 'Evidencias no sensibles', 'Planeación']
-  }),
-  practicalLesson({
-    id: 'roadmap-30-dias',
-    moduleId: 'modulo-4',
-    title: '¿Qué haré durante los próximos 30 días?',
-    duration: '15 min',
-    objective: ['Crear un plan de adopción de IA pequeño, medible y realista.'],
-    teacherProblem: 'Después del taller, es fácil querer aplicarlo todo y terminar sin sostener nada.',
-    caseSituation:
-      'Al salir del taller, un docente quiere crear notebooks, rúbricas, audios y proyectos. Dos semanas después, la carga normal de trabajo vuelve. Necesita una ruta pequeña y sostenible.',
-    keyIdea: 'La adopción funciona mejor con una práctica pequeña por semana.',
-    visual: { title: '30 días realistas', steps: ['Semana 1: fuentes', 'Semana 2: plantilla', 'Semana 3: actividad', 'Semana 4: evidencia'] },
-    demo: {
-      objective: 'Construir una ruta de 30 días para una asignatura y un grupo.',
-      workflow: ['Elegir un grupo real.', 'Definir una práctica por semana.', 'Agregar evidencia de avance.', 'Identificar apoyo necesario.'],
-      questions: ['¿Qué puedo sostener incluso en una semana pesada?'],
-      expectedResults: ['Una ruta de 30 días lista para probar.'],
-      presenterTips: ['Evita planes ambiciosos; privilegia continuidad.']
-    },
-    activity: {
-      title: 'Mi ruta de 30 días',
-      steps: ['Elige grupo.', 'Define semana 1.', 'Define semana 2.', 'Define evidencia final.'],
-      deliverable: 'Un plan de 30 días con cuatro acciones pequeñas.'
-    },
-    successCriterion: 'La ruta incluye una acción por semana, evidencia de avance y un riesgo probable con forma de mantenerlo simple.',
-    takeaway: 'Un cambio pequeño sostenido vale más que diez ideas que no llegan al aula.',
-    transition: 'La última lección convierte esa ruta en un proyecto integrador listo para presentar y usar.',
-    promptTemplate: prompt(
-      'roadmap-30-dias-plan',
-      'Plan de 30 días',
-      'Implementación',
-      'Básico',
-      93,
-      'Diseña una ruta de 30 días para usar NotebookLM en [ASIGNATURA] con [GRADO]. Incluye una acción pequeña por semana, producto docente, evidencia estudiantil, riesgo probable y forma de mantenerlo simple.'
-    ),
-    resources: ['Calendario escolar', 'Grupo elegido', 'Notebook inicial']
-  }),
-  practicalLesson({
-    id: 'proyecto-final-leccion',
-    moduleId: 'modulo-4',
-    title: '¿Qué me llevo listo para usar el lunes?',
-    duration: '15 min',
-    objective: ['Integrar fuentes, plantilla, actividad, evaluación y plan de uso en un producto final.'],
-    teacherProblem: 'Un taller sirve poco si termina en ideas sueltas y no en algo que el docente pueda abrir el lunes.',
-    caseSituation:
-      'El cierre no debe ser “aprendí muchas funciones”, sino “tengo un paquete listo: fuente, prompt, actividad, criterio y primer paso de aplicación”.',
-    keyIdea: 'El producto final debe ser pequeño, completo y usable en una clase real.',
-    visual: { title: 'Paquete listo para clase', steps: ['Notebook', 'Plantilla', 'Actividad', 'Criterio', 'Ruta de uso'] },
-    demo: {
-      objective: 'Mostrar el paquete final de una clase real construido durante el taller.',
-      workflow: ['Abrir notebook del ejemplo.', 'Mostrar fuente y plantilla.', 'Mostrar actividad y criterio.', 'Explicar cómo se usará el lunes.'],
-      questions: ['¿Esto se puede abrir y usar en una clase real?'],
-      expectedResults: ['Un paquete final claro y presentable.'],
-      presenterTips: ['Cierra con aplicación, no con celebración de funciones.']
-    },
-    activity: {
-      title: 'Mi paquete de lunes',
-      steps: ['Reúne notebook y fuente.', 'Pega plantilla usada.', 'Incluye actividad.', 'Agrega criterio y primer paso.'],
-      deliverable: 'Un paquete de clase listo para usar el lunes.'
-    },
-    successCriterion: 'El paquete contiene fuente, plantilla, actividad, criterio de evaluación y primer paso para aplicarlo el lunes.',
+    successCriterion:
+      'El plan incluye un paquete listo para clase, una acción semanal durante 30 días y una decisión concreta para el próximo ciclo escolar.',
     takeaway: 'El taller termina cuando el docente tiene una acción lista, no cuando conoce una herramienta más.',
     transition: 'Cierre del taller: cada docente comparte qué usará primero y qué apoyo necesita para sostenerlo.',
     promptTemplate: prompt(
-      'proyecto-final-paquete',
-      'Paquete final listo para clase',
-      'Proyecto integrador',
-      'Intermedio',
+      'm4-plan-implementacion',
+      'Plan de implementación de NotebookLM',
+      'Implementación',
+      'Básico',
       95,
-      'Organiza mi producto final para [GRADO Y ASIGNATURA]: fuentes usadas, plantilla profesional, actividad de clase, evidencia, criterio de evaluacion y primer paso para aplicarlo el lunes.'
+      'Organiza mi plan de implementación para [GRADO Y ASIGNATURA]: notebook, fuentes, plantilla, actividad, evaluación, una acción por semana durante 30 días y qué prepararé desde ahora para el próximo ciclo escolar.'
     ),
-    resources: ['Notebook creado', 'Plantilla usada', 'Actividad', 'Rúbrica corta', 'Ruta de 30 días']
+    resources: ['Notebook creado', 'Plantilla usada', 'Actividad', 'Rúbrica corta', 'Calendario escolar']
   })
 ];
 

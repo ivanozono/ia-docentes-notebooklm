@@ -147,5 +147,17 @@ export const keyedVisuals: Record<string, { src: string; alt: string }> = {
   'notebook-colegiado': {
     src: courseImage('ilustracionNotebookColegiado.jpg'),
     alt: 'Ilustración de NotebookLM como memoria institucional del colectivo docente.'
+  },
+  'docente-decide': {
+    src: courseImage('ilustracionDocenteDesiciones.jpg'),
+    alt: 'Ilustración de la IA que propone y el docente que decide, con lo que sí puede hacer NotebookLM y lo que nunca debe delegar el docente.'
+  },
+  'proteccion-datos-pensamiento-critico': {
+    src: courseImage('ilustracionProteccionDatosPensamientoCritico.jpg'),
+    alt: 'Ilustración de protección de datos y pensamiento crítico antes de usar una respuesta de IA.'
+  },
+  'plan-implementacion': {
+    src: courseImage('ilustracionPlamImplementacion.jpg'),
+    alt: 'Ilustración del plan de implementación docente con NotebookLM: notebook, actividades, planeación y flujo de trabajo.'
   }
 };

@@ -75,7 +75,10 @@ export type Lesson = {
       | 'notebooklm-logros'
       | 'catalogo-profesional'
       | 'flujo-trabajo-docente'
-      | 'notebook-colegiado';
+      | 'notebook-colegiado'
+      | 'docente-decide'
+      | 'proteccion-datos-pensamiento-critico'
+      | 'plan-implementacion';
     pointDetails?: Array<{
       label: string;
       detail: string;
