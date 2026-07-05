@@ -1,15 +1,18 @@
-import type { Lesson } from '../types';
+import type { Lesson, Module } from '../types';
 import { keyedVisuals, lessonVisuals, moduleVisuals } from './visuals';
 import { modules } from './course';
 
 export type PresentationMoment = {
   id: string;
+  moduleId: string;
+  lessonId: string | null;
   title: string;
   subtitle: string;
   visibleSentence: string;
   visual:
     | { type: 'image'; src: string; alt: string }
     | { type: 'diagram'; title: string; steps: string[] };
+  pointDetails?: Array<{ label: string; detail: string }>;
   reflectionQuestion: string;
   quote?: string;
   analogy?: string;
@@ -53,6 +56,8 @@ export function getPresentationMoments(lesson: Lesson): PresentationMoment[] {
     return [
       {
         id: 'prompt-contextualizado',
+        moduleId: lesson.moduleId,
+        lessonId: lesson.id,
         title: 'Prompt contextualizado',
         subtitle: lesson.title,
         visibleSentence: '',
@@ -71,6 +76,8 @@ export function getPresentationMoments(lesson: Lesson): PresentationMoment[] {
       },
       {
         id: 'plantilla-prompt',
+        moduleId: lesson.moduleId,
+        lessonId: lesson.id,
         title: 'Plantilla de prompt profesional',
         subtitle: lesson.title,
         visibleSentence: '',
@@ -94,6 +101,8 @@ export function getPresentationMoments(lesson: Lesson): PresentationMoment[] {
     return [
       {
         id: 'studio-productos',
+        moduleId: lesson.moduleId,
+        lessonId: lesson.id,
         title: 'Studio',
         subtitle: lesson.title,
         visibleSentence: '',
@@ -112,6 +121,8 @@ export function getPresentationMoments(lesson: Lesson): PresentationMoment[] {
       },
       {
         id: 'chat-productos-docentes',
+        moduleId: lesson.moduleId,
+        lessonId: lesson.id,
         title: 'Chat',
         subtitle: lesson.title,
         visibleSentence: '',
@@ -145,13 +156,16 @@ export function getPresentationMoments(lesson: Lesson): PresentationMoment[] {
       const keyedVisual = section.imageKey ? keyedVisuals[section.imageKey] : null;
 
       return {
-        id: `section-${index + 1}`,
+        id: `${lesson.id}-section-${index + 1}`,
+        moduleId: lesson.moduleId,
+        lessonId: lesson.id,
         title: section.title,
         subtitle: lesson.title,
         visibleSentence: fitScreen(section.keyIdea, 30),
         visual: keyedVisual
           ? { type: 'image' as const, src: keyedVisual.src, alt: keyedVisual.alt }
           : { type: 'diagram' as const, title: section.title, steps: section.points },
+        pointDetails: section.pointDetails,
         reflectionQuestion: section.reflectionQuestion,
         presenterNotes: {
           timing: index === 0 ? '2 min' : '2–3 min',
@@ -177,6 +191,8 @@ export function getPresentationMoments(lesson: Lesson): PresentationMoment[] {
   return [
     {
       id: 'hook',
+      moduleId: lesson.moduleId,
+      lessonId: lesson.id,
       title: 'Un problema real',
       subtitle: lesson.title,
       visibleSentence: fitScreen(short(
@@ -199,6 +215,8 @@ export function getPresentationMoments(lesson: Lesson): PresentationMoment[] {
     },
     {
       id: 'key-concept',
+      moduleId: lesson.moduleId,
+      lessonId: lesson.id,
       title: 'La idea clave',
       subtitle: 'Una decisión pedagógica',
       visibleSentence: fitScreen(lesson.takeaway),
@@ -218,6 +236,8 @@ export function getPresentationMoments(lesson: Lesson): PresentationMoment[] {
     },
     {
       id: 'visual-comparison',
+      moduleId: lesson.moduleId,
+      lessonId: lesson.id,
       title: lesson.comparisonCards ? 'Comparar para decidir' : 'Mapa de trabajo',
       subtitle: 'Ver antes de explicar',
       visibleSentence: fitScreen(lesson.comparisonCards
@@ -241,6 +261,8 @@ export function getPresentationMoments(lesson: Lesson): PresentationMoment[] {
     },
     {
       id: 'live-demo',
+      moduleId: lesson.moduleId,
+      lessonId: lesson.id,
       title: 'Demostración en vivo',
       subtitle: 'Mirar el proceso',
       visibleSentence: fitScreen(lesson.demo.objective),
@@ -260,6 +282,8 @@ export function getPresentationMoments(lesson: Lesson): PresentationMoment[] {
     },
     {
       id: 'mini-activity',
+      moduleId: lesson.moduleId,
+      lessonId: lesson.id,
       title: 'Actividad de 5 minutos',
       subtitle: lesson.activity.title,
       visibleSentence: fitScreen(activitySentence),
@@ -278,6 +302,8 @@ export function getPresentationMoments(lesson: Lesson): PresentationMoment[] {
     },
     {
       id: 'takeaway',
+      moduleId: lesson.moduleId,
+      lessonId: lesson.id,
       title: 'Para llevar al aula',
       subtitle: 'Transferencia',
       visibleSentence: fitScreen(lesson.nextLessonBridge ?? lesson.takeaway),
@@ -296,6 +322,40 @@ export function getPresentationMoments(lesson: Lesson): PresentationMoment[] {
       }
     }
   ];
+}
+
+const getModuleCoverMoment = (module: Module): PresentationMoment => {
+  const cover = moduleVisuals[module.id];
+
+  return {
+    id: `module-cover-${module.id}`,
+    moduleId: module.id,
+    lessonId: null,
+    title: module.title,
+    subtitle: `Módulo ${module.number} de ${modules.length}`,
+    visibleSentence: module.subtitle,
+    visual: { type: 'image', src: cover.src, alt: cover.alt },
+    pointDetails: module.lessons.map((lesson) => ({ label: lesson.title, detail: lesson.takeaway })),
+    reflectionQuestion: '¿Qué esperas resolver en este módulo?',
+    presenterNotes: {
+      timing: '2 min',
+      speakingPoints: [
+        'Ubica al grupo en el módulo que comienza antes de entrar al detalle.',
+        'Nombra brevemente las lecciones que vienen.',
+        'Conecta este módulo con lo que ya se trabajó antes.'
+      ],
+      facilitatorReminder: 'Es una transición: no expliques contenido todavía.',
+      expectedAnswers: module.lessons.map((lesson) => lesson.title),
+      transition: 'Comencemos con la primera lección de este módulo.'
+    }
+  };
+};
+
+export function getWorkshopMoments(): PresentationMoment[] {
+  return modules.flatMap((module) => [
+    getModuleCoverMoment(module),
+    ...module.lessons.flatMap((lesson) => getPresentationMoments(lesson))
+  ]);
 }
 
 export function getManualLesson(lesson: Lesson): ManualLesson {

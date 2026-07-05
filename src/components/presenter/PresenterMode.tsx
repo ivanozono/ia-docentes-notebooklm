@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import {
   Box,
   Button,
@@ -10,37 +10,53 @@ import {
   IconButton,
   LinearProgress,
   Stack,
+  Tooltip,
   Typography,
   alpha
 } from '@mui/material';
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 import ArrowBackRoundedIcon from '@mui/icons-material/ArrowBackRounded';
 import ArrowForwardRoundedIcon from '@mui/icons-material/ArrowForwardRounded';
-import PlayCircleRoundedIcon from '@mui/icons-material/PlayCircleRounded';
-import EditNoteRoundedIcon from '@mui/icons-material/EditNoteRounded';
 import { allLessons, modules } from '../../data/course';
 import { useAppState } from '../../state/AppState';
-import { getPresentationMoments } from '../../data/lessonExperience';
+import { getWorkshopMoments } from '../../data/lessonExperience';
+
+const visualOnlyLessons = ['prompt-engineering', 'notebooklm-studio'];
 
 export default function PresenterMode() {
   const location = useLocation();
   const navigate = useNavigate();
   const { setPresenterMode } = useAppState();
-  const lessonId = location.pathname.startsWith('/lesson/') ? location.pathname.replace('/lesson/', '') : allLessons[0].id;
-  const lesson = allLessons.find((item) => item.id === lessonId) ?? allLessons[0];
-  const module = modules.find((item) => item.id === lesson.moduleId);
-  const index = allLessons.findIndex((item) => item.id === lesson.id);
-  const previous = allLessons[index - 1];
-  const next = allLessons[index + 1];
-  const moments = useMemo(() => getPresentationMoments(lesson), [lesson]);
-  const [momentIndex, setMomentIndex] = useState(0);
+  const moments = useMemo(() => getWorkshopMoments(), []);
+
+  const [momentIndex, setMomentIndex] = useState(() => {
+    const currentLessonId = location.pathname.startsWith('/lesson/')
+      ? location.pathname.replace('/lesson/', '')
+      : null;
+    if (!currentLessonId) return 0;
+    const startIndex = moments.findIndex((item) => item.lessonId === currentLessonId);
+    return startIndex >= 0 ? startIndex : 0;
+  });
+  const [activeBubble, setActiveBubble] = useState(0);
   const [zoomedImage, setZoomedImage] = useState<{ src: string; alt: string } | null>(null);
+
   const moment = moments[momentIndex];
-  const visualOnlyLesson = ['prompt-engineering', 'notebooklm-studio'].includes(lesson.id);
+  const module = modules.find((item) => item.id === moment.moduleId);
+  const lesson = moment.lessonId ? allLessons.find((item) => item.id === moment.lessonId) : undefined;
+  const visualOnlyLesson = Boolean(lesson && visualOnlyLessons.includes(lesson.id));
+  const lessonPosition = module && lesson ? module.lessons.findIndex((item) => item.id === lesson.id) : -1;
 
   useEffect(() => {
-    setMomentIndex(0);
-  }, [lesson.id]);
+    setActiveBubble(0);
+  }, [momentIndex]);
+
+  useEffect(() => {
+    const path = moment.lessonId ? `/lesson/${moment.lessonId}` : `/module/${moment.moduleId}`;
+    if (location.pathname !== path) {
+      navigate(path, { replace: true });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [moment]);
 
   useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
@@ -48,40 +64,26 @@ export default function PresenterMode() {
       event.preventDefault();
 
       if (event.key === 'ArrowRight') {
-        if (momentIndex < moments.length - 1) {
-          setMomentIndex((current) => current + 1);
-        } else if (next) {
-          navigate(`/lesson/${next.id}`);
-        }
+        setMomentIndex((current) => Math.min(current + 1, moments.length - 1));
       }
 
       if (event.key === 'ArrowLeft') {
-        if (momentIndex > 0) {
-          setMomentIndex((current) => current - 1);
-        } else if (previous) {
-          navigate(`/lesson/${previous.id}`);
-        }
+        setMomentIndex((current) => Math.max(current - 1, 0));
       }
     };
 
     window.addEventListener('keydown', onKeyDown);
     return () => window.removeEventListener('keydown', onKeyDown);
-  }, [momentIndex, moments.length, navigate, next, previous]);
+  }, [moments.length]);
 
-  const goPrevious = () => {
-    if (momentIndex > 0) {
-      setMomentIndex((current) => current - 1);
-    }
-  };
-
-  const goNext = () => {
-    if (momentIndex < moments.length - 1) {
-      setMomentIndex((current) => current + 1);
-    }
-  };
+  const goPrevious = () => setMomentIndex((current) => Math.max(current - 1, 0));
+  const goNext = () => setMomentIndex((current) => Math.min(current + 1, moments.length - 1));
 
   const imageVisual = moment.visual.type === 'image' ? moment.visual : null;
   const diagramVisual = moment.visual.type === 'diagram' ? moment.visual : null;
+  const details =
+    moment.pointDetails ?? (diagramVisual ? diagramVisual.steps.map((step) => ({ label: step, detail: step })) : []);
+  const activeDetail = details[activeBubble];
 
   return (
     <Box
@@ -96,8 +98,8 @@ export default function PresenterMode() {
       <Container maxWidth="xl">
         <Stack spacing={{ xs: 3, md: 5 }}>
           <Stack direction="row" justifyContent="space-between" alignItems="center">
-            <Stack direction="row" spacing={1} alignItems="center">
-              <Chip label={`Presentación · ${module?.title ?? 'Taller'}`} color="primary" />
+            <Stack direction="row" spacing={1} alignItems="center" flexWrap="wrap" useFlexGap>
+              <Chip label={`Taller · ${module?.title ?? 'NotebookLM'}`} color="primary" />
               <Chip label={`${momentIndex + 1}/${moments.length}`} variant="outlined" />
             </Stack>
             <IconButton onClick={() => setPresenterMode(false)} aria-label="Salir de presentación">
@@ -114,7 +116,9 @@ export default function PresenterMode() {
             <Box sx={{ flex: imageVisual ? '0 0 auto' : 1, minWidth: 0, width: '100%' }}>
               {!visualOnlyLesson ? (
                 <Typography variant="overline" color="text.secondary">
-                  Lección {index + 1} de {allLessons.length} · {moment.subtitle}
+                  {lesson && module && lessonPosition >= 0
+                    ? `Módulo ${module.number} · Lección ${lessonPosition + 1} de ${module.lessons.length} · ${moment.subtitle}`
+                    : moment.subtitle}
                 </Typography>
               ) : null}
               {!imageVisual ? (
@@ -155,7 +159,7 @@ export default function PresenterMode() {
                     alt={imageVisual.alt}
                     sx={{
                       width: '100%',
-                      maxHeight: { xs: 380, md: '68vh' },
+                      maxHeight: { xs: 380, md: '62vh' },
                       objectFit: 'contain',
                       display: 'block',
                       borderRadius: 3,
@@ -202,14 +206,55 @@ export default function PresenterMode() {
                   </Stack>
                 </Box>
               ) : null}
+
+              {details.length ? (
+                <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap sx={{ mt: 2.5 }}>
+                  {details.map((point, pointIndex) => (
+                    <Chip
+                      key={`${point.label}-${pointIndex}`}
+                      label={point.label}
+                      clickable
+                      color={pointIndex === activeBubble ? 'primary' : 'default'}
+                      variant={pointIndex === activeBubble ? 'filled' : 'outlined'}
+                      onClick={() => setActiveBubble(pointIndex)}
+                      sx={{
+                        height: 'auto',
+                        py: 0.75,
+                        '& .MuiChip-label': {
+                          whiteSpace: 'normal',
+                          lineHeight: 1.25,
+                          py: 0.4
+                        }
+                      }}
+                    />
+                  ))}
+                </Stack>
+              ) : null}
+
+              {activeDetail ? (
+                <Box
+                  sx={{
+                    mt: 2,
+                    p: 2,
+                    borderRadius: 2,
+                    border: '1px solid',
+                    borderColor: 'divider',
+                    bgcolor: (theme) => (theme.palette.mode === 'dark' ? 'rgba(2,6,23,0.46)' : 'rgba(240,249,255,0.8)')
+                  }}
+                >
+                  <Typography variant="subtitle1" color="primary" fontWeight={760}>
+                    {activeDetail.label}
+                  </Typography>
+                  <Typography color="text.secondary" sx={{ mt: 0.5 }}>
+                    {activeDetail.detail}
+                  </Typography>
+                </Box>
+              ) : null}
             </Box>
           </Stack>
 
           {!visualOnlyLesson ? (
-            <Stack
-              direction={{ xs: 'column', md: 'row' }}
-              spacing={2}
-              alignItems={{ md: 'center' }}
+            <Box
               sx={{
                 p: 2,
                 borderRadius: 3,
@@ -218,52 +263,30 @@ export default function PresenterMode() {
                 borderColor: 'divider'
               }}
             >
-              <Box sx={{ flex: 1 }}>
-                <Typography variant="overline" color="text.secondary">
-                  Pregunta para el grupo
-                </Typography>
-                <Typography variant="h6">{moment.reflectionQuestion}</Typography>
-              </Box>
-              <Stack direction="row" spacing={1}>
-                <Button variant="contained" startIcon={<PlayCircleRoundedIcon />}>
-                  Live Demo
-                </Button>
-                <Button variant="outlined" startIcon={<EditNoteRoundedIcon />}>
-                  Actividad
-                </Button>
-              </Stack>
-            </Stack>
+              <Typography variant="overline" color="text.secondary">
+                Pregunta para el grupo
+              </Typography>
+              <Typography variant="h6">{moment.reflectionQuestion}</Typography>
+            </Box>
           ) : null}
 
           <Stack direction="row" justifyContent="space-between" alignItems="center">
             <Button
-              component={Link}
-              to={previous ? `/lesson/${previous.id}` : `/lesson/${lesson.id}`}
-              disabled={!previous && momentIndex === 0}
+              onClick={goPrevious}
+              disabled={momentIndex === 0}
               startIcon={<ArrowBackRoundedIcon />}
-              onClick={(event) => {
-                if (momentIndex > 0) {
-                  event.preventDefault();
-                  goPrevious();
-                }
-              }}
             >
               Anterior
             </Button>
-            <Typography variant="body2" color="text.secondary">
-              Flechas para avanzar · F o Esc para salir
-            </Typography>
+            <Tooltip title="Flechas para avanzar · F o Esc para salir">
+              <Typography variant="body2" color="text.secondary">
+                Flechas para avanzar · F o Esc para salir
+              </Typography>
+            </Tooltip>
             <Button
-              component={Link}
-              to={next ? `/lesson/${next.id}` : `/lesson/${lesson.id}`}
-              disabled={!next && momentIndex === moments.length - 1}
+              onClick={goNext}
+              disabled={momentIndex === moments.length - 1}
               endIcon={<ArrowForwardRoundedIcon />}
-              onClick={(event) => {
-                if (momentIndex < moments.length - 1) {
-                  event.preventDefault();
-                  goNext();
-                }
-              }}
             >
               Siguiente
             </Button>
