@@ -45,7 +45,7 @@ export default function About() {
           </Typography>
         </Box>
 
-        <SectionCard title="Platform Creator">
+        <SectionCard title="Creador de la plataforma">
           <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2.5} alignItems={{ sm: 'center' }}>
             <Avatar sx={{ width: 64, height: 64, bgcolor: 'primary.main', color: 'primary.contrastText', fontWeight: 760, fontSize: 22 }}>
               IO
@@ -61,7 +61,7 @@ export default function About() {
           </Stack>
         </SectionCard>
 
-        <SectionCard title="Workshop Instructors">
+        <SectionCard title="Facilitadores del taller">
           <Grid container spacing={2}>
             {instructors.map((person) => (
               <Grid item xs={12} sm={6} key={person.name}>
