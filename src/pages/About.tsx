@@ -13,6 +13,14 @@ const instructors = [
   { name: 'Profe. Marisol Sánchez', role: 'Facilitadora del taller' }
 ];
 
+const qualityGates = [
+  ['A', 'IA aplicada a la educación', 'Contenido actual, creíble y alineado con NotebookLM y NEM.'],
+  ['B', 'UX/UI senior', 'Navegación clara, jerarquía visual y experiencia usable en taller.'],
+  ['C', 'Presentaciones profesionales', 'Ritmo, storytelling, impacto visual y utilidad para facilitar en vivo.'],
+  ['D', 'Dirección de proyecto', 'Propuesta de valor completa: de herramienta a práctica docente sostenible.'],
+  ['E', 'Docente de secundaria', 'Productos fáciles de implementar el lunes con grupos reales.']
+];
+
 const initials = (name: string) =>
   name
     .replace('Profe. ', '')
@@ -68,6 +76,28 @@ export default function About() {
                     <Typography fontWeight={700}>{person.name}</Typography>
                     <Typography variant="body2" color="text.secondary">
                       {person.role}
+                    </Typography>
+                  </Box>
+                </Stack>
+              </Grid>
+            ))}
+          </Grid>
+        </SectionCard>
+
+        <SectionCard title="Control de calidad del proyecto">
+          <Grid container spacing={1.5}>
+            {qualityGates.map(([code, title, detail]) => (
+              <Grid item xs={12} md={6} key={code}>
+                <Stack
+                  direction="row"
+                  spacing={1.5}
+                  sx={{ p: 1.5, borderRadius: 2, border: '1px solid', borderColor: 'divider', height: '100%' }}
+                >
+                  <Chip label={code} color="primary" sx={{ fontWeight: 760 }} />
+                  <Box>
+                    <Typography fontWeight={760}>{title}</Typography>
+                    <Typography variant="body2" color="text.secondary">
+                      {detail}
                     </Typography>
                   </Box>
                 </Stack>

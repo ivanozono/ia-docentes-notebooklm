@@ -37,12 +37,9 @@ export default function RightPanel() {
           </Typography>
           <List dense>
             {[
-              ['Objetivos', '#objetivos'],
-              ['Ideas clave', '#ideas-clave'],
-              ['Consignas', '#consignas'],
+              ['Pantallas visuales', '#pantallas'],
               ['Demostración', '#demostración'],
-              ['Actividad', '#actividad'],
-              ['Síntesis', '#síntesis']
+              ['Actividad práctica', '#actividad']
             ].map(([label, href]) => (
               <ListItemButton key={label} component="a" href={href}>
                 <ListItemText primary={label} primaryTypographyProps={{ fontSize: 13, fontWeight: 600 }} />

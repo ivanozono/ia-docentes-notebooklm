@@ -210,6 +210,7 @@ export default function LessonPage() {
         </Box>
 
         <Grid
+            id="pantallas"
             container
             spacing={1.5}
             sx={{

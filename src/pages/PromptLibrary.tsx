@@ -10,7 +10,8 @@ import {
   TextField,
   ToggleButton,
   ToggleButtonGroup,
-  Typography
+  Typography,
+  alpha
 } from '@mui/material';
 import ExpandMoreRoundedIcon from '@mui/icons-material/ExpandMoreRounded';
 import Page from '../components/common/Page';
@@ -22,37 +23,71 @@ import type { Difficulty } from '../types';
 const categoryGuide = [
   {
     id: 'Planeación',
-    label: '📚 Planeación',
+    label: '1. Planeación',
     description: 'Documentos para ordenar clases, secuencias y proyectos con tus fuentes.'
   },
   {
     id: 'Actividades de Aprendizaje',
-    label: '🎯 Actividades de Aprendizaje',
+    label: '2. Actividades de aprendizaje',
     description: 'Productos para trabajar en clase: individual, en equipo, retos y estudios de caso.'
   },
   {
     id: 'Evaluación',
-    label: '📊 Evaluación',
+    label: '3. Evaluación',
     description: 'Instrumentos, criterios y retroalimentación para revisar avances.'
   },
   {
     id: 'Inclusión',
-    label: '👥 Inclusión',
+    label: '4. Inclusión',
     description: 'Ajustes para reducir barreras y ofrecer opciones de participación.'
   },
   {
     id: 'Gestión Escolar',
-    label: '🏫 Gestión Escolar',
+    label: '5. Gestión escolar',
     description: 'Minutas, oficios, reportes y planes de mejora para la gestión diaria.'
   },
   {
     id: 'Liderazgo',
-    label: '👨‍💼 Liderazgo',
+    label: '6. Liderazgo',
     description: 'Análisis institucional, informes y asesoría para el trabajo colegiado.'
   }
 ];
 
 const categoryLabel = (category: string) => categoryGuide.find((item) => item.id === category)?.label ?? category;
+
+const notebookLimits = [
+  {
+    title: 'Trabaja con fuentes',
+    detail: 'NotebookLM responde mejor cuando el notebook contiene documentos propios, vigentes y pertinentes.'
+  },
+  {
+    title: 'Tiene límites de uso',
+    detail: 'Los límites pueden variar por cuenta o plan. Verifica notebooks, fuentes, consultas y generaciones en la ayuda oficial.'
+  },
+  {
+    title: 'No reemplaza revisión docente',
+    detail: 'Antes de usar un producto en clase, revisa fidelidad a fuentes, datos personales, sesgos, lenguaje y pertinencia para el grupo.'
+  }
+];
+
+const variableGuide = [
+  {
+    variable: '[INTENCIÓN PEDAGÓGICA]',
+    options: ['Comprender', 'Aplicar', 'Analizar', 'Argumentar', 'Crear', 'Evaluar', 'Reflexionar', 'Colaborar', 'Adaptar para inclusión']
+  },
+  {
+    variable: '[PRODUCTO A GENERAR]',
+    options: ['Actividad', 'Planeación', 'Rúbrica', 'Lista de cotejo', 'Guía de estudio', 'Infografía', 'Reporte', 'Comunicación', 'Plan de mejora']
+  },
+  {
+    variable: '[CARACTERÍSTICAS DEL GRUPO]',
+    options: ['Grado', 'Asignatura', 'ritmo de trabajo', 'lectura compleja', 'participación oral', 'acceso digital', 'barreras de aprendizaje']
+  },
+  {
+    variable: '[TIEMPO DISPONIBLE]',
+    options: ['10 minutos', '25 minutos', '50 minutos', '2 sesiones', '1 semana', '1 mes']
+  }
+];
 
 export default function PromptLibrary() {
   const [query, setQuery] = useState('');
@@ -89,10 +124,61 @@ export default function PromptLibrary() {
           </Typography>
           <Typography variant="h2">Kit profesional docente</Typography>
           <Typography variant="h6" color="text.secondary" sx={{ mt: 1, maxWidth: 780 }}>
-            Plantillas listas para crear planeaciones, actividades, evaluaciones, inclusión, gestión escolar y liderazgo con
-            NotebookLM.
+            Plantillas de prompt listas para crear productos docentes con NotebookLM. Elige una categoría, cambia las
+            variables y revisa el resultado antes de llevarlo al aula.
           </Typography>
         </Box>
+
+        <Grid container spacing={2}>
+          {notebookLimits.map((item) => (
+            <Grid item xs={12} md={4} key={item.title}>
+              <Box
+                sx={{
+                  height: '100%',
+                  p: 2,
+                  borderRadius: 2,
+                  border: '1px solid',
+                  borderColor: 'divider',
+                  bgcolor: (theme) => alpha(theme.palette.warning.main, theme.palette.mode === 'dark' ? 0.16 : 0.08)
+                }}
+              >
+                <Typography fontWeight={760}>{item.title}</Typography>
+                <Typography variant="body2" color="text.secondary" sx={{ mt: 0.75 }}>
+                  {item.detail}
+                </Typography>
+              </Box>
+            </Grid>
+          ))}
+        </Grid>
+
+        <Accordion disableGutters variant="outlined" sx={{ '&:before': { display: 'none' } }}>
+          <AccordionSummary expandIcon={<ExpandMoreRoundedIcon />}>
+            <Box>
+              <Typography fontWeight={760}>Guía rápida de variables editables</Typography>
+              <Typography variant="body2" color="text.secondary">
+                Usa estas listas para completar los campos entre corchetes sin escribir desde cero.
+              </Typography>
+            </Box>
+          </AccordionSummary>
+          <AccordionDetails>
+            <Grid container spacing={1.5}>
+              {variableGuide.map((item) => (
+                <Grid item xs={12} md={6} key={item.variable}>
+                  <Box sx={{ p: 1.5, borderRadius: 2, bgcolor: 'background.default', border: '1px solid', borderColor: 'divider' }}>
+                    <Typography variant="subtitle2" color="primary" fontWeight={760}>
+                      {item.variable}
+                    </Typography>
+                    <Stack direction="row" spacing={0.75} flexWrap="wrap" useFlexGap sx={{ mt: 1 }}>
+                      {item.options.map((option) => (
+                        <Chip key={option} label={option} size="small" variant="outlined" />
+                      ))}
+                    </Stack>
+                  </Box>
+                </Grid>
+              ))}
+            </Grid>
+          </AccordionDetails>
+        </Accordion>
 
         <Grid container spacing={3}>
           <Grid item xs={12} md={4} sx={{ order: { xs: 1, md: 2 } }}>

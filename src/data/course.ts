@@ -2613,6 +2613,20 @@ export const resources: Resource[] = [
     url: 'https://support.google.com/notebooklm/'
   },
   {
+    id: 'notebooklm-fuentes',
+    title: 'Fuentes compatibles en NotebookLM',
+    category: 'Herramientas de Google',
+    description: 'Referencia oficial para revisar tipos de fuentes, sincronización con Drive y límites técnicos antes del taller.',
+    url: 'https://support.google.com/notebooklm/answer/16215270'
+  },
+  {
+    id: 'notebooklm-studio-ayuda',
+    title: 'Productos de Studio en NotebookLM',
+    category: 'Herramientas de Google',
+    description: 'Ayuda oficial sobre productos como Audio Overview, Video Overview, cuestionarios, tarjetas, infografías y presentaciones.',
+    url: 'https://support.google.com/notebooklm/'
+  },
+  {
     id: 'workspace',
     title: 'Google Workspace',
     category: 'Herramientas de Google',
@@ -2658,7 +2672,15 @@ export const resources: Resource[] = [
     id: 'nem-programas',
     title: 'Nueva Escuela Mexicana',
     category: 'Marco curricular oficial',
-    description: 'Base para alinear campos formativos, PDA y ejes articuladores del plan de estudios vigente.'
+    description: 'Base para alinear campos formativos, PDA y ejes articuladores del plan de estudios vigente.',
+    url: 'https://educacionbasica.sep.gob.mx/'
+  },
+  {
+    id: 'plan-estudio-2022',
+    title: 'Plan de Estudio 2022',
+    category: 'Marco curricular oficial',
+    description: 'Documento oficial de educación básica para consultar enfoque, codiseño, campos formativos y ejes articuladores.',
+    url: 'https://educacionbasica.sep.gob.mx/wp-content/uploads/2024/06/Plan-de-Estudio-ISBN-ELECTRONICO.pdf'
   },
   {
     id: 'edubc',

@@ -13,6 +13,15 @@ const learningGoals = [
   'Implementar IA responsable con una ruta de 30 días.'
 ];
 
+const mondayProducts = [
+  'Un notebook con fuentes útiles',
+  'Una actividad lista para clase',
+  'Una planeación adaptable',
+  'Un instrumento de evaluación',
+  'Un material para estudiantes',
+  'Un flujo de trabajo semanal'
+];
+
 export default function Home() {
   return (
     <Page>
@@ -24,8 +33,7 @@ export default function Home() {
             overflow: 'hidden',
             position: 'relative',
             color: '#f8fafc',
-            background:
-              'linear-gradient(135deg, rgba(15,23,42,0.96), rgba(3,105,161,0.86)), radial-gradient(circle at 82% 18%, rgba(125,211,252,0.32), transparent 34%)'
+            background: 'linear-gradient(135deg, rgba(15,23,42,0.96), rgba(3,105,161,0.86))'
           }}
         >
           <Grid container spacing={{ xs: 4, md: 6 }} alignItems="center">
@@ -54,6 +62,20 @@ export default function Home() {
                 <Typography variant="h5" sx={{ maxWidth: 640, color: 'rgba(248,250,252,0.85)', lineHeight: 1.35, fontWeight: 500 }}>
                   De buscar respuestas a crear experiencias de aprendizaje con NotebookLM.
                 </Typography>
+                <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap>
+                  {['4 módulos', '12 lecciones', 'Productos para el lunes', 'Fuentes docentes'].map((item) => (
+                    <Chip
+                      key={item}
+                      label={item}
+                      sx={{
+                        color: 'white',
+                        borderColor: 'rgba(255,255,255,0.32)',
+                        bgcolor: 'rgba(255,255,255,0.1)'
+                      }}
+                      variant="outlined"
+                    />
+                  ))}
+                </Stack>
                 <Stack direction={{ xs: 'column', sm: 'row' }} spacing={1.5}>
                   <Button component={Link} to="/overview" size="large" variant="contained" endIcon={<ArrowForwardRoundedIcon />}>
                     Comenzar recorrido
@@ -82,6 +104,29 @@ export default function Home() {
             </Grid>
           </Grid>
         </Box>
+
+        <SectionCard title="Al terminar, cada docente se lleva">
+          <Grid container spacing={1.5}>
+            {mondayProducts.map((product) => (
+              <Grid item xs={12} sm={6} md={4} key={product}>
+                <Box
+                  sx={{
+                    minHeight: 76,
+                    p: 2,
+                    borderRadius: 2,
+                    bgcolor: 'background.default',
+                    border: '1px solid',
+                    borderColor: 'divider',
+                    display: 'flex',
+                    alignItems: 'center'
+                  }}
+                >
+                  <Typography fontWeight={720}>{product}</Typography>
+                </Box>
+              </Grid>
+            ))}
+          </Grid>
+        </SectionCard>
 
         <SectionCard title="Objetivos de aprendizaje">
           <Grid container spacing={1.5}>

@@ -17,6 +17,8 @@ import { resources } from '../data/course';
 const resourceIcons: Record<string, SvgIconComponent> = {
   notebooklm: AutoAwesomeRoundedIcon,
   'notebooklm-ayuda': HelpCenterRoundedIcon,
+  'notebooklm-fuentes': HelpCenterRoundedIcon,
+  'notebooklm-studio-ayuda': AutoAwesomeRoundedIcon,
   workspace: WorkspacesRoundedIcon,
   'workspace-updates': CampaignRoundedIcon,
   'google-for-education': SchoolRoundedIcon,
@@ -24,6 +26,7 @@ const resourceIcons: Record<string, SvgIconComponent> = {
   sep: AccountBalanceRoundedIcon,
   conaliteg: MenuBookRoundedIcon,
   'nem-programas': FlagRoundedIcon,
+  'plan-estudio-2022': AccountBalanceRoundedIcon,
   edubc: PublicRoundedIcon
 };
 
@@ -37,7 +40,7 @@ export default function Resources() {
           <Typography variant="overline" color="text.secondary">
             Recursos
           </Typography>
-          <Typography variant="h2">Resources Hub</Typography>
+          <Typography variant="h2">Centro de recursos</Typography>
           <Typography variant="h6" color="text.secondary" sx={{ mt: 1, maxWidth: 780 }}>
             Solo fuentes oficiales: herramientas de Google y marco curricular vigente para sostener el trabajo después del
             taller.
