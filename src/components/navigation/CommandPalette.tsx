@@ -76,7 +76,7 @@ export default function CommandPalette() {
         <TextField
           autoFocus
           fullWidth
-          placeholder="Buscar lecciones, consignas, recursos o comandos"
+          placeholder="Buscar lecciones, prompts, recursos o comandos"
           value={query}
           onChange={(event) => setQuery(event.target.value)}
           InputProps={{

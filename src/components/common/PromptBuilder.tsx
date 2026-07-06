@@ -4,7 +4,7 @@ import ContentCopyRoundedIcon from '@mui/icons-material/ContentCopyRounded';
 import RestartAltRoundedIcon from '@mui/icons-material/RestartAltRounded';
 import AutoFixHighRoundedIcon from '@mui/icons-material/AutoFixHighRounded';
 import type { Prompt } from '../../types';
-import { pedagogicalIntentions } from '../../data/course';
+import { pedagogicalIntentions, productExamplesByCategory } from '../../data/course';
 
 type BuilderFields = {
   tema: string;
@@ -59,6 +59,7 @@ export default function PromptBuilder({
 
   const updateField = (key: keyof BuilderFields, value: string) => setFields((current) => ({ ...current, [key]: value }));
   const reset = () => setFields(emptyFields);
+  const productExamples = selected ? productExamplesByCategory[selected.category] ?? [] : [];
 
   const copy = async () => {
     if (!filledText) return;
@@ -80,7 +81,7 @@ export default function PromptBuilder({
       <Stack spacing={2.5}>
         <Stack direction="row" spacing={1} alignItems="center">
           <AutoFixHighRoundedIcon color="primary" />
-          <Typography variant="h6">Generador de consignas</Typography>
+          <Typography variant="h6">Generador de prompts</Typography>
         </Stack>
 
         <Autocomplete
@@ -107,6 +108,26 @@ export default function PromptBuilder({
             </Grid>
           ))}
         </Grid>
+
+        {productExamples.length ? (
+          <Box>
+            <Typography variant="caption" color="text.secondary">
+              Ejemplos de productos para {selected?.category}
+            </Typography>
+            <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap sx={{ mt: 0.5 }}>
+              {productExamples.map((example) => (
+                <Chip
+                  key={example}
+                  label={example}
+                  size="small"
+                  variant={fields.producto === example ? 'filled' : 'outlined'}
+                  color={fields.producto === example ? 'primary' : 'default'}
+                  onClick={() => updateField('producto', example)}
+                />
+              ))}
+            </Stack>
+          </Box>
+        ) : null}
 
         <Box>
           <Typography variant="caption" color="text.secondary">
@@ -141,13 +162,13 @@ export default function PromptBuilder({
             bgcolor: (theme) => (theme.palette.mode === 'dark' ? alpha('#020617', 0.62) : alpha('#e0f2fe', 0.42))
           }}
         >
-          {filledText || 'Elige una plantilla para ver la consigna aquí.'}
+          {filledText || 'Elige una plantilla para ver el prompt aquí.'}
         </Box>
 
         <Stack direction="row" spacing={1.5} justifyContent="space-between" alignItems="center" flexWrap="wrap" useFlexGap>
           <Stack direction="row" spacing={1}>
             <Button variant="contained" startIcon={<ContentCopyRoundedIcon />} onClick={copy} disabled={!selected}>
-              Copiar consigna
+              Copiar prompt
             </Button>
             <Button variant="outlined" startIcon={<RestartAltRoundedIcon />} onClick={reset}>
               Reiniciar

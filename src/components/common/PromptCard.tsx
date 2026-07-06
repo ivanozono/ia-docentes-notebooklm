@@ -58,8 +58,8 @@ export default function PromptCard({ prompt, onUse }: { prompt: Prompt; onUse?: 
               {favorite ? <FavoriteRoundedIcon color="error" /> : <FavoriteBorderRoundedIcon />}
             </IconButton>
           </Tooltip>
-          <Tooltip title="Copiar consigna">
-            <IconButton onClick={copy} aria-label="Copiar consigna">
+          <Tooltip title="Copiar prompt">
+            <IconButton onClick={copy} aria-label="Copiar prompt">
               <ContentCopyRoundedIcon />
             </IconButton>
           </Tooltip>

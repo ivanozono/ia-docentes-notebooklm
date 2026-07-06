@@ -140,7 +140,7 @@ export type Resource = {
 export type SearchItem = {
   id: string;
   title: string;
-  type: 'Lección' | 'Consigna' | 'Recurso' | 'Actividad' | 'Página';
+  type: 'Lección' | 'Prompt' | 'Recurso' | 'Actividad' | 'Página';
   description: string;
   path: string;
 };

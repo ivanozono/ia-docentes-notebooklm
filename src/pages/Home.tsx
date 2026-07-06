@@ -59,7 +59,7 @@ export default function Home() {
                     Comenzar recorrido
                   </Button>
                   <Button component={Link} to="/prompts" size="large" variant="outlined" sx={{ color: 'white', borderColor: 'rgba(255,255,255,0.34)' }}>
-                    Abrir consignas
+                    Abrir prompts
                   </Button>
                 </Stack>
               </Stack>

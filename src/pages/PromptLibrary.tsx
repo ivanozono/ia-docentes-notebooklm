@@ -1,9 +1,22 @@
 import { useMemo, useState } from 'react';
-import { Box, Chip, Grid, Stack, TextField, ToggleButton, ToggleButtonGroup, Typography } from '@mui/material';
+import {
+  Accordion,
+  AccordionDetails,
+  AccordionSummary,
+  Box,
+  Chip,
+  Grid,
+  Stack,
+  TextField,
+  ToggleButton,
+  ToggleButtonGroup,
+  Typography
+} from '@mui/material';
+import ExpandMoreRoundedIcon from '@mui/icons-material/ExpandMoreRounded';
 import Page from '../components/common/Page';
 import PromptCard from '../components/common/PromptCard';
 import PromptBuilder from '../components/common/PromptBuilder';
-import { allPrompts } from '../data/course';
+import { allPrompts, productExamplesByCategory } from '../data/course';
 import type { Difficulty } from '../types';
 
 const categoryGuide = [
@@ -127,6 +140,22 @@ export default function PromptLibrary() {
                     <Typography color="text.secondary" sx={{ mb: 1.5 }}>
                       {group.description}
                     </Typography>
+                    {productExamplesByCategory[group.id]?.length ? (
+                      <Accordion disableGutters variant="outlined" sx={{ mb: 2, '&:before': { display: 'none' } }}>
+                        <AccordionSummary expandIcon={<ExpandMoreRoundedIcon />}>
+                          <Typography variant="body2" fontWeight={680}>
+                            Ejemplos de productos que puedes generar ({productExamplesByCategory[group.id].length})
+                          </Typography>
+                        </AccordionSummary>
+                        <AccordionDetails>
+                          <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap>
+                            {productExamplesByCategory[group.id].map((example) => (
+                              <Chip key={example} label={example} size="small" variant="outlined" />
+                            ))}
+                          </Stack>
+                        </AccordionDetails>
+                      </Accordion>
+                    ) : null}
                     <Grid container spacing={2}>
                       {group.prompts.map((prompt) => (
                         <Grid item xs={12} sm={6} key={prompt.id}>

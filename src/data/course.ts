@@ -2398,6 +2398,105 @@ export const pedagogicalIntentions = [
   'Conectar con la vida cotidiana'
 ];
 
+export const productExamplesByCategory: Record<string, string[]> = {
+  'Planeación': [
+    'Planeación diaria',
+    'Planeación semanal',
+    'Planeación mensual',
+    'Secuencia didáctica',
+    'Situación de aprendizaje',
+    'Proyecto comunitario',
+    'Proyecto interdisciplinario',
+    'Plan de unidad',
+    'Ruta de aprendizaje',
+    'Guion de clase',
+    'Plan de recuperación',
+    'Plan de repaso',
+    'Adecuación curricular de planeación',
+    'Cronograma de secuencia'
+  ],
+  'Actividades de Aprendizaje': [
+    'Actividad individual',
+    'Actividad colaborativa',
+    'Debate estructurado',
+    'Estudio de caso',
+    'Investigación guiada',
+    'Experimento',
+    'Reto gamificado',
+    'Aula invertida',
+    'Estaciones de aprendizaje',
+    'Reto STEAM',
+    'Simulación o juego de roles',
+    'Galería de aprendizaje',
+    'Círculo de lectura',
+    'Línea del tiempo colaborativa',
+    'Mapa mental grupal',
+    'Podcast estudiantil',
+    'Rally de preguntas',
+    'Mini proyecto comunitario',
+    'Guía de escucha para Audio Overview',
+    'Ticket de salida'
+  ],
+  'Evaluación': [
+    'Rúbrica',
+    'Lista de cotejo',
+    'Escala estimativa',
+    'Guía de observación',
+    'Evaluación diagnóstica',
+    'Evaluación formativa',
+    'Evaluación sumativa',
+    'Portafolio de evidencias',
+    'Autoevaluación',
+    'Coevaluación',
+    'Examen de opción múltiple',
+    'Preguntas abiertas',
+    'Retroalimentación personalizada',
+    'Diario de evaluación'
+  ],
+  'Inclusión': [
+    'Adecuación curricular',
+    'Material didáctico adaptado',
+    'Actividad multinivel',
+    'Apoyo visual u organizador gráfico',
+    'Texto simplificado o lectura fácil',
+    'Estrategia de Diseño Universal para el Aprendizaje',
+    'Plan de apoyo individual',
+    'Evaluación diferenciada',
+    'Glosario visual',
+    'Actividad multisensorial',
+    'Ajuste razonable de evaluación',
+    'Ficha de seguimiento de estudiante con NEE',
+    'Apoyos de comunicación aumentativa',
+    'Comunicación accesible a familias',
+    'Guía de lenguaje claro',
+    'Variante de instrucciones simplificadas'
+  ],
+  'Gestión Escolar': [
+    'Minuta de reunión',
+    'Oficio escolar',
+    'Aviso o circular para familias',
+    'Reporte de avance de grupo',
+    'Convocatoria escolar',
+    'Agenda de trabajo colegiado',
+    'PEMC',
+    'Plan de mejora',
+    'Formato de seguimiento',
+    'Comunicado institucional',
+    'Bitácora de gestión',
+    'Organización documental del notebook'
+  ],
+  'Liderazgo': [
+    'Informe para Consejo Técnico Escolar',
+    'Análisis comparativo de documentos',
+    'Agenda de academia',
+    'Asesoría pedagógica experta',
+    'Seguimiento de acuerdos del colectivo',
+    'Diagnóstico institucional',
+    'Plan de acompañamiento pedagógico',
+    'Reporte para supervisión escolar'
+  ]
+};
+
 const professionalTeacherToolkitPrompts: Prompt[] = [
   // 📚 Planeación
   prompt('plan-diaria', 'Planeación diaria con fuentes propias', 'Planeación', 'Básico', 97, 'Con base en las fuentes de este notebook, crea una planeación diaria sobre [TEMA] para [GRADO] en [ASIGNATURA]. Incluye [INTENCIÓN PEDAGÓGICA], [TIEMPO DISPONIBLE], inicio, desarrollo, cierre, materiales, [PRODUCTO A GENERAR] y un criterio rápido de revisión ajustado a [CARACTERÍSTICAS DEL GRUPO].'),
@@ -2406,6 +2505,14 @@ const professionalTeacherToolkitPrompts: Prompt[] = [
   prompt('plan-proyecto-comunitario', 'Proyecto comunitario situado', 'Planeación', 'Intermedio', 94, 'Convierte [TEMA] en un proyecto comunitario para [GRADO] en [ASIGNATURA], usando solo las fuentes de este notebook. Incluye una pregunta guía, [INTENCIÓN PEDAGÓGICA], ruta de trabajo, [PRODUCTO A GENERAR] y vínculo con la comunidad, considerando [CARACTERÍSTICAS DEL GRUPO].'),
   prompt('plan-interdisciplinario', 'Proyecto interdisciplinario', 'Planeación', 'Avanzado', 90, 'Diseña un proyecto interdisciplinario sobre [TEMA] para [GRADO], integrando [ASIGNATURA] con otras materias afines. Incluye [INTENCIÓN PEDAGÓGICA], [PRODUCTO A GENERAR], calendario en [TIEMPO DISPONIBLE] y forma de evaluación, con base en mis fuentes del notebook.'),
   prompt('plan-conaliteg', 'Conectar Programa Analítico con CONALITEG', 'Planeación', 'Avanzado', 92, 'Compara el Programa Analítico y el libro CONALITEG de este notebook sobre [TEMA] para [GRADO] en [ASIGNATURA]. Señala coincidencias, vacíos, páginas útiles y sugiere [PRODUCTO A GENERAR] alineado con [INTENCIÓN PEDAGÓGICA] para [CARACTERÍSTICAS DEL GRUPO].'),
+  prompt('plan-mensual', 'Planeación mensual por semanas', 'Planeación', 'Intermedio', 91, 'Con base en las fuentes de este notebook, organiza una planeación mensual para [GRADO] en [ASIGNATURA] sobre [TEMA]. Distribuye [TIEMPO DISPONIBLE] en semanas, define [PRODUCTO A GENERAR] por semana y ajusta la carga a [CARACTERÍSTICAS DEL GRUPO].'),
+  prompt('plan-situacion-aprendizaje', 'Situación de aprendizaje contextualizada', 'Planeación', 'Intermedio', 92, 'Diseña una situación de aprendizaje sobre [TEMA] para [GRADO] en [ASIGNATURA], usando solo las fuentes de este notebook. Conecta [INTENCIÓN PEDAGÓGICA] con el contexto de [CARACTERÍSTICAS DEL GRUPO], y define [PRODUCTO A GENERAR] y evidencia de cierre.'),
+  prompt('plan-unidad', 'Plan de unidad completo', 'Planeación', 'Avanzado', 90, 'Con base en el Programa Analítico de este notebook, organiza un plan de unidad sobre [TEMA] para [GRADO] en [ASIGNATURA]. Distribuye [TIEMPO DISPONIBLE] en sesiones, define [PRODUCTO A GENERAR] final y ajusta el ritmo a [CARACTERÍSTICAS DEL GRUPO].'),
+  prompt('plan-ruta-aprendizaje', 'Ruta de aprendizaje del estudiante', 'Planeación', 'Intermedio', 89, 'Diseña una ruta de aprendizaje sobre [TEMA] para [GRADO] en [ASIGNATURA]. Define pasos, [INTENCIÓN PEDAGÓGICA], [PRODUCTO A GENERAR] intermedio y final, y ajusta el avance a [CARACTERÍSTICAS DEL GRUPO].'),
+  prompt('plan-guion-clase', 'Guion de clase paso a paso', 'Planeación', 'Básico', 93, 'Con base en mis fuentes, crea un guion de clase minuto a minuto sobre [TEMA] para [GRADO] en [ASIGNATURA]. Ajusta a [TIEMPO DISPONIBLE], incluye [INTENCIÓN PEDAGÓGICA], [PRODUCTO A GENERAR] y notas para [CARACTERÍSTICAS DEL GRUPO].'),
+  prompt('plan-recuperacion', 'Plan de recuperación de aprendizajes', 'Planeación', 'Intermedio', 88, 'Diseña un plan de recuperación sobre [TEMA] para [GRADO] en [ASIGNATURA], pensado en [CARACTERÍSTICAS DEL GRUPO]. Define [INTENCIÓN PEDAGÓGICA], actividades breves, [PRODUCTO A GENERAR] y forma de verificar el avance en [TIEMPO DISPONIBLE].'),
+  prompt('plan-repaso', 'Plan de repaso previo a evaluación', 'Planeación', 'Básico', 90, 'Con base en mis fuentes, organiza un plan de repaso sobre [TEMA] para [GRADO] en [ASIGNATURA] antes de una evaluación. Define [PRODUCTO A GENERAR], [TIEMPO DISPONIBLE] y ajusta las actividades a [CARACTERÍSTICAS DEL GRUPO].'),
+  prompt('plan-adecuacion-curricular', 'Adecuación curricular de una planeación', 'Planeación', 'Intermedio', 87, 'Adapta esta planeación sobre [TEMA] para [GRADO] en [ASIGNATURA] a [CARACTERÍSTICAS DEL GRUPO]. Ajusta [INTENCIÓN PEDAGÓGICA], tiempos y [PRODUCTO A GENERAR] sin perder el propósito original en [TIEMPO DISPONIBLE].'),
 
   // 🎯 Actividades de Aprendizaje
   prompt('actividad-individual', 'Actividad individual desde fuentes propias', 'Actividades de Aprendizaje', 'Básico', 96, 'Con base en las fuentes de este notebook, crea una actividad individual sobre [TEMA] para [GRADO] en [ASIGNATURA]. Incluye [INTENCIÓN PEDAGÓGICA], [TIEMPO DISPONIBLE], instrucciones claras, [PRODUCTO A GENERAR] y un criterio rápido de revisión para [CARACTERÍSTICAS DEL GRUPO].'),
@@ -2414,6 +2521,20 @@ const professionalTeacherToolkitPrompts: Prompt[] = [
   prompt('actividad-caso-debate', 'Estudio de caso o debate', 'Actividades de Aprendizaje', 'Intermedio', 91, 'Diseña un estudio de caso o debate sobre [TEMA] para [GRADO] en [ASIGNATURA], con base en las fuentes de este notebook. Incluye el dilema o las posturas, preguntas de análisis, [INTENCIÓN PEDAGÓGICA] y [PRODUCTO A GENERAR] adecuado a [CARACTERÍSTICAS DEL GRUPO].'),
   prompt('actividad-material-estudio', 'Material de estudio para el aula', 'Actividades de Aprendizaje', 'Básico', 94, 'Convierte mis fuentes sobre [TEMA] en material de estudio para [GRADO] en [ASIGNATURA]: guía, resumen, infografía o tarjetas. Usa lenguaje claro, ejemplos cercanos a [CARACTERÍSTICAS DEL GRUPO] y cierra con [PRODUCTO A GENERAR] para practicar en [TIEMPO DISPONIBLE].'),
   prompt('actividad-audio-overview', 'Guía de escucha para un Audio Overview', 'Actividades de Aprendizaje', 'Intermedio', 93, 'A partir de un Audio Overview generado en Studio sobre [TEMA], crea una guía de escucha para [GRADO] en [ASIGNATURA]. Organiza antes, durante y después, incluye [INTENCIÓN PEDAGÓGICA], vocabulario clave y [PRODUCTO A GENERAR] como evidencia, ajustado a [CARACTERÍSTICAS DEL GRUPO].'),
+  prompt('actividad-debate-estructurado', 'Debate estructurado con posturas', 'Actividades de Aprendizaje', 'Intermedio', 91, 'Diseña un debate estructurado sobre [TEMA] para [GRADO] en [ASIGNATURA]. Define dos posturas, reglas, [TIEMPO DISPONIBLE], [INTENCIÓN PEDAGÓGICA] y [PRODUCTO A GENERAR] como cierre, ajustado a [CARACTERÍSTICAS DEL GRUPO].'),
+  prompt('actividad-experimento', 'Experimento seguro y viable', 'Actividades de Aprendizaje', 'Intermedio', 90, 'Diseña un experimento accesible sobre [TEMA] para [GRADO] en [ASIGNATURA]. Incluye materiales para [CARACTERÍSTICAS DEL GRUPO], pasos, [INTENCIÓN PEDAGÓGICA], [PRODUCTO A GENERAR] y tiempo estimado en [TIEMPO DISPONIBLE].'),
+  prompt('actividad-gamificada', 'Reto gamificado de repaso', 'Actividades de Aprendizaje', 'Básico', 92, 'Convierte [TEMA] en un reto gamificado para [GRADO] en [ASIGNATURA]. Define misión, reglas simples, [TIEMPO DISPONIBLE], [INTENCIÓN PEDAGÓGICA] y [PRODUCTO A GENERAR] como evidencia final.'),
+  prompt('actividad-aula-invertida', 'Actividad de aula invertida', 'Actividades de Aprendizaje', 'Básico', 88, 'Diseña una actividad de aula invertida sobre [TEMA] para [GRADO] en [ASIGNATURA]. Define el recurso previo, preguntas de preparación, [INTENCIÓN PEDAGÓGICA] y [PRODUCTO A GENERAR] para la sesión presencial.'),
+  prompt('actividad-estaciones', 'Estaciones de aprendizaje', 'Actividades de Aprendizaje', 'Intermedio', 90, 'Diseña estaciones de aprendizaje sobre [TEMA] para [GRADO] en [ASIGNATURA]. Define número de estaciones, [TIEMPO DISPONIBLE], [INTENCIÓN PEDAGÓGICA] y [PRODUCTO A GENERAR] por estación, ajustado a [CARACTERÍSTICAS DEL GRUPO].'),
+  prompt('actividad-steam', 'Reto STEAM interdisciplinario', 'Actividades de Aprendizaje', 'Avanzado', 87, 'Crea un reto STEAM sobre [TEMA] para [GRADO]. Integra [ASIGNATURA], un problema real, [INTENCIÓN PEDAGÓGICA], [PRODUCTO A GENERAR] como prototipo y tiempo de prueba en [TIEMPO DISPONIBLE].'),
+  prompt('actividad-simulacion', 'Simulación o juego de roles', 'Actividades de Aprendizaje', 'Intermedio', 89, 'Diseña una simulación o juego de roles sobre [TEMA] para [GRADO] en [ASIGNATURA]. Define roles, reglas, [INTENCIÓN PEDAGÓGICA], [TIEMPO DISPONIBLE] y [PRODUCTO A GENERAR] como cierre.'),
+  prompt('actividad-galeria-aprendizaje', 'Galería de aprendizaje', 'Actividades de Aprendizaje', 'Intermedio', 86, 'Diseña una galería de aprendizaje sobre [TEMA] para [GRADO] en [ASIGNATURA]. Define estaciones de exhibición, rol de visitantes y expositores, [INTENCIÓN PEDAGÓGICA] y [PRODUCTO A GENERAR] final.'),
+  prompt('actividad-circulo-lectura', 'Círculo de lectura guiado', 'Actividades de Aprendizaje', 'Básico', 88, 'Diseña un círculo de lectura sobre [TEMA] para [GRADO] en [ASIGNATURA]. Define roles de lectura, preguntas guía, [INTENCIÓN PEDAGÓGICA], [TIEMPO DISPONIBLE] y [PRODUCTO A GENERAR] de cierre.'),
+  prompt('actividad-linea-tiempo', 'Línea del tiempo colaborativa', 'Actividades de Aprendizaje', 'Básico', 87, 'Con base en mis fuentes, diseña una actividad de línea del tiempo colaborativa sobre [TEMA] para [GRADO] en [ASIGNATURA]. Define [INTENCIÓN PEDAGÓGICA], roles de equipo y [PRODUCTO A GENERAR] final.'),
+  prompt('actividad-mapa-mental-grupal', 'Mapa mental o conceptual grupal', 'Actividades de Aprendizaje', 'Básico', 89, 'Diseña una actividad de mapa mental grupal sobre [TEMA] para [GRADO] en [ASIGNATURA]. Define [INTENCIÓN PEDAGÓGICA], organización de equipos, [TIEMPO DISPONIBLE] y [PRODUCTO A GENERAR] final.'),
+  prompt('actividad-podcast-estudiantil', 'Podcast o audio estudiantil', 'Actividades de Aprendizaje', 'Intermedio', 88, 'Diseña una actividad para crear un podcast breve sobre [TEMA] con estudiantes de [GRADO] en [ASIGNATURA]. Define guion, [INTENCIÓN PEDAGÓGICA], [TIEMPO DISPONIBLE] y [PRODUCTO A GENERAR] final.'),
+  prompt('actividad-rally-preguntas', 'Rally de preguntas por estaciones', 'Actividades de Aprendizaje', 'Básico', 86, 'Diseña un rally de preguntas sobre [TEMA] para [GRADO] en [ASIGNATURA]. Define estaciones, tiempos, [INTENCIÓN PEDAGÓGICA] y [PRODUCTO A GENERAR] como registro de respuestas, ajustado a [CARACTERÍSTICAS DEL GRUPO].'),
+  prompt('actividad-proyecto-comunitario-aula', 'Mini proyecto comunitario de aula', 'Actividades de Aprendizaje', 'Intermedio', 90, 'Con base en mis fuentes, diseña un mini proyecto comunitario sobre [TEMA] para [GRADO] en [ASIGNATURA], realizable en [TIEMPO DISPONIBLE]. Define [INTENCIÓN PEDAGÓGICA], pasos y [PRODUCTO A GENERAR] final.'),
 
   // 📊 Evaluación
   prompt('eval-rubrica', 'Rúbrica de producto NEM', 'Evaluación', 'Básico', 97, 'Crea una rúbrica para evaluar [PRODUCTO A GENERAR] sobre [TEMA] en [GRADO] y [ASIGNATURA]. Incluye criterios observables, niveles claros, lenguaje accesible para [CARACTERÍSTICAS DEL GRUPO] y retroalimentación alineada con [INTENCIÓN PEDAGÓGICA].'),
@@ -2422,6 +2543,14 @@ const professionalTeacherToolkitPrompts: Prompt[] = [
   prompt('eval-formativa', 'Evaluación formativa de seguimiento', 'Evaluación', 'Intermedio', 94, 'Diseña una evaluación formativa para dar seguimiento a [PRODUCTO A GENERAR] sobre [TEMA] en [GRADO]. Incluye evidencia durante la clase, preguntas de seguimiento y un ajuste sugerido para la siguiente sesión en [TIEMPO DISPONIBLE].'),
   prompt('eval-retroalimentacion', 'Retroalimentación personalizada por nivel', 'Evaluación', 'Básico', 95, 'Genera retroalimentación personalizada para [PRODUCTO A GENERAR] de [GRADO] sobre [TEMA]. Incluye una versión para nivel inicial, intermedio y avanzado, con fortaleza, mejora prioritaria y siguiente paso, en tono respetuoso para [CARACTERÍSTICAS DEL GRUPO].'),
   prompt('eval-guia-observacion', 'Guía de observación situada', 'Evaluación', 'Intermedio', 90, 'Crea una guía de observación para valorar [INTENCIÓN PEDAGÓGICA] durante [PRODUCTO A GENERAR] sobre [TEMA] en [GRADO]. Incluye conductas observables, momentos de registro y decisiones docentes según [CARACTERÍSTICAS DEL GRUPO].'),
+  prompt('eval-escala-estimativa', 'Escala estimativa de desempeño', 'Evaluación', 'Básico', 91, 'Crea una escala estimativa para valorar [PRODUCTO A GENERAR] sobre [TEMA] en [GRADO] y [ASIGNATURA]. Define niveles graduales, criterios observables y ajuste para [CARACTERÍSTICAS DEL GRUPO].'),
+  prompt('eval-sumativa', 'Evaluación sumativa de cierre', 'Evaluación', 'Intermedio', 89, 'Crea una evaluación sumativa sobre [TEMA] para [GRADO] en [ASIGNATURA]. Incluye reactivos variados, [PRODUCTO A GENERAR] como tarea de desempeño y una tabla de calificación clara.'),
+  prompt('eval-portafolio', 'Portafolio de evidencias', 'Evaluación', 'Intermedio', 90, 'Diseña un portafolio de evidencias sobre [TEMA] para [GRADO] en [ASIGNATURA]. Define qué [PRODUCTO A GENERAR] incluir, criterios de selección y una guía de reflexión final para [CARACTERÍSTICAS DEL GRUPO].'),
+  prompt('eval-autoevaluacion', 'Autoevaluación guiada', 'Evaluación', 'Básico', 92, 'Crea una autoevaluación sobre [PRODUCTO A GENERAR] para [GRADO] en [ASIGNATURA] sobre [TEMA]. Incluye preguntas guía, criterios claros y un espacio de compromiso de mejora.'),
+  prompt('eval-coevaluacion', 'Coevaluación entre pares', 'Evaluación', 'Intermedio', 90, 'Diseña una coevaluación entre pares para [PRODUCTO A GENERAR] sobre [TEMA] en [GRADO]. Define criterios comunes, lenguaje respetuoso y ajuste a [CARACTERÍSTICAS DEL GRUPO].'),
+  prompt('eval-opcion-multiple', 'Examen de opción múltiple', 'Evaluación', 'Básico', 89, 'Crea un examen de opción múltiple sobre [TEMA] para [GRADO] en [ASIGNATURA]. Incluye niveles de dificultad, distractores plausibles y relación con [INTENCIÓN PEDAGÓGICA].'),
+  prompt('eval-preguntas-abiertas', 'Preguntas abiertas de análisis', 'Evaluación', 'Básico', 88, 'Crea preguntas abiertas sobre [TEMA] para [GRADO] en [ASIGNATURA]. Incluye [INTENCIÓN PEDAGÓGICA], criterios para valorar respuestas y una pregunta de reflexión final.'),
+  prompt('eval-diario-evaluacion', 'Diario de evaluación docente', 'Evaluación', 'Intermedio', 86, 'Crea un formato de diario de evaluación para dar seguimiento a [PRODUCTO A GENERAR] sobre [TEMA] en [GRADO] durante [TIEMPO DISPONIBLE]. Define qué registrar y cómo ajustar según [CARACTERÍSTICAS DEL GRUPO].'),
 
   // 👥 Inclusión
   prompt('inclusion-adaptar-actividad', 'Adaptar una actividad existente', 'Inclusión', 'Básico', 96, 'Adapta esta actividad sobre [TEMA] para [GRADO] en [ASIGNATURA] considerando [CARACTERÍSTICAS DEL GRUPO]. Identifica barreras posibles, propone apoyos de bajo costo, opciones de [PRODUCTO A GENERAR] y mantiene [INTENCIÓN PEDAGÓGICA] original.'),
@@ -2429,6 +2558,17 @@ const professionalTeacherToolkitPrompts: Prompt[] = [
   prompt('inclusion-evaluacion-inclusiva', 'Evaluación inclusiva', 'Inclusión', 'Intermedio', 92, 'Crea una evaluación inclusiva para [PRODUCTO A GENERAR] sobre [TEMA], adecuada a [CARACTERÍSTICAS DEL GRUPO]. Incluye criterios comunes, opciones de respuesta, apoyos permitidos y retroalimentación respetuosa alineada con [INTENCIÓN PEDAGÓGICA].'),
   prompt('inclusion-reducir-barreras', 'Reducir barreras de una planeación', 'Inclusión', 'Básico', 94, 'Revisa la planeación de [PRODUCTO A GENERAR] sobre [TEMA] para [GRADO]. Detecta barreras de lectura, lenguaje, ritmo y participación para [CARACTERÍSTICAS DEL GRUPO], y propón ajustes de bajo costo sin bajar la meta de [INTENCIÓN PEDAGÓGICA].'),
   prompt('inclusion-comunicacion-familias', 'Comunicación accesible a familias', 'Inclusión', 'Básico', 90, 'Redacta una comunicación para familias de [GRADO] sobre [TEMA]. Usa lenguaje claro y respetuoso, considera [CARACTERÍSTICAS DEL GRUPO], indica [PRODUCTO A GENERAR] esperado del estudiante y cuida los datos personales.'),
+  prompt('inclusion-material-adaptado', 'Material didáctico adaptado', 'Inclusión', 'Básico', 93, 'Adapta este material sobre [TEMA] para [GRADO] en [ASIGNATURA] considerando [CARACTERÍSTICAS DEL GRUPO]. Simplifica lenguaje, ajusta formato y conserva [INTENCIÓN PEDAGÓGICA] con [PRODUCTO A GENERAR] accesible.'),
+  prompt('inclusion-multinivel', 'Actividad multinivel', 'Inclusión', 'Intermedio', 92, 'Diseña una actividad multinivel sobre [TEMA] para [GRADO] en [ASIGNATURA]. Define tres niveles de reto, [PRODUCTO A GENERAR] por nivel y un criterio común de logro para [CARACTERÍSTICAS DEL GRUPO].'),
+  prompt('inclusion-apoyo-visual', 'Apoyo visual y organizador gráfico', 'Inclusión', 'Básico', 91, 'Crea un apoyo visual u organizador gráfico sobre [TEMA] para [GRADO] en [ASIGNATURA]. Usa [INTENCIÓN PEDAGÓGICA] como guía y ajusta el diseño a [CARACTERÍSTICAS DEL GRUPO].'),
+  prompt('inclusion-texto-simplificado', 'Texto simplificado o lectura fácil', 'Inclusión', 'Básico', 90, 'Convierte esta fuente sobre [TEMA] en un texto de lectura fácil para [GRADO] en [ASIGNATURA]. Ajusta vocabulario, oraciones cortas y [PRODUCTO A GENERAR] final para [CARACTERÍSTICAS DEL GRUPO].'),
+  prompt('inclusion-dua', 'Estrategias de Diseño Universal para el Aprendizaje', 'Inclusión', 'Avanzado', 89, 'Aplica principios de Diseño Universal para el Aprendizaje a esta actividad sobre [TEMA] para [GRADO] en [ASIGNATURA]. Propón opciones de acceso, participación y [PRODUCTO A GENERAR] para [CARACTERÍSTICAS DEL GRUPO].'),
+  prompt('inclusion-plan-apoyo-individual', 'Plan de apoyo individual', 'Inclusión', 'Intermedio', 88, 'Diseña un plan de apoyo individual sobre [TEMA] para un estudiante de [GRADO] con [CARACTERÍSTICAS DEL GRUPO]. Define [INTENCIÓN PEDAGÓGICA], ajustes razonables y [PRODUCTO A GENERAR] de seguimiento.'),
+  prompt('inclusion-glosario-visual', 'Glosario visual de vocabulario', 'Inclusión', 'Básico', 87, 'Crea un glosario visual sobre [TEMA] para [GRADO] en [ASIGNATURA]. Incluye término, definición simple, imagen sugerida y ejemplo cercano a [CARACTERÍSTICAS DEL GRUPO].'),
+  prompt('inclusion-actividad-multisensorial', 'Actividad multisensorial', 'Inclusión', 'Intermedio', 86, 'Diseña una actividad multisensorial sobre [TEMA] para [GRADO] en [ASIGNATURA]. Integra estímulos visuales, auditivos y manipulables, con [INTENCIÓN PEDAGÓGICA] y [PRODUCTO A GENERAR] final.'),
+  prompt('inclusion-ajuste-razonable', 'Ajuste razonable de un producto de evaluación', 'Inclusión', 'Intermedio', 90, 'Propón un ajuste razonable para que un estudiante con [CARACTERÍSTICAS DEL GRUPO] pueda demostrar [PRODUCTO A GENERAR] sobre [TEMA] sin perder la meta de [INTENCIÓN PEDAGÓGICA].'),
+  prompt('inclusion-seguimiento-nee', 'Ficha de seguimiento de estudiante con NEE', 'Inclusión', 'Intermedio', 85, 'Crea una ficha de seguimiento para un estudiante de [GRADO] con [CARACTERÍSTICAS DEL GRUPO] sobre [TEMA]. Incluye avances, apoyos usados, [PRODUCTO A GENERAR] y próxima acción.'),
+  prompt('inclusion-comunicacion-aumentativa', 'Apoyos de comunicación aumentativa', 'Inclusión', 'Avanzado', 84, 'Sugiere apoyos de comunicación aumentativa para una actividad sobre [TEMA] con [GRADO] en [ASIGNATURA], pensando en [CARACTERÍSTICAS DEL GRUPO]. Incluye [PRODUCTO A GENERAR] con pictogramas o señales simples.'),
 
   // 🏫 Gestión Escolar
   prompt('gestion-minuta', 'Minuta de reunión colegiada', 'Gestión Escolar', 'Básico', 91, 'Convierte estas notas de una reunión sobre [TEMA] en una minuta clara. Incluye acuerdos, responsables, fechas, [PRODUCTO A GENERAR] como resultado y una lista de seguimiento sin datos personales innecesarios.'),
@@ -2437,13 +2577,22 @@ const professionalTeacherToolkitPrompts: Prompt[] = [
   prompt('gestion-pemc', 'Organización para PEMC', 'Gestión Escolar', 'Avanzado', 89, 'Con base en mis fuentes escolares permitidas, organiza información para el PEMC sobre [TEMA]. Incluye diagnóstico breve, objetivo, acciones, responsables, [PRODUCTO A GENERAR] como evidencia y un calendario en [TIEMPO DISPONIBLE].'),
   prompt('gestion-plan-mejora', 'Plan de mejora de bajo costo', 'Gestión Escolar', 'Intermedio', 90, 'Crea un plan de mejora para [TEMA] en [GRADO] o en la escuela. Incluye causa probable, acciones de bajo costo, responsables, [PRODUCTO A GENERAR] como evidencia y revisión en [TIEMPO DISPONIBLE].'),
   prompt('gestion-organizacion-documental', 'Organización documental del notebook', 'Gestión Escolar', 'Básico', 87, 'Ayúdame a organizar los documentos de este notebook sobre [TEMA] para facilitar [PRODUCTO A GENERAR]. Sugiere cómo nombrar fuentes, qué conservar y qué archivar, pensando en [CARACTERÍSTICAS DEL GRUPO] de docentes que lo consultarán.'),
+  prompt('gestion-aviso-familias', 'Aviso o circular para familias', 'Gestión Escolar', 'Básico', 89, 'Redacta un aviso escolar sobre [TEMA] para las familias de [GRADO]. Incluye fecha, acción solicitada, tono claro y una versión breve como [PRODUCTO A GENERAR].'),
+  prompt('gestion-convocatoria', 'Convocatoria escolar', 'Gestión Escolar', 'Básico', 87, 'Redacta una convocatoria sobre [TEMA] dirigida a [CARACTERÍSTICAS DEL GRUPO]. Incluye requisitos, fechas, [PRODUCTO A GENERAR] esperado y tono institucional.'),
+  prompt('gestion-agenda-colegiada', 'Agenda de trabajo colegiado', 'Gestión Escolar', 'Intermedio', 88, 'Prepara una agenda de trabajo colegiado sobre [TEMA]. Define objetivo, [TIEMPO DISPONIBLE], fuentes a revisar y [PRODUCTO A GENERAR] como resultado del encuentro.'),
+  prompt('gestion-formato-seguimiento', 'Formato de seguimiento de actividades', 'Gestión Escolar', 'Básico', 86, 'Crea un formato de seguimiento para [TEMA] en [GRADO] o en la escuela. Incluye responsables, fechas, [PRODUCTO A GENERAR] como evidencia y una columna de estatus.'),
+  prompt('gestion-comunicado-institucional', 'Comunicado institucional', 'Gestión Escolar', 'Intermedio', 85, 'Redacta un comunicado institucional sobre [TEMA] para [CARACTERÍSTICAS DEL GRUPO]. Incluye contexto, mensaje principal, [PRODUCTO A GENERAR] y tono formal.'),
+  prompt('gestion-bitacora', 'Bitácora de gestión escolar', 'Gestión Escolar', 'Intermedio', 84, 'Diseña una bitácora de gestión para dar seguimiento a [TEMA] durante [TIEMPO DISPONIBLE]. Define qué registrar, responsables y [PRODUCTO A GENERAR] como evidencia de cierre.'),
 
   // 👨‍💼 Liderazgo
   prompt('liderazgo-analisis-documentos', 'Análisis comparativo de documentos', 'Liderazgo', 'Avanzado', 92, 'Compara estas fuentes institucionales sobre [TEMA]: identifica coincidencias, contradicciones e información faltante, y su impacto para [PRODUCTO A GENERAR]. Entrega una recomendación clara para decidir en [TIEMPO DISPONIBLE].'),
   prompt('liderazgo-informe-cte', 'Informe accionable para Consejo Técnico Escolar', 'Liderazgo', 'Avanzado', 95, 'Elabora un informe ejecutivo para Consejo Técnico Escolar sobre [TEMA], con base en las fuentes de este notebook. Incluye hallazgos, implicaciones didácticas, riesgos, [PRODUCTO A GENERAR] como acción de bajo costo y seguimiento en [TIEMPO DISPONIBLE].'),
   prompt('liderazgo-agenda-academia', 'Agenda para reunión académica', 'Liderazgo', 'Intermedio', 88, 'Prepara una agenda para una reunión académica sobre [TEMA]. Define objetivo, [TIEMPO DISPONIBLE], fuentes a revisar, decisiones esperadas y [PRODUCTO A GENERAR] como resultado del encuentro.'),
   prompt('liderazgo-tutor-pedagogico', 'Asesoría pedagógica experta', 'Liderazgo', 'Intermedio', 96, 'Actúa como asesor pedagógico especializado en la Nueva Escuela Mexicana. Revisa [PRODUCTO A GENERAR] sobre [TEMA] para [GRADO], identifica fortalezas, riesgos y mejoras, y entrega una versión corregida lista para pilotear con [CARACTERÍSTICAS DEL GRUPO].'),
-  prompt('liderazgo-seguimiento-acuerdos', 'Seguimiento de acuerdos del colectivo', 'Liderazgo', 'Intermedio', 89, 'Con base en minutas y acuerdos permitidos sobre [TEMA], crea una tabla de seguimiento con responsables, fechas y evidencia de [PRODUCTO A GENERAR]. Señala qué acuerdo sigue vigente antes de [TIEMPO DISPONIBLE].')
+  prompt('liderazgo-seguimiento-acuerdos', 'Seguimiento de acuerdos del colectivo', 'Liderazgo', 'Intermedio', 89, 'Con base en minutas y acuerdos permitidos sobre [TEMA], crea una tabla de seguimiento con responsables, fechas y evidencia de [PRODUCTO A GENERAR]. Señala qué acuerdo sigue vigente antes de [TIEMPO DISPONIBLE].'),
+  prompt('liderazgo-diagnostico-institucional', 'Diagnóstico institucional breve', 'Liderazgo', 'Avanzado', 91, 'Con base en fuentes institucionales permitidas, crea un diagnóstico breve sobre [TEMA] para la escuela. Incluye hallazgos, [PRODUCTO A GENERAR] como síntesis y una recomendación para [TIEMPO DISPONIBLE].'),
+  prompt('liderazgo-plan-acompanamiento', 'Plan de acompañamiento pedagógico', 'Liderazgo', 'Avanzado', 90, 'Diseña un plan de acompañamiento pedagógico sobre [TEMA] para docentes de [ASIGNATURA]. Define [INTENCIÓN PEDAGÓGICA], sesiones, [PRODUCTO A GENERAR] y calendario en [TIEMPO DISPONIBLE].'),
+  prompt('liderazgo-reporte-supervision', 'Reporte para supervisión escolar', 'Liderazgo', 'Avanzado', 88, 'Elabora un reporte para supervisión escolar sobre [TEMA], con base en las fuentes de este notebook. Incluye evidencias, [PRODUCTO A GENERAR] y una tabla de seguimiento en [TIEMPO DISPONIBLE].')
 ];
 
 export const allPrompts = professionalTeacherToolkitPrompts;
@@ -2553,7 +2702,7 @@ export const makeSearchIndex = (): SearchItem[] => [
   ...allPrompts.map((item) => ({
     id: item.id,
     title: item.title,
-    type: 'Consigna' as const,
+    type: 'Prompt' as const,
     description: item.category,
     path: '/prompts'
   })),
