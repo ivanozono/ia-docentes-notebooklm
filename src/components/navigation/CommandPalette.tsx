@@ -116,7 +116,7 @@ export default function CommandPalette() {
           {!results.length ? (
             <Box sx={{ p: 3 }}>
               <Typography variant="body2" color="text.secondary">
-                No encontré resultados. Prueba con "Studio", "evaluación" o "proyecto comunitario".
+                No encontré resultados. Prueba con "evaluación", "recursos" o "proyecto comunitario".
               </Typography>
             </Box>
           ) : null}

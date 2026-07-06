@@ -2,13 +2,7 @@ import AutoAwesomeRoundedIcon from '@mui/icons-material/AutoAwesomeRounded';
 import DesignServicesRoundedIcon from '@mui/icons-material/DesignServicesRounded';
 import HubRoundedIcon from '@mui/icons-material/HubRounded';
 import RocketLaunchRoundedIcon from '@mui/icons-material/RocketLaunchRounded';
-import AudiotrackRoundedIcon from '@mui/icons-material/AudiotrackRounded';
-import SlideshowRoundedIcon from '@mui/icons-material/SlideshowRounded';
-import QuizRoundedIcon from '@mui/icons-material/QuizRounded';
-import StyleRoundedIcon from '@mui/icons-material/StyleRounded';
-import AssessmentRoundedIcon from '@mui/icons-material/AssessmentRounded';
-import ImageRoundedIcon from '@mui/icons-material/ImageRounded';
-import type { Demo, Lesson, Module, Prompt, Resource, SearchItem, StudioProduct } from '../types';
+import type { Demo, Lesson, Module, Prompt, Resource, SearchItem } from '../types';
 
 const prompt = (
   id: string,
@@ -2405,219 +2399,123 @@ export const pedagogicalIntentions = [
 ];
 
 const professionalTeacherToolkitPrompts: Prompt[] = [
-  prompt('toolkit-daily-plan', 'Planeación diaria', 'Planeación', 'Básico', 96, 'Con base en mis fuentes de NotebookLM, crea una planeación diaria sobre [TEMA] para [GRADO] en [ASIGNATURA]. Incluye [OBJETIVO DE APRENDIZAJE], [INTENCION PEDAGOGICA], [TIEMPO DISPONIBLE], inicio, desarrollo, cierre, materiales, [PRODUCTO ESPERADO] y revisión rápida.'),
-  prompt('toolkit-weekly-plan', 'Planeación semanal', 'Planeación', 'Intermedio', 94, 'Con base en mis fuentes, crea una planeación semanal para [GRADO] en [ASIGNATURA] sobre [TEMA]. Integra [OBJETIVO DE APRENDIZAJE], [INTENCION PEDAGOGICA], [TIEMPO DISPONIBLE], actividades por día, productos, evidencias y ajustes para el grupo.'),
-  prompt('toolkit-didactic-sequence', 'Secuencia didáctica', 'Planeación', 'Intermedio', 97, 'Con base en Programa Analítico, Programa Sintético, PDA y libro CONALITEG del notebook, crea una secuencia didáctica sobre [TEMA] para [GRADO] en [ASIGNATURA]. Incluye sesiones, [INTENCION PEDAGOGICA], campo formativo, eje articulador, [PRODUCTO ESPERADO] y evaluación.'),
-  prompt('toolkit-learning-situation', 'Situación de aprendizaje', 'Planeación', 'Intermedio', 92, 'Diseña una situación de aprendizaje para [GRADO] en [ASIGNATURA] sobre [TEMA]. Usa mis fuentes para conectar [OBJETIVO DE APRENDIZAJE], contexto del grupo, [INTENCION PEDAGOGICA], actividades, [PRODUCTO ESPERADO] y evidencia.'),
-  prompt('toolkit-community-project', 'Proyecto comunitario', 'Planeación', 'Intermedio', 95, 'Convierte [TEMA] en un proyecto comunitario para [GRADO] en [ASIGNATURA]. Usa mis fuentes para proponer problema cercano, pregunta guía, [INTENCION PEDAGOGICA], producto comunitario, ruta de trabajo, evidencias y evaluación.'),
-  prompt('toolkit-interdisciplinary-project', 'Proyecto interdisciplinario', 'Planeación', 'Avanzado', 91, 'Crea un proyecto interdisciplinario sobre [TEMA] para [GRADO]. Integra [ASIGNATURAS], [OBJETIVO DE APRENDIZAJE], [INTENCION PEDAGOGICA], aportes de cada asignatura, [PRODUCTO ESPERADO], calendario y forma de evaluación.'),
+  // 📚 Planeación
+  prompt('plan-diaria', 'Planeación diaria con fuentes propias', 'Planeación', 'Básico', 97, 'Con base en las fuentes de este notebook, crea una planeación diaria sobre [TEMA] para [GRADO] en [ASIGNATURA]. Incluye [INTENCIÓN PEDAGÓGICA], [TIEMPO DISPONIBLE], inicio, desarrollo, cierre, materiales, [PRODUCTO A GENERAR] y un criterio rápido de revisión ajustado a [CARACTERÍSTICAS DEL GRUPO].'),
+  prompt('plan-secuencia', 'Secuencia didáctica alineada al PDA', 'Planeación', 'Intermedio', 96, 'Con base en el Programa Analítico, el Programa Sintético y el libro CONALITEG cargados en este notebook, diseña una secuencia didáctica sobre [TEMA] para [GRADO] en [ASIGNATURA]. Incluye sesiones, [INTENCIÓN PEDAGÓGICA], campo formativo, eje articulador, [PRODUCTO A GENERAR] y una forma de evaluarlo en [TIEMPO DISPONIBLE].'),
+  prompt('plan-semanal', 'Planeación semanal reutilizable', 'Planeación', 'Básico', 93, 'A partir de mis fuentes de NotebookLM, organiza una planeación semanal para [GRADO] en [ASIGNATURA] sobre [TEMA]. Distribuye [TIEMPO DISPONIBLE] entre las sesiones, define [PRODUCTO A GENERAR] por día y ajusta la propuesta a [CARACTERÍSTICAS DEL GRUPO].'),
+  prompt('plan-proyecto-comunitario', 'Proyecto comunitario situado', 'Planeación', 'Intermedio', 94, 'Convierte [TEMA] en un proyecto comunitario para [GRADO] en [ASIGNATURA], usando solo las fuentes de este notebook. Incluye una pregunta guía, [INTENCIÓN PEDAGÓGICA], ruta de trabajo, [PRODUCTO A GENERAR] y vínculo con la comunidad, considerando [CARACTERÍSTICAS DEL GRUPO].'),
+  prompt('plan-interdisciplinario', 'Proyecto interdisciplinario', 'Planeación', 'Avanzado', 90, 'Diseña un proyecto interdisciplinario sobre [TEMA] para [GRADO], integrando [ASIGNATURA] con otras materias afines. Incluye [INTENCIÓN PEDAGÓGICA], [PRODUCTO A GENERAR], calendario en [TIEMPO DISPONIBLE] y forma de evaluación, con base en mis fuentes del notebook.'),
+  prompt('plan-conaliteg', 'Conectar Programa Analítico con CONALITEG', 'Planeación', 'Avanzado', 92, 'Compara el Programa Analítico y el libro CONALITEG de este notebook sobre [TEMA] para [GRADO] en [ASIGNATURA]. Señala coincidencias, vacíos, páginas útiles y sugiere [PRODUCTO A GENERAR] alineado con [INTENCIÓN PEDAGÓGICA] para [CARACTERÍSTICAS DEL GRUPO].'),
 
-  prompt('toolkit-individual-activity', 'Actividad individual', 'Actividades de aprendizaje', 'Básico', 94, 'Crea una actividad individual sobre [TEMA] para [GRADO] en [ASIGNATURA]. Incluye [INTENCION PEDAGOGICA], [TIEMPO DISPONIBLE], instrucciones para estudiantes, apoyo visual, [PRODUCTO ESPERADO] y criterio rápido de revisión.'),
-  prompt('toolkit-collaborative-activity', 'Actividad colaborativa', 'Actividades de aprendizaje', 'Básico', 95, 'Crea una actividad colaborativa sobre [TEMA] para [GRADO] en [ASIGNATURA]. Define equipos, roles, [INTENCION PEDAGOGICA], [TIEMPO DISPONIBLE], [PRODUCTO ESPERADO], evidencia individual y evidencia grupal.'),
-  prompt('toolkit-debate', 'Debate', 'Actividades de aprendizaje', 'Intermedio', 91, 'Diseña un debate de aula sobre [TEMA] para [GRADO] en [ASIGNATURA]. Incluye postura A, postura B, fuentes del notebook, [INTENCION PEDAGOGICA], reglas, tiempos, preguntas detonadoras y rúbrica breve.'),
-  prompt('toolkit-case-study', 'Estudio de caso', 'Actividades de aprendizaje', 'Intermedio', 90, 'Crea un estudio de caso sobre [TEMA] para [GRADO] en [ASIGNATURA]. Incluye contexto, dilema o problema, datos del caso, [INTENCION PEDAGOGICA], preguntas de análisis, [PRODUCTO ESPERADO] y criterios.'),
-  prompt('toolkit-guided-research', 'Investigación guiada', 'Actividades de aprendizaje', 'Intermedio', 92, 'Diseña una investigación guiada sobre [TEMA] para [GRADO] en [ASIGNATURA]. Usa mis fuentes para crear pregunta de investigación, pasos, fuentes permitidas, [INTENCION PEDAGOGICA], producto y lista de cotejo.'),
-  prompt('toolkit-experiment', 'Experimento', 'Actividades de aprendizaje', 'Intermedio', 89, 'Diseña un experimento seguro y viable sobre [TEMA] para [GRADO] en [ASIGNATURA]. Incluye hipótesis, materiales accesibles, procedimiento, registro de datos, [INTENCION PEDAGOGICA], [PRODUCTO ESPERADO] y cuidados.'),
-  prompt('toolkit-gamification', 'Reto gamificado', 'Actividades de aprendizaje', 'Básico', 90, 'Convierte [TEMA] en un reto gamificado para [GRADO] en [ASIGNATURA]. Incluye misión, reglas simples, [TIEMPO DISPONIBLE], [INTENCION PEDAGOGICA], evidencia individual, puntos o insignias y cierre de aprendizaje.'),
-  prompt('toolkit-flipped-classroom', 'Aula invertida', 'Actividades de aprendizaje', 'Básico', 88, 'Crea una actividad de aula invertida sobre [TEMA] para [GRADO] en [ASIGNATURA]. Incluye recurso previo, preguntas de preparación, [INTENCION PEDAGOGICA], evidencia previa y actividad presencial.'),
-  prompt('toolkit-learning-stations', 'Estaciones de aprendizaje', 'Actividades de aprendizaje', 'Intermedio', 90, 'Diseña estaciones de aprendizaje sobre [TEMA] para [GRADO] en [ASIGNATURA]. Incluye número de estaciones, instrucciones, [TIEMPO DISPONIBLE], [INTENCION PEDAGOGICA], producto por estación y cierre común.'),
-  prompt('toolkit-steam-challenge', 'Reto STEAM', 'Actividades de aprendizaje', 'Avanzado', 87, 'Crea un reto STEAM sobre [TEMA] para [GRADO]. Integra [ASIGNATURAS], problema real, materiales disponibles, [INTENCION PEDAGOGICA], prototipo o producto, prueba, mejora y rúbrica breve.'),
+  // 🎯 Actividades de Aprendizaje
+  prompt('actividad-individual', 'Actividad individual desde fuentes propias', 'Actividades de Aprendizaje', 'Básico', 96, 'Con base en las fuentes de este notebook, crea una actividad individual sobre [TEMA] para [GRADO] en [ASIGNATURA]. Incluye [INTENCIÓN PEDAGÓGICA], [TIEMPO DISPONIBLE], instrucciones claras, [PRODUCTO A GENERAR] y un criterio rápido de revisión para [CARACTERÍSTICAS DEL GRUPO].'),
+  prompt('actividad-colaborativa', 'Actividad colaborativa con roles', 'Actividades de Aprendizaje', 'Básico', 95, 'Diseña una actividad colaborativa sobre [TEMA] para [GRADO] en [ASIGNATURA]. Define equipos, roles, [INTENCIÓN PEDAGÓGICA], [TIEMPO DISPONIBLE] y [PRODUCTO A GENERAR], considerando [CARACTERÍSTICAS DEL GRUPO] para repartir responsabilidades.'),
+  prompt('actividad-reto-investigacion', 'Reto de investigación guiada o STEAM', 'Actividades de Aprendizaje', 'Intermedio', 92, 'A partir de mis fuentes, crea un reto de investigación guiada o STEAM sobre [TEMA] para [GRADO] en [ASIGNATURA]. Incluye [INTENCIÓN PEDAGÓGICA], materiales accesibles para [CARACTERÍSTICAS DEL GRUPO], pasos, [PRODUCTO A GENERAR] y evidencia en [TIEMPO DISPONIBLE].'),
+  prompt('actividad-caso-debate', 'Estudio de caso o debate', 'Actividades de Aprendizaje', 'Intermedio', 91, 'Diseña un estudio de caso o debate sobre [TEMA] para [GRADO] en [ASIGNATURA], con base en las fuentes de este notebook. Incluye el dilema o las posturas, preguntas de análisis, [INTENCIÓN PEDAGÓGICA] y [PRODUCTO A GENERAR] adecuado a [CARACTERÍSTICAS DEL GRUPO].'),
+  prompt('actividad-material-estudio', 'Material de estudio para el aula', 'Actividades de Aprendizaje', 'Básico', 94, 'Convierte mis fuentes sobre [TEMA] en material de estudio para [GRADO] en [ASIGNATURA]: guía, resumen, infografía o tarjetas. Usa lenguaje claro, ejemplos cercanos a [CARACTERÍSTICAS DEL GRUPO] y cierra con [PRODUCTO A GENERAR] para practicar en [TIEMPO DISPONIBLE].'),
+  prompt('actividad-audio-overview', 'Guía de escucha para un Audio Overview', 'Actividades de Aprendizaje', 'Intermedio', 93, 'A partir de un Audio Overview generado en Studio sobre [TEMA], crea una guía de escucha para [GRADO] en [ASIGNATURA]. Organiza antes, durante y después, incluye [INTENCIÓN PEDAGÓGICA], vocabulario clave y [PRODUCTO A GENERAR] como evidencia, ajustado a [CARACTERÍSTICAS DEL GRUPO].'),
 
-  prompt('toolkit-rubric', 'Rúbrica', 'Evaluación', 'Básico', 97, 'Crea una rúbrica para evaluar [PRODUCTO ESPERADO] sobre [TEMA] en [GRADO] y [ASIGNATURA]. Incluye [TIPO DE EVALUACION], criterios observables, niveles claros, lenguaje para estudiantes y retroalimentación sugerida.'),
-  prompt('toolkit-checklist', 'Lista de cotejo', 'Evaluación', 'Básico', 96, 'Crea una lista de cotejo para revisar [PRODUCTO ESPERADO] sobre [TEMA] en [GRADO] y [ASIGNATURA]. Incluye indicadores observables, espacio de evidencia, [TIPO DE EVALUACION] y recomendación de mejora.'),
-  prompt('toolkit-observation-guide', 'Guía de observación', 'Evaluación', 'Intermedio', 90, 'Crea una guía de observación para [TIPO DE ACTIVIDAD] sobre [TEMA] en [GRADO]. Incluye conductas observables, [INTENCION PEDAGOGICA], momentos de observación, notas y decisiones docentes.'),
-  prompt('toolkit-diagnostic', 'Evaluación diagnóstica', 'Evaluación', 'Básico', 92, 'Crea una evaluación diagnóstica sobre [TEMA] para [GRADO] en [ASIGNATURA]. Incluye preguntas abiertas, opción múltiple, actividad breve, criterios de interpretación y próximos pasos.'),
-  prompt('toolkit-formative', 'Evaluación formativa', 'Evaluación', 'Intermedio', 94, 'Diseña una evaluación formativa para [TIPO DE ACTIVIDAD] sobre [TEMA]. Incluye evidencia durante la clase, preguntas de seguimiento, retroalimentación rápida y ajuste para la siguiente sesión.'),
-  prompt('toolkit-summative', 'Evaluación sumativa', 'Evaluación', 'Intermedio', 89, 'Crea una evaluación sumativa sobre [TEMA] para [GRADO] en [ASIGNATURA]. Incluye [OBJETIVO DE APRENDIZAJE], reactivos variados, tarea de desempeño, criterios y tabla de calificación clara.'),
-  prompt('toolkit-feedback', 'Retroalimentación', 'Evaluación', 'Básico', 95, 'Genera retroalimentación personalizada para [PRODUCTO ESPERADO] de [GRADO] sobre [TEMA]. Incluye fortalezas, mejora prioritaria, siguiente paso, tono respetuoso y versión breve para estudiante.'),
-  prompt('toolkit-multiple-choice', 'Examen de opción múltiple', 'Evaluación', 'Básico', 91, 'Crea un examen de opción múltiple sobre [TEMA] para [GRADO] en [ASIGNATURA]. Incluye niveles de dificultad, respuesta correcta, explicación, distractores plausibles y relación con [OBJETIVO DE APRENDIZAJE].'),
-  prompt('toolkit-open-questions', 'Preguntas abiertas', 'Evaluación', 'Básico', 90, 'Crea preguntas abiertas sobre [TEMA] para [GRADO] en [ASIGNATURA]. Incluye [INTENCION PEDAGOGICA], criterios para valorar respuestas, ejemplo de respuesta esperada y pregunta de reflexión.')
+  // 📊 Evaluación
+  prompt('eval-rubrica', 'Rúbrica de producto NEM', 'Evaluación', 'Básico', 97, 'Crea una rúbrica para evaluar [PRODUCTO A GENERAR] sobre [TEMA] en [GRADO] y [ASIGNATURA]. Incluye criterios observables, niveles claros, lenguaje accesible para [CARACTERÍSTICAS DEL GRUPO] y retroalimentación alineada con [INTENCIÓN PEDAGÓGICA].'),
+  prompt('eval-lista-cotejo', 'Lista de cotejo rápida', 'Evaluación', 'Básico', 96, 'Genera una lista de cotejo para revisar [PRODUCTO A GENERAR] sobre [TEMA] en [GRADO] y [ASIGNATURA]. Incluye indicadores observables, espacio para evidencia y una recomendación de mejora en [TIEMPO DISPONIBLE].'),
+  prompt('eval-diagnostica', 'Evaluación diagnóstica de grupo', 'Evaluación', 'Básico', 92, 'Diseña una evaluación diagnóstica sobre [TEMA] para [GRADO] en [ASIGNATURA], adecuada a [CARACTERÍSTICAS DEL GRUPO]. Incluye preguntas abiertas, una actividad breve y criterios para decidir el punto de partida hacia [INTENCIÓN PEDAGÓGICA].'),
+  prompt('eval-formativa', 'Evaluación formativa de seguimiento', 'Evaluación', 'Intermedio', 94, 'Diseña una evaluación formativa para dar seguimiento a [PRODUCTO A GENERAR] sobre [TEMA] en [GRADO]. Incluye evidencia durante la clase, preguntas de seguimiento y un ajuste sugerido para la siguiente sesión en [TIEMPO DISPONIBLE].'),
+  prompt('eval-retroalimentacion', 'Retroalimentación personalizada por nivel', 'Evaluación', 'Básico', 95, 'Genera retroalimentación personalizada para [PRODUCTO A GENERAR] de [GRADO] sobre [TEMA]. Incluye una versión para nivel inicial, intermedio y avanzado, con fortaleza, mejora prioritaria y siguiente paso, en tono respetuoso para [CARACTERÍSTICAS DEL GRUPO].'),
+  prompt('eval-guia-observacion', 'Guía de observación situada', 'Evaluación', 'Intermedio', 90, 'Crea una guía de observación para valorar [INTENCIÓN PEDAGÓGICA] durante [PRODUCTO A GENERAR] sobre [TEMA] en [GRADO]. Incluye conductas observables, momentos de registro y decisiones docentes según [CARACTERÍSTICAS DEL GRUPO].'),
+
+  // 👥 Inclusión
+  prompt('inclusion-adaptar-actividad', 'Adaptar una actividad existente', 'Inclusión', 'Básico', 96, 'Adapta esta actividad sobre [TEMA] para [GRADO] en [ASIGNATURA] considerando [CARACTERÍSTICAS DEL GRUPO]. Identifica barreras posibles, propone apoyos de bajo costo, opciones de [PRODUCTO A GENERAR] y mantiene [INTENCIÓN PEDAGÓGICA] original.'),
+  prompt('inclusion-diferenciar', 'Diferenciar la enseñanza en tres niveles', 'Inclusión', 'Intermedio', 91, 'Diferencia la enseñanza de [TEMA] para [GRADO] en [ASIGNATURA] en tres niveles de apoyo, pensando en [CARACTERÍSTICAS DEL GRUPO]. Define opciones de [PRODUCTO A GENERAR], [TIEMPO DISPONIBLE] por nivel y un criterio común de logro.'),
+  prompt('inclusion-evaluacion-inclusiva', 'Evaluación inclusiva', 'Inclusión', 'Intermedio', 92, 'Crea una evaluación inclusiva para [PRODUCTO A GENERAR] sobre [TEMA], adecuada a [CARACTERÍSTICAS DEL GRUPO]. Incluye criterios comunes, opciones de respuesta, apoyos permitidos y retroalimentación respetuosa alineada con [INTENCIÓN PEDAGÓGICA].'),
+  prompt('inclusion-reducir-barreras', 'Reducir barreras de una planeación', 'Inclusión', 'Básico', 94, 'Revisa la planeación de [PRODUCTO A GENERAR] sobre [TEMA] para [GRADO]. Detecta barreras de lectura, lenguaje, ritmo y participación para [CARACTERÍSTICAS DEL GRUPO], y propón ajustes de bajo costo sin bajar la meta de [INTENCIÓN PEDAGÓGICA].'),
+  prompt('inclusion-comunicacion-familias', 'Comunicación accesible a familias', 'Inclusión', 'Básico', 90, 'Redacta una comunicación para familias de [GRADO] sobre [TEMA]. Usa lenguaje claro y respetuoso, considera [CARACTERÍSTICAS DEL GRUPO], indica [PRODUCTO A GENERAR] esperado del estudiante y cuida los datos personales.'),
+
+  // 🏫 Gestión Escolar
+  prompt('gestion-minuta', 'Minuta de reunión colegiada', 'Gestión Escolar', 'Básico', 91, 'Convierte estas notas de una reunión sobre [TEMA] en una minuta clara. Incluye acuerdos, responsables, fechas, [PRODUCTO A GENERAR] como resultado y una lista de seguimiento sin datos personales innecesarios.'),
+  prompt('gestion-oficio', 'Oficio o aviso escolar', 'Gestión Escolar', 'Básico', 89, 'Redacta un oficio escolar sobre [TEMA] pensando en [CARACTERÍSTICAS DEL GRUPO] al que va dirigido. Incluye asunto, contexto, solicitud, fecha, responsables, tono institucional y una versión breve como [PRODUCTO A GENERAR].'),
+  prompt('gestion-reporte-avance', 'Reporte de avance de grupo', 'Gestión Escolar', 'Intermedio', 90, 'Crea un reporte de avance para [GRADO] sobre [TEMA]. Incluye logros, áreas de mejora, [PRODUCTO A GENERAR] como evidencia, una recomendación concreta y omite datos sensibles innecesarios.'),
+  prompt('gestion-pemc', 'Organización para PEMC', 'Gestión Escolar', 'Avanzado', 89, 'Con base en mis fuentes escolares permitidas, organiza información para el PEMC sobre [TEMA]. Incluye diagnóstico breve, objetivo, acciones, responsables, [PRODUCTO A GENERAR] como evidencia y un calendario en [TIEMPO DISPONIBLE].'),
+  prompt('gestion-plan-mejora', 'Plan de mejora de bajo costo', 'Gestión Escolar', 'Intermedio', 90, 'Crea un plan de mejora para [TEMA] en [GRADO] o en la escuela. Incluye causa probable, acciones de bajo costo, responsables, [PRODUCTO A GENERAR] como evidencia y revisión en [TIEMPO DISPONIBLE].'),
+  prompt('gestion-organizacion-documental', 'Organización documental del notebook', 'Gestión Escolar', 'Básico', 87, 'Ayúdame a organizar los documentos de este notebook sobre [TEMA] para facilitar [PRODUCTO A GENERAR]. Sugiere cómo nombrar fuentes, qué conservar y qué archivar, pensando en [CARACTERÍSTICAS DEL GRUPO] de docentes que lo consultarán.'),
+
+  // 👨‍💼 Liderazgo
+  prompt('liderazgo-analisis-documentos', 'Análisis comparativo de documentos', 'Liderazgo', 'Avanzado', 92, 'Compara estas fuentes institucionales sobre [TEMA]: identifica coincidencias, contradicciones e información faltante, y su impacto para [PRODUCTO A GENERAR]. Entrega una recomendación clara para decidir en [TIEMPO DISPONIBLE].'),
+  prompt('liderazgo-informe-cte', 'Informe accionable para Consejo Técnico Escolar', 'Liderazgo', 'Avanzado', 95, 'Elabora un informe ejecutivo para Consejo Técnico Escolar sobre [TEMA], con base en las fuentes de este notebook. Incluye hallazgos, implicaciones didácticas, riesgos, [PRODUCTO A GENERAR] como acción de bajo costo y seguimiento en [TIEMPO DISPONIBLE].'),
+  prompt('liderazgo-agenda-academia', 'Agenda para reunión académica', 'Liderazgo', 'Intermedio', 88, 'Prepara una agenda para una reunión académica sobre [TEMA]. Define objetivo, [TIEMPO DISPONIBLE], fuentes a revisar, decisiones esperadas y [PRODUCTO A GENERAR] como resultado del encuentro.'),
+  prompt('liderazgo-tutor-pedagogico', 'Asesoría pedagógica experta', 'Liderazgo', 'Intermedio', 96, 'Actúa como asesor pedagógico especializado en la Nueva Escuela Mexicana. Revisa [PRODUCTO A GENERAR] sobre [TEMA] para [GRADO], identifica fortalezas, riesgos y mejoras, y entrega una versión corregida lista para pilotear con [CARACTERÍSTICAS DEL GRUPO].'),
+  prompt('liderazgo-seguimiento-acuerdos', 'Seguimiento de acuerdos del colectivo', 'Liderazgo', 'Intermedio', 89, 'Con base en minutas y acuerdos permitidos sobre [TEMA], crea una tabla de seguimiento con responsables, fechas y evidencia de [PRODUCTO A GENERAR]. Señala qué acuerdo sigue vigente antes de [TIEMPO DISPONIBLE].')
 ];
-
-professionalTeacherToolkitPrompts.push(
-  prompt('toolkit-presentation', 'Presentación', 'Materiales didácticos', 'Básico', 94, 'Crea una presentación de [NUMERO DE DIAPOSITIVAS] diapositivas sobre [TEMA] para [GRADO] en [ASIGNATURA]. Incluye una idea por diapositiva, pregunta al grupo, actividad breve, [INTENCION PEDAGOGICA] y cierre con [PRODUCTO ESPERADO].'),
-  prompt('toolkit-study-guide', 'Guía de estudio', 'Materiales didácticos', 'Básico', 93, 'Crea una guía de estudio sobre [TEMA] para [GRADO] en [ASIGNATURA]. Incluye conceptos clave, ejemplos, preguntas de práctica, [INTENCION PEDAGOGICA], autoevaluación y recomendaciones de estudio.'),
-  prompt('toolkit-summary', 'Resumen para estudiantes', 'Materiales didácticos', 'Básico', 90, 'Resume mis fuentes sobre [TEMA] para estudiantes de [GRADO] en [ASIGNATURA]. Usa lenguaje claro, ideas clave, vocabulario, ejemplo cotidiano, pregunta de comprensión y advertencia de errores comunes.'),
-  prompt('toolkit-infographic', 'Infografía', 'Materiales didácticos', 'Intermedio', 88, 'Diseña el contenido de una infografía sobre [TEMA] para [GRADO] en [ASIGNATURA]. Incluye título, bloques visuales, datos clave, iconos sugeridos, texto breve, [INTENCION PEDAGOGICA] y pregunta final.'),
-  prompt('toolkit-flashcards', 'Tarjetas de estudio', 'Materiales didácticos', 'Básico', 89, 'Crea tarjetas de estudio sobre [TEMA] para [GRADO] en [ASIGNATURA]. Incluye pregunta, respuesta, ejemplo, error común, aplicación y una dinámica de repaso de [TIEMPO DISPONIBLE].'),
-  prompt('toolkit-podcast', 'Podcast', 'Materiales didácticos', 'Intermedio', 87, 'Crea un guion de podcast breve sobre [TEMA] para [GRADO] en [ASIGNATURA]. Incluye introducción, diálogo, ejemplos, [INTENCION PEDAGOGICA], preguntas para escuchar y actividad posterior.'),
-  prompt('toolkit-audio-overview', 'Audio Overview', 'Materiales didácticos', 'Básico', 91, 'Prepara una guía para usar un Audio Overview sobre [TEMA] con [GRADO]. Incluye propósito, preguntas antes, durante y después, vocabulario, evidencia y ajuste para estudiantes que necesitan apoyo.'),
-
-  prompt('toolkit-adapt-activity', 'Adaptar una actividad', 'Educación inclusiva', 'Básico', 96, 'Adapta esta actividad: [TIPO DE ACTIVIDAD] sobre [TEMA] para [GRADO] en [ASIGNATURA]. Identifica barreras posibles, apoyos simples, opciones de producto, lenguaje claro y forma de mantener [OBJETIVO DE APRENDIZAJE].'),
-  prompt('toolkit-differentiate', 'Diferenciar la enseñanza', 'Educación inclusiva', 'Intermedio', 91, 'Diferencia la enseñanza de [TEMA] para [GRADO] en [ASIGNATURA]. Propón tres niveles de apoyo, opciones de [PRODUCTO ESPERADO], tiempos, agrupamientos y criterios comunes.'),
-  prompt('toolkit-inclusive-assessment', 'Evaluación inclusiva', 'Educación inclusiva', 'Intermedio', 92, 'Crea una evaluación inclusiva para [PRODUCTO ESPERADO] sobre [TEMA]. Incluye criterios comunes, opciones de respuesta, apoyos permitidos, lenguaje claro y retroalimentación respetuosa.'),
-  prompt('toolkit-reduce-barriers', 'Reducir barreras de aprendizaje', 'Educación inclusiva', 'Básico', 94, 'Revisa esta planeación o actividad: [ACTIVIDAD O PLANEACION]. Detecta barreras de lectura, lenguaje, ritmo, materiales y participación. Propón ajustes de bajo costo para [GRADO] sin bajar la meta de aprendizaje.'),
-
-  prompt('toolkit-integrate-pda', 'Integrar PDA', 'Nueva Escuela Mexicana', 'Básico', 94, 'Con base en mis fuentes, conecta [TEMA] para [GRADO] en [ASIGNATURA] con [PDA]. Explica qué actividad lo trabaja, qué evidencia lo muestra y qué criterio permite revisarlo.'),
-  prompt('toolkit-campos-formativos', 'Integrar campos formativos', 'Nueva Escuela Mexicana', 'Intermedio', 90, 'Ubica [TEMA] dentro de [CAMPO FORMATIVO] para [GRADO]. Propón una actividad, [INTENCION PEDAGOGICA], evidencia, producto y conexión con el contexto del grupo.'),
-  prompt('toolkit-ejes-articuladores', 'Integrar ejes articuladores', 'Nueva Escuela Mexicana', 'Intermedio', 89, 'Integra [EJE ARTICULADOR] en una actividad sobre [TEMA] para [GRADO] en [ASIGNATURA]. Incluye propósito, desarrollo, pregunta crítica, evidencia y cuidado para no forzar la conexión.'),
-  prompt('toolkit-analitico-conaliteg', 'Conectar Programa Analítico con CONALITEG', 'Nueva Escuela Mexicana', 'Avanzado', 93, 'Compara el Programa Analítico y el libro CONALITEG sobre [TEMA] para [GRADO] en [ASIGNATURA]. Extrae coincidencias, vacíos, páginas útiles, actividad sugerida y evidencia alineada con [PDA].'),
-
-  prompt('toolkit-parent-communication', 'Comunicación a familias', 'Comunicación', 'Básico', 92, 'Redacta una comunicación para familias sobre [TEMA O SITUACION] de [GRADO]. Usa tono claro y respetuoso, propósito, acción solicitada, fecha, cuidado de datos personales y versión breve para mensaje.'),
-  prompt('toolkit-student-report', 'Reporte de estudiante o grupo', 'Comunicación', 'Intermedio', 90, 'Crea un reporte de avance para [ESTUDIANTE O GRUPO] sobre [TEMA O PERIODO]. Incluye logros, áreas de mejora, evidencia, recomendación concreta, tono cuidadoso y omite datos sensibles innecesarios.'),
-  prompt('toolkit-official-letter', 'Oficio escolar', 'Comunicación', 'Intermedio', 88, 'Redacta un oficio escolar sobre [PROPOSITO] dirigido a [DESTINATARIO]. Incluye asunto, contexto, solicitud, fechas, responsables, tono institucional y revisión de privacidad.'),
-  prompt('toolkit-classroom-announcement', 'Aviso de aula', 'Comunicación', 'Básico', 89, 'Redacta un aviso de aula para [DESTINATARIO] sobre [TEMA O ACTIVIDAD]. Incluye qué se hará, cuándo, qué deben llevar, [PRODUCTO ESPERADO], tono claro y versión corta.'),
-
-  prompt('toolkit-pemc', 'PEMC', 'Gestión escolar', 'Avanzado', 89, 'Con base en mis fuentes escolares, organiza información para PEMC sobre [PRIORIDAD]. Incluye diagnóstico breve, objetivo, acciones, responsables, evidencias, calendario e indicadores de seguimiento.'),
-  prompt('toolkit-meeting-minutes', 'Minuta de reunión', 'Gestión escolar', 'Básico', 91, 'Convierte estas notas: [NOTAS DE REUNION] en una minuta clara. Incluye acuerdos, responsables, fechas, pendientes, evidencias y una lista de seguimiento sin datos personales innecesarios.'),
-  prompt('toolkit-academic-meetings', 'Reunión académica', 'Gestión escolar', 'Intermedio', 87, 'Prepara una agenda para reunión académica sobre [TEMA]. Incluye objetivo, tiempos, fuentes a revisar, decisiones esperadas, acuerdos, responsables y producto final.'),
-  prompt('toolkit-improvement-plan', 'Plan de mejora', 'Gestión escolar', 'Intermedio', 90, 'Crea un plan de mejora para [NECESIDAD O PROBLEMA] en [ESCUELA O GRUPO]. Incluye causa probable, acciones de bajo costo, responsables, evidencias, calendario y revisión en 30 días.'),
-
-  prompt('toolkit-summarize-documents', 'Resumir documentos', 'Productividad con NotebookLM', 'Básico', 95, 'Resume estas fuentes del notebook sobre [TEMA]. Separa ideas clave, datos importantes, decisiones útiles para clase, dudas por verificar y posibles productos docentes que puedo crear.'),
-  prompt('toolkit-compare-versions', 'Comparar versiones', 'Productividad con NotebookLM', 'Intermedio', 91, 'Compara estas versiones o documentos: [DOCUMENTOS]. Identifica cambios, coincidencias, contradicciones, información faltante, impacto para [PROPOSITO] y recomendación docente.'),
-  prompt('toolkit-analyze-evidence', 'Analizar evidencias', 'Productividad con NotebookLM', 'Avanzado', 92, 'Analiza estas evidencias no sensibles de estudiantes sobre [TEMA]. Identifica patrones, logros, dificultades, posibles causas, próximos pasos y una actividad de refuerzo para [GRADO].'),
-  prompt('toolkit-find-inconsistencies', 'Detectar inconsistencias', 'Productividad con NotebookLM', 'Intermedio', 90, 'Revisa mis fuentes sobre [TEMA] y detecta inconsistencias, duplicados, información desactualizada, vacíos y preguntas que debo resolver antes de usar el material.'),
-  prompt('toolkit-extract-key-ideas', 'Extraer ideas clave', 'Productividad con NotebookLM', 'Básico', 93, 'Extrae ideas clave de mis fuentes sobre [TEMA] para [GRADO] en [ASIGNATURA]. Organiza conceptos, ejemplos, vocabulario, conexiones con [OBJETIVO DE APRENDIZAJE] y posibles actividades.'),
-  prompt('toolkit-generate-questions', 'Generar preguntas', 'Productividad con NotebookLM', 'Básico', 92, 'Genera preguntas sobre [TEMA] para [GRADO] en [ASIGNATURA]. Incluye preguntas diagnósticas, de comprensión, aplicación, análisis, reflexión y salida de clase, con respuestas esperadas.')
-);
-
-professionalTeacherToolkitPrompts.push(
-  prompt('toolkit-studio-selector-profesional', 'Elegir producto de Studio', 'Studio de NotebookLM', 'Básico', 97, 'Con base en las fuentes de este notebook y mi necesidad docente: [NECESIDAD DOCENTE], recomienda el producto de Studio más adecuado: presentación, Audio Overview, resumen, cuestionario, tarjetas didácticas, infografía o informe. Para cada opción viable explica propósito, momento de uso, evidencia estudiantil, límite del producto y revisión docente necesaria.'),
-  prompt('toolkit-studio-presentacion-clase', 'Presentación de Studio para clase', 'Studio de NotebookLM', 'Básico', 95, 'Prepara instrucciones para generar y revisar una presentación de Studio sobre [TEMA] para [GRADO] en [ASIGNATURA]. Define propósito, ideas clave, preguntas al grupo, actividad breve por bloque, evidencia final, ajustes de lenguaje y checklist de revisión antes de compartir.'),
-  prompt('toolkit-studio-audio-overview-clase', 'Audio Overview con guía de escucha', 'Studio de NotebookLM', 'Básico', 96, 'A partir de un Audio Overview sobre [TEMA], crea una guía de escucha para [GRADO] en [ASIGNATURA]. Incluye antes, durante y después, vocabulario clave, preguntas de comprensión, pregunta crítica, evidencia breve, adaptación para inclusión y advertencias de conceptos que debo verificar en las fuentes.'),
-  prompt('toolkit-studio-cuestionario-repaso', 'Cuestionario de Studio para repaso', 'Studio de NotebookLM', 'Básico', 94, 'Diseña cómo usar un cuestionario de Studio sobre [TEMA] para [GRADO]. Incluye objetivo, tipo de evaluación [TIPO DE EVALUACION], tres usos posibles, criterios para interpretar resultados, retroalimentación inmediata y ajuste para la siguiente clase.'),
-  prompt('toolkit-studio-tarjetas-repaso', 'Tarjetas didácticas para estudiar', 'Studio de NotebookLM', 'Básico', 93, 'Convierte tarjetas didácticas de Studio sobre [TEMA] en una dinámica de repaso de [TIEMPO DISPONIBLE] para [GRADO]. Incluye organización, reglas, evidencias, variaciones para distintos ritmos y cierre de aprendizaje.'),
-  prompt('toolkit-studio-informe-docente', 'Informe de Studio para decisiones docentes', 'Studio de NotebookLM', 'Intermedio', 95, 'A partir de un informe de Studio sobre [TEMA O FUENTES], crea una versión accionable para el docente. Separa hallazgos, citas o fuentes relevantes, decisiones para clase, riesgos de interpretación, preguntas pendientes y próximas acciones.'),
-  prompt('toolkit-studio-infografia-aula', 'Infografía de Studio para aula', 'Studio de NotebookLM', 'Intermedio', 92, 'Diseña una ruta para usar una infografía de Studio sobre [TEMA] con [GRADO]. Incluye propósito visual, lectura guiada, preguntas de interpretación, actividad breve, evidencia y revisión de claridad antes de imprimir o proyectar.'),
-
-  prompt('toolkit-chat-planeacion-docente-ultra', 'Planeación docente por chat', 'Chat docente de NotebookLM', 'Intermedio', 98, 'Actúa como asesor pedagógico de secundaria pública mexicana. Con base solo en mis fuentes de NotebookLM, crea [PRODUCTO DE PLANEACION] para [GRADO] en [ASIGNATURA] sobre [TEMA]. Integra [PDA], [CAMPO FORMATIVO], [EJE ARTICULADOR], tiempos reales, materiales disponibles, producto esperado, criterio observable, barreras posibles y revisión docente final.'),
-  prompt('toolkit-chat-actividades-ultra', 'Actividades de aprendizaje por chat', 'Chat docente de NotebookLM', 'Básico', 98, 'Con base solo en mis fuentes, diseña [TIPO DE ACTIVIDAD] sobre [TEMA] para [GRADO] en [ASIGNATURA]. Incluye [INTENCION PEDAGOGICA], instrucciones para estudiantes, pasos, roles si aplica, materiales, [PRODUCTO ESPERADO], criterio de logro observable, variante de refuerzo y ajuste de inclusión.'),
-  prompt('toolkit-chat-evaluacion-ultra', 'Evaluación por chat', 'Chat docente de NotebookLM', 'Intermedio', 97, 'A partir de [PRODUCTO ESPERADO] y [OBJETIVO DE APRENDIZAJE], crea [TIPO DE EVALUACION] para [GRADO] en [ASIGNATURA]. Incluye instrumento principal, criterios observables, niveles o indicadores, instrucciones, retroalimentación por nivel, autoevaluación o coevaluación opcional y advertencias para evitar sesgos.'),
-  prompt('toolkit-chat-materiales-estudiantes-ultra', 'Materiales para estudiantes por chat', 'Chat docente de NotebookLM', 'Básico', 96, 'Crea [TIPO DE MATERIAL] para estudiantes de [GRADO] sobre [TEMA] en [ASIGNATURA]. Puede ser guía de estudio, resumen, glosario, línea del tiempo, cuadro comparativo, lectura adaptada u organizador gráfico. Usa lenguaje claro, ejemplos cercanos, actividad de uso, evidencia y adaptación para [BARRERAS EDUCATIVAS].'),
-  prompt('toolkit-chat-nem-ultra', 'Integración NEM por chat', 'Chat docente de NotebookLM', 'Avanzado', 96, 'Con base en Programa Analítico, Programa Sintético y CONALITEG cargados en el notebook, conecta [TEMA] con [PDA], [CAMPO FORMATIVO] y [EJE ARTICULADOR]. Propón actividad, producto, evidencia, criterio observable, vínculo con contexto comunitario y advertencia de conexiones forzadas.'),
-  prompt('toolkit-chat-inclusion-ultra', 'Inclusión por chat', 'Chat docente de NotebookLM', 'Intermedio', 97, 'Revisa esta actividad o planeación: [ACTIVIDAD O PLANEACION]. Identifica [BARRERAS EDUCATIVAS], propone ajustes DUA, variantes por ritmo, apoyos de lenguaje, opciones de producto, evaluación inclusiva y una versión simplificada de instrucciones para estudiantes.'),
-  prompt('toolkit-chat-comunicacion-ultra', 'Comunicación escolar por chat', 'Chat docente de NotebookLM', 'Básico', 94, 'Redacta [TIPO DE COMUNICACION] para [DESTINATARIO] sobre [TEMA O SITUACION]. Incluye propósito, mensaje principal, acción solicitada, tono respetuoso, versión breve, versión formal y revisión de privacidad para evitar datos personales innecesarios.'),
-  prompt('toolkit-chat-gestion-escolar-ultra', 'Gestión escolar por chat', 'Chat docente de NotebookLM', 'Intermedio', 94, 'Con base en estas fuentes escolares permitidas: [FUENTES], crea [PRODUCTO DE GESTION] para [PROPOSITO]. Puede ser minuta, PEMC, plan de mejora, agenda, cronograma u organización documental. Incluye acuerdos, responsables, fechas, evidencias, riesgos y seguimiento.'),
-  prompt('toolkit-chat-analisis-inteligente-ultra', 'Análisis inteligente por chat', 'Chat docente de NotebookLM', 'Avanzado', 96, 'Analiza estas fuentes: [FUENTES O DOCUMENTOS] para [PROPOSITO DOCENTE]. Compara documentos, detecta diferencias, inconsistencias, temas recurrentes, acuerdos, vacíos, preguntas pendientes y recomendaciones citando o señalando la fuente utilizada.'),
-  prompt('toolkit-chat-tutor-pedagogico-ultra', 'Tutor pedagógico por chat', 'Chat docente de NotebookLM', 'Intermedio', 95, 'Actúa como [ROL DEL TUTOR] para secundaria pública mexicana: asesor pedagógico, experto en evaluación, especialista NEM, experto en inclusión o revisor crítico. Revisa [PRODUCTO DOCENTE] sobre [TEMA], identifica fortalezas, riesgos, mejoras, preguntas de verificación y una versión corregida lista para pilotear.')
-);
 
 export const allPrompts = professionalTeacherToolkitPrompts;
 
-export const studioProducts: StudioProduct[] = [
-  {
-    id: 'audio-overview',
-    title: 'Resumen en audio',
-    description: 'Conversación sintetizada para repasar fuentes, preparar escucha activa y abrir diálogo en clase.',
-    uses: ['Repaso previo', 'Accesibilidad auditiva', 'Detonador para diálogo y pensamiento crítico'],
-    examples: ['Resumen de una lectura histórica local', 'Diálogo sobre un proyecto comunitario'],
-    prompts: [
-      prompt('studio-audio-1', 'Guía de escucha activa', 'Studio', 'Intermedio', 92, 'Genera una guía de escucha para un resumen en audio. Organízala en tres momentos: antes, durante y después. Incluye propósito, vocabulario clave, preguntas de comprensión, pregunta crítica, vínculo con un eje articulador y evidencia breve de evaluación formativa.')
-    ],
-    bestPractices: ['Acompañarlo con preguntas y una evidencia', 'Verificar conceptos contra las fuentes', 'Usarlo como entrada para el diálogo, no como sustituto de lectura'],
-    limitations: ['Puede simplificar matices', 'Requiere revisión docente antes de compartir']
-  },
-  {
-    id: 'video-summary',
-    title: 'Resumen en video',
-    description: 'Síntesis visual para introducir, recuperar o cerrar un tema con claridad.',
-    uses: ['Activación de saberes previos', 'Repaso autónomo', 'Cierre de secuencia didáctica'],
-    examples: ['Resumen sobre ecosistemas de la comunidad', 'Cápsula de lectura literaria'],
-    prompts: [
-      prompt('studio-video-1', 'Guion visual situado', 'Studio', 'Intermedio', 89, 'Crea un guion de 6 escenas para un resumen en video dirigido a secundaria pública. Incluye concepto central, visual sugerido, pregunta detonadora, vínculo con el contexto, ajuste de inclusión y riesgo de malinterpretación.')
-    ],
-    bestPractices: ['Mantener un propósito concreto', 'Complementar con actividad activa', 'Evitar saturar con texto o datos sin contexto'],
-    limitations: ['No reemplaza el acompañamiento docente', 'Puede requerir ajuste de lenguaje para el grupo']
-  },
-  {
-    id: 'presentation',
-    title: 'Presentación',
-    description: 'Estructura visual para explicar conceptos, organizar diálogo y acompañar una actividad.',
-    uses: ['Mini clase dialogada', 'Exposición estudiantil', 'Socialización de proyectos comunitarios'],
-    examples: ['Presentación sobre energía en la escuela', 'Secuencia para debate cívico'],
-    prompts: [
-      prompt('studio-presentation-1', 'Presentación activa NEM', 'Studio', 'Básico', 91, 'Convierte mis fuentes en una presentación de 8 diapositivas para secundaria. Cada diapositiva debe incluir propósito, idea central, pregunta al grupo, actividad de 2 minutos, relación con PDA y una nota para evaluación formativa.')
-    ],
-    bestPractices: ['Pocas ideas por pantalla', 'Intercalar participación', 'Cerrar con evidencia o reflexión'],
-    limitations: ['Puede volverse expositiva si no se diseña interacción']
-  },
-  {
-    id: 'flashcards',
-    title: 'Tarjetas de estudio',
-    description: 'Tarjetas para recuperación activa de conceptos, vocabulario y relaciones.',
-    uses: ['Recuperación espaciada', 'Glosario activo', 'Trabajo por parejas o equipos'],
-    examples: ['Conceptos de química', 'Vocabulario en inglés con situaciones del entorno'],
-    prompts: [
-      prompt('studio-flashcards-1', 'Tarjetas con transferencia', 'Studio', 'Básico', 88, 'Crea 20 tarjetas de estudio con pregunta, respuesta breve, ejemplo situado y una tarjeta de transferencia por cada 5 conceptos. Incluye advertencias de errores comunes y una dinámica cooperativa de 10 minutos.')
-    ],
-    bestPractices: ['Mezclar definición, ejemplo y aplicación', 'Usarlas en pares o equipos', 'Revisar dificultad y lenguaje'],
-    limitations: ['No basta para aprendizajes complejos', 'Puede fomentar memorización aislada si no hay transferencia']
-  },
-  {
-    id: 'quiz',
-    title: 'Cuestionario',
-    description: 'Preguntas para valorar comprensión y dar retroalimentación rápida.',
-    uses: ['Diagnóstico', 'Salida de clase', 'Práctica formativa'],
-    examples: ['Cuestionario de lectura', 'Revisión de procedimiento matemático'],
-    prompts: [
-      prompt('studio-quiz-1', 'Cuestionario formativo NEM', 'Studio', 'Intermedio', 94, 'Genera un cuestionario de 10 reactivos con niveles de dificultad, retroalimentación para cada respuesta, una pregunta abierta de aplicación comunitaria y una recomendación docente para ajustar la siguiente clase.')
-    ],
-    bestPractices: ['Usarlo para ajustar la enseñanza', 'Incluir explicaciones, no solo aciertos', 'Combinar preguntas cerradas y abiertas'],
-    limitations: ['No mide el desempeño completo', 'Necesita revisión de respuestas correctas']
-  },
-  {
-    id: 'infographic',
-    title: 'Infografía',
-    description: 'Representación visual de ideas, procesos, datos y relaciones clave.',
-    uses: ['Síntesis colaborativa', 'Mural de aula', 'Producto de proyecto comunitario'],
-    examples: ['Ciclo del agua en la localidad', 'Mapa de causas y consecuencias'],
-    prompts: [
-      prompt('studio-infographic-1', 'Guía para infografía', 'Studio', 'Intermedio', 87, 'Propón una infografía basada en mis fuentes: título, jerarquía visual, datos clave, iconos sugeridos, texto máximo por bloque, cita de fuentes y pregunta de interpretación para estudiantes de secundaria.')
-    ],
-    bestPractices: ['Priorizar claridad', 'Citar fuentes', 'Pedir interpretación, no solo decoración'],
-    limitations: ['Puede perder profundidad', 'Requiere acompañar alfabetización visual']
-  },
-  {
-    id: 'reports',
-    title: 'Reporte',
-    description: 'Documento analítico para organizar hallazgos, decisiones y recomendaciones.',
-    uses: ['Planeación docente', 'Informe de proyecto', 'Análisis de evidencias'],
-    examples: ['Reporte de diagnóstico grupal', 'Informe para trabajo colegiado'],
-    prompts: [
-      prompt('studio-report-1', 'Reporte accionable para CTE', 'Studio', 'Avanzado', 95, 'Elabora un reporte ejecutivo para docentes con hallazgos, implicaciones didácticas, riesgos, acciones de bajo costo, ajustes de inclusión y una tabla de seguimiento de 30 días para Consejo Técnico Escolar.')
-    ],
-    bestPractices: ['Pedir recomendaciones accionables', 'Separar evidencia de opinión', 'Validar contra fuentes'],
-    limitations: ['Puede sonar convincente sin ser correcto', 'Debe revisarse antes de decisiones escolares']
-  }
-];
-
 export const resources: Resource[] = [
   {
-    id: 'nem-programas',
-    title: 'Programas sintéticos NEM',
-    category: 'Referentes curriculares',
-    description: 'Base para alinear campos formativos, PDA, ejes articuladores y proyectos situados.'
+    id: 'notebooklm',
+    title: 'NotebookLM',
+    category: 'Herramientas de Google',
+    description: 'El asistente de IA que trabaja con tus propias fuentes: la herramienta central del taller.',
+    url: 'https://notebooklm.google.com/'
   },
   {
     id: 'notebooklm-ayuda',
     title: 'Centro de ayuda de NotebookLM',
-    category: 'Recursos de NotebookLM',
-    description: 'Referencia para funciones, fuentes, notebooks y opciones de Studio.',
+    category: 'Herramientas de Google',
+    description: 'Referencia oficial para funciones, fuentes, notebooks y opciones de Studio.',
     url: 'https://support.google.com/notebooklm/'
   },
   {
-    id: 'workspace-edu',
-    title: 'Google Workspace for Education',
-    category: 'Recursos de Google',
-    description: 'Ideas para integrar documentos, presentaciones, Classroom y colaboración docente.'
+    id: 'workspace',
+    title: 'Google Workspace',
+    category: 'Herramientas de Google',
+    description: 'Docs, Slides, Sheets y Classroom para integrar los productos que generas con NotebookLM.',
+    url: 'https://workspace.google.com/'
   },
   {
-    id: 'politica-ia',
-    title: 'Acuerdos escolares para uso responsable de IA',
-    category: 'Política y cuidado digital',
-    description: 'Plantilla de acuerdos sobre privacidad, autoría, verificación, uso estudiantil y comunicación con familias.'
+    id: 'workspace-updates',
+    title: 'Google Workspace Updates',
+    category: 'Herramientas de Google',
+    description: 'Blog oficial de novedades y actualizaciones de Google Workspace.',
+    url: 'https://workspaceupdates.googleblog.com/'
   },
   {
-    id: 'banco-prompts',
-    title: 'Kit profesional docente',
-    category: 'Plantillas de productos',
-    description: 'Plantillas reutilizables para crear planeaciones, actividades, evaluaciones, materiales, comunicación escolar y análisis con NotebookLM.'
+    id: 'google-for-education',
+    title: 'Google for Education',
+    category: 'Herramientas de Google',
+    description: 'Programas, capacitación y herramientas de Google pensadas para docentes y escuelas.',
+    url: 'https://edu.google.com/'
   },
   {
-    id: 'descargables',
-    title: 'Plantillas descargables',
-    category: 'Materiales de trabajo',
-    description: 'Lista de verificación de notebook, rúbrica de actividad, bitácora de implementación y guía de reflexión docente.'
+    id: 'gemini',
+    title: 'Gemini',
+    category: 'Herramientas de Google',
+    description: 'Asistente de IA general de Google, útil para explorar ideas antes de trabajar con tus fuentes en NotebookLM.',
+    url: 'https://gemini.google.com/'
+  },
+  {
+    id: 'sep',
+    title: 'Secretaría de Educación Pública (SEP)',
+    category: 'Marco curricular oficial',
+    description: 'Sitio oficial de la SEP: normativa, programas y comunicados de educación básica.',
+    url: 'https://www.sep.gob.mx/'
+  },
+  {
+    id: 'conaliteg',
+    title: 'CONALITEG',
+    category: 'Marco curricular oficial',
+    description: 'Comisión Nacional de Libros de Texto Gratuitos: libros oficiales para secundaria.',
+    url: 'https://www.conaliteg.sep.gob.mx/'
+  },
+  {
+    id: 'nem-programas',
+    title: 'Nueva Escuela Mexicana',
+    category: 'Marco curricular oficial',
+    description: 'Base para alinear campos formativos, PDA y ejes articuladores del plan de estudios vigente.'
+  },
+  {
+    id: 'edubc',
+    title: 'EduBC',
+    category: 'Marco curricular oficial',
+    description: 'Portal educativo oficial con recursos y comunicados para el magisterio.'
   }
 ];
 
@@ -2637,7 +2535,6 @@ export const makeSearchIndex = (): SearchItem[] => [
   { id: 'home', title: 'Inicio', type: 'Página', description: 'Panel principal del taller', path: '/' },
   { id: 'overview', title: 'Ruta del taller', type: 'Página', description: 'Mapa completo del trayecto formativo', path: '/overview' },
   { id: 'prompts', title: 'Kit profesional docente', type: 'Página', description: 'Plantillas por producto para NotebookLM', path: '/prompts' },
-  { id: 'studio', title: 'Galería Studio', type: 'Página', description: 'Productos de NotebookLM Studio para el aula', path: '/studio' },
   { id: 'resources', title: 'Recursos', type: 'Página', description: 'Referentes y materiales de apoyo', path: '/resources' },
   ...modules.map((module) => ({
     id: module.id,
@@ -2675,13 +2572,3 @@ export const makeSearchIndex = (): SearchItem[] => [
     path: `/lesson/${item.id}#actividad`
   }))
 ];
-
-export const studioIcons = {
-  'audio-overview': AudiotrackRoundedIcon,
-  'video-summary': SlideshowRoundedIcon,
-  presentation: SlideshowRoundedIcon,
-  flashcards: StyleRoundedIcon,
-  quiz: QuizRoundedIcon,
-  infographic: ImageRoundedIcon,
-  reports: AssessmentRoundedIcon
-};

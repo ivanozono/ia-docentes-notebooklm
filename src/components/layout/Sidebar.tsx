@@ -1,33 +1,18 @@
 import { NavLink } from 'react-router-dom';
-import {
-  Box,
-  Chip,
-  Divider,
-  LinearProgress,
-  List,
-  ListItemButton,
-  ListItemIcon,
-  ListItemText,
-  Stack,
-  Typography,
-  alpha
-} from '@mui/material';
+import { Box, Divider, List, ListItemButton, ListItemIcon, ListItemText, Stack, Typography, alpha } from '@mui/material';
 import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
 import LibraryBooksRoundedIcon from '@mui/icons-material/LibraryBooksRounded';
-import ViewModuleRoundedIcon from '@mui/icons-material/ViewModuleRounded';
 import CollectionsBookmarkRoundedIcon from '@mui/icons-material/CollectionsBookmarkRounded';
 import FolderSpecialRoundedIcon from '@mui/icons-material/FolderSpecialRounded';
 import ChecklistRoundedIcon from '@mui/icons-material/ChecklistRounded';
 import FlagRoundedIcon from '@mui/icons-material/FlagRounded';
 import InfoRoundedIcon from '@mui/icons-material/InfoRounded';
-import { allLessons, modules } from '../../data/course';
-import { useAppState } from '../../state/AppState';
+import { modules } from '../../data/course';
 
 const mainLinks = [
   { label: 'Inicio', path: '/', icon: HomeRoundedIcon },
   { label: 'Ruta del taller', path: '/overview', icon: LibraryBooksRoundedIcon },
   { label: 'Kit docente', path: '/prompts', icon: CollectionsBookmarkRoundedIcon },
-  { label: 'Galería Studio', path: '/studio', icon: ViewModuleRoundedIcon },
   { label: 'Recursos', path: '/resources', icon: FolderSpecialRoundedIcon },
   { label: 'Actividades del taller', path: '/activities', icon: ChecklistRoundedIcon },
   { label: 'Proyecto integrador', path: '/final-project', icon: FlagRoundedIcon },
@@ -35,9 +20,6 @@ const mainLinks = [
 ];
 
 export default function Sidebar({ onNavigate }: { onNavigate: () => void }) {
-  const { completedLessons } = useAppState();
-  const completion = Math.round((completedLessons.length / allLessons.length) * 100);
-
   return (
     <Stack sx={{ height: '100%', p: 2, gap: 2 }}>
       <Box sx={{ p: 1 }}>
@@ -67,16 +49,6 @@ export default function Sidebar({ onNavigate }: { onNavigate: () => void }) {
             </Typography>
           </Box>
         </Stack>
-      </Box>
-
-      <Box sx={{ px: 1 }}>
-        <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ mb: 1 }}>
-          <Typography variant="caption" color="text.secondary">
-            Progreso del taller
-          </Typography>
-          <Chip size="small" label={`${completion}%`} />
-        </Stack>
-        <LinearProgress variant="determinate" value={completion} sx={{ height: 7, borderRadius: 999 }} />
       </Box>
 
       <List dense sx={{ py: 0 }}>
@@ -115,7 +87,6 @@ export default function Sidebar({ onNavigate }: { onNavigate: () => void }) {
         <List dense sx={{ py: 0 }}>
           {modules.map((module) => {
             const Icon = module.icon;
-            const done = module.lessons.filter((item) => completedLessons.includes(item.id)).length;
             return (
               <ListItemButton
                 key={module.id}
@@ -134,7 +105,7 @@ export default function Sidebar({ onNavigate }: { onNavigate: () => void }) {
                 </ListItemIcon>
                 <ListItemText
                   primary={`M${module.number}. ${module.title}`}
-                  secondary={`${done}/${module.lessons.length} lecciones`}
+                  secondary={`${module.lessons.length} lecciones`}
                   primaryTypographyProps={{ fontSize: 13.5, fontWeight: 650 }}
                   secondaryTypographyProps={{ fontSize: 12 }}
                 />

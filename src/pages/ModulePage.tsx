@@ -1,21 +1,18 @@
 import { Link, Navigate, useParams } from 'react-router-dom';
-import { Box, Button, Card, CardContent, Chip, Grid, LinearProgress, Stack, Typography, alpha } from '@mui/material';
+import { Box, Button, Card, CardContent, Chip, Grid, Stack, Typography, alpha } from '@mui/material';
 import ArrowForwardRoundedIcon from '@mui/icons-material/ArrowForwardRounded';
 import Page from '../components/common/Page';
 import ResponsiveImage from '../components/common/ResponsiveImage';
 import { modules } from '../data/course';
 import { moduleVisuals } from '../data/visuals';
-import { useAppState } from '../state/AppState';
 
 export default function ModulePage() {
   const { moduleId } = useParams();
   const module = modules.find((item) => item.id === moduleId);
-  const { completedLessons } = useAppState();
 
   if (!module) return <Navigate to="/overview" replace />;
 
   const Icon = module.icon;
-  const done = module.lessons.filter((lesson) => completedLessons.includes(lesson.id)).length;
 
   return (
     <Page>
@@ -35,7 +32,6 @@ export default function ModulePage() {
               <Typography variant="h6" color="text.secondary" sx={{ mt: 1, maxWidth: 760 }}>
                 {module.subtitle}
               </Typography>
-              <LinearProgress variant="determinate" value={(done / module.lessons.length) * 100} sx={{ mt: 3, height: 8, borderRadius: 999, maxWidth: 460 }} />
             </Grid>
             <Grid item xs={12} md={6}>
               <ResponsiveImage

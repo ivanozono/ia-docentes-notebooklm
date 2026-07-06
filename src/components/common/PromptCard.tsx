@@ -15,10 +15,11 @@ import ContentCopyRoundedIcon from '@mui/icons-material/ContentCopyRounded';
 import FavoriteRoundedIcon from '@mui/icons-material/FavoriteRounded';
 import FavoriteBorderRoundedIcon from '@mui/icons-material/FavoriteBorderRounded';
 import ExpandMoreRoundedIcon from '@mui/icons-material/ExpandMoreRounded';
+import AutoFixHighRoundedIcon from '@mui/icons-material/AutoFixHighRounded';
 import type { Prompt } from '../../types';
 import { useAppState } from '../../state/AppState';
 
-export default function PromptCard({ prompt }: { prompt: Prompt }) {
+export default function PromptCard({ prompt, onUse }: { prompt: Prompt; onUse?: (id: string) => void }) {
   const [expanded, setExpanded] = useState(false);
   const [copied, setCopied] = useState(false);
   const { favoritePrompts, toggleFavoritePrompt } = useAppState();
@@ -62,6 +63,13 @@ export default function PromptCard({ prompt }: { prompt: Prompt }) {
               <ContentCopyRoundedIcon />
             </IconButton>
           </Tooltip>
+          {onUse ? (
+            <Tooltip title="Usar en el generador">
+              <IconButton onClick={() => onUse(prompt.id)} aria-label="Usar en el generador">
+                <AutoFixHighRoundedIcon />
+              </IconButton>
+            </Tooltip>
+          ) : null}
         </Stack>
 
         <LinearProgress

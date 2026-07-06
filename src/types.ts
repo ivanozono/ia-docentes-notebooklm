@@ -136,16 +136,6 @@ export type Resource = {
   url?: string;
 };
 
-export type StudioProduct = {
-  id: string;
-  title: string;
-  description: string;
-  uses: string[];
-  examples: string[];
-  prompts: Prompt[];
-  bestPractices: string[];
-  limitations: string[];
-};
 
 export type SearchItem = {
   id: string;

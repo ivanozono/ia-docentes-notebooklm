@@ -13,7 +13,6 @@ const CourseOverview = lazy(() => import('./pages/CourseOverview'));
 const ModulePage = lazy(() => import('./pages/ModulePage'));
 const LessonPage = lazy(() => import('./pages/LessonPage'));
 const PromptLibrary = lazy(() => import('./pages/PromptLibrary'));
-const StudioGallery = lazy(() => import('./pages/StudioGallery'));
 const Resources = lazy(() => import('./pages/Resources'));
 const WorkshopActivities = lazy(() => import('./pages/WorkshopActivities'));
 const FinalProject = lazy(() => import('./pages/FinalProject'));
@@ -66,7 +65,6 @@ export default function App() {
                 <Route path="/module/:moduleId" element={<ModulePage />} />
                 <Route path="/lesson/:lessonId" element={<LessonPage />} />
                 <Route path="/prompts" element={<PromptLibrary />} />
-                <Route path="/studio" element={<StudioGallery />} />
                 <Route path="/resources" element={<Resources />} />
                 <Route path="/activities" element={<WorkshopActivities />} />
                 <Route path="/final-project" element={<FinalProject />} />

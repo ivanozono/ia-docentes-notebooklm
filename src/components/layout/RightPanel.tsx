@@ -6,7 +6,7 @@ import { useAppState } from '../../state/AppState';
 
 export default function RightPanel() {
   const location = useLocation();
-  const { completedLessons, bookmarkedLessons } = useAppState();
+  const { bookmarkedLessons } = useAppState();
   const currentLesson = location.pathname.startsWith('/lesson/')
     ? allLessons.find((lesson) => `/lesson/${lesson.id}` === location.pathname)
     : null;
@@ -88,12 +88,6 @@ export default function RightPanel() {
             Guarda lecciones para volver rápido durante el taller.
           </Typography>
         )}
-      </Box>
-
-      <Box sx={{ mt: 'auto' }}>
-        <Typography variant="caption" color="text.secondary">
-          {completedLessons.length} de {allLessons.length} lecciones marcadas como completadas.
-        </Typography>
       </Box>
     </Stack>
   );

@@ -11,6 +11,11 @@ export const courseVisuals = {
   }
 };
 
+export const institutionalLogo = {
+  src: courseImage('logo_sec25.jpg'),
+  alt: 'Escudo de la Escuela Secundaria General No. 25 "Libertad".'
+};
+
 export const moduleVisuals: Record<string, { src: string; alt: string }> = {
   'modulo-1': {
     src: courseImage('Modulo1AsistentePedagogicoInteligente.jpg'),

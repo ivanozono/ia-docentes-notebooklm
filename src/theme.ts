@@ -43,7 +43,7 @@ export const makeTheme = (mode: 'light' | 'dark') => {
       button: { textTransform: 'none', fontWeight: 650 }
     },
     shape: {
-      borderRadius: 8
+      borderRadius: 12
     },
     components: {
       MuiCssBaseline: {
@@ -63,10 +63,17 @@ export const makeTheme = (mode: 'light' | 'dark') => {
       MuiCard: {
         styleOverrides: {
           root: {
-            borderRadius: 8,
+            borderRadius: 12,
             boxShadow: isDark
               ? '0 18px 45px rgba(0,0,0,0.28)'
-              : '0 18px 45px rgba(15,23,42,0.07)'
+              : '0 18px 45px rgba(15,23,42,0.07)',
+            transition: 'transform 0.2s ease, box-shadow 0.2s ease',
+            '&:hover': {
+              transform: 'translateY(-2px)',
+              boxShadow: isDark
+                ? '0 24px 55px rgba(0,0,0,0.36)'
+                : '0 24px 55px rgba(15,23,42,0.12)'
+            }
           }
         }
       },
